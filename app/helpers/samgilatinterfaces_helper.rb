@@ -1,0 +1,2 @@
+module SamgilatinterfacesHelper
+end

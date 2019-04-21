@@ -1,0 +1,254 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos del SAM - Reporte de Estadistica de utilización de Interface de Edge
+  .col-md-1
+%hr
+
+.row
+  .col-md-1
+  .col-md-10
+    %h3
+      Porcentaje de Utilización de Interface de equipo SR-7750
+      = link_to 'PDF', ipranedge_interfaces_path(format: "pdf"), class: 'btn btn-sm btn-warning float-right'
+      = link_to 'Excel', ipranedge_interfaces_path(format: "xls"), class: 'btn btn-sm btn-warning float-right'
+      .updated
+        Actualizado
+        - unless IpranedgeInterface.last == nil
+          = IpranedgeInterface.maximum(:created_at).strftime("Semana %U-%Y")
+        - else
+          '-'
+  .col-md-1
+
+.row.margin-top-10
+  .col-md-1
+  .col-md-10
+    .float-left 
+      = link_to 'Volver', samqosdiscards_path, class: 'btn btn-sm btn-success'
+  .col-md-2      
+
+.row.margin-top-00
+  .col-md-1
+  .col-md-8
+    %input#myNodo{:onkeyup => "myNodo()", :placeholder => "Buscar Nodo ...", :title => "Equipo de Internet", :type => "text"}
+    %input#myPort{:onkeyup => "myPort()", :placeholder => "Buscar Descripción ...", :title => "Descripción", :type => "text"}
+
+.margin-top-00
+  .col-md-1.table-responsive
+    %table.table.table-striped.table-bordered.table-condensed.table-hover.text-center.margin-top-10#myTable
+      %thead
+        %tr
+          %th.text-center Equipo
+          %th.text-center Puerto
+          %th.text-center Descripción del Puerto
+          %th.text-center Capacidad (Mbps)
+          %th.text-center Tipo del Puerto
+          %th.text-center.success
+            Max_Gbps
+            %br
+            = IpranedgeInterface.maximum(:created_at).strftime("Sem_%U")
+          %th.text-center.cursor.success{:onclick => "sortTableNumeric(6)"}
+            \%
+            %br
+            = IpranedgeInterface.maximum(:created_at).strftime("Sem_%U")
+          %th.text-center.info
+            Max_Gbps
+            %br
+            = IpranedgeInterface.maximum(:created_at).strftime("Sem_%W")
+          %th.text-center.cursor.info{:onclick => "sortTableNumeric(8)"}
+            \% 
+            %br
+            = IpranedgeInterface.maximum(:created_at).strftime("Sem_%W")
+          %th.text-center Crecimiento
+          %th.text-center Comentario
+          %th.text-center Fecha de Solución
+          %th
+          %th
+
+      %tbody
+        - @ipranedge_interfaces.each do |ipranedge_interface|
+          %tr
+            %td= ipranedge_interface.device
+            %td= ipranedge_interface.port
+            %td= ipranedge_interface.description
+            %td= ipranedge_interface.egressRate
+            %td= ipranedge_interface.speed
+            %td= ipranedge_interface.last_bps_max
+
+            - if ipranedge_interface.last_status > 85.00
+              %td.danger= ipranedge_interface.last_status
+            -elsif ipranedge_interface.last_status > 75.00 and ipranedge_interface.last_status < 84.999
+              %td.warning= ipranedge_interface.last_status
+            - else
+              %td= ipranedge_interface.last_status
+
+            %td= ipranedge_interface.bps_max
+
+            - if ipranedge_interface.status > 85.00
+              %td.danger= ipranedge_interface.status
+            -elsif ipranedge_interface.status > 75.00 and ipranedge_interface.status < 84.999
+              %td.warning= ipranedge_interface.status
+            - else
+              %td= ipranedge_interface.status
+
+            - if ipranedge_interface.crecimiento > 85.00
+              %td.danger= ipranedge_interface.crecimiento
+            -elsif ipranedge_interface.crecimiento > 75.00 and ipranedge_interface.crecimiento < 84.999
+              %td.warning= ipranedge_interface.crecimiento
+            - else
+              %td= ipranedge_interface.crecimiento
+
+            %td= ipranedge_interface.comment
+            %td= ipranedge_interface.time
+            %td= link_to 'Historial', ipranedge_interface, target: :_blank
+            %td= link_to 'Editar', edit_ipranedge_interface_path(ipranedge_interface), target: :_blank
+
+.margin-top-20
+
+:javascript
+  function myNodo() {
+    var input, filter, table, tr, td, i;
+    input = document.getElementById("myNodo");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }       
+    }
+  }
+  function myPort() {
+    var input, filter, table, tr, td, i;
+    input = document.getElementById("myPort");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[2];
+      if (td) {
+        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }       
+    }
+  }
+  function sortTableName(n) {
+    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById("myTable");
+    switching = true;
+    //Set the sorting direction to ascending:
+    dir = "asc"; 
+    /*Make a loop that will continue until
+    no switching has been done:*/
+    while (switching) {
+      //start by saying: no switching is done:
+      switching = false;
+      rows = table.rows;
+      /*Loop through all table rows (except the
+      first, which contains table headers):*/
+      for (i = 1; i < (rows.length - 1); i++) {
+        //start by saying there should be no switching:
+        shouldSwitch = false;
+        /*Get the two elements you want to compare,
+        one from current row and one from the next:*/
+        x = rows[i].getElementsByTagName("td")[n];
+        y = rows[i + 1].getElementsByTagName("td")[n];
+        /*check if the two rows should switch place,
+        based on the direction, asc or desc:*/
+        if (dir == "asc") {
+          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+            //if so, mark as a switch and break the loop:
+            shouldSwitch= true;
+            break;
+          }
+        } else if (dir == "desc") {
+          if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+            //if so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+          }
+        }
+      }
+      if (shouldSwitch) {
+        /*If a switch has been marked, make the switch
+        and mark that a switch has been done:*/
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+        //Each time a switch is done, increase this count by 1:
+        switchcount ++;      
+      } else {
+        /*If no switching has been done AND the direction is "asc",
+        set the direction to "desc" and run the while loop again.*/
+        if (switchcount == 0 && dir == "asc") {
+          dir = "desc";
+          switching = true;
+        }
+      }
+    }
+  }
+  function sortTableNumeric(n) {
+    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById("myTable");
+    switching = true;
+    //Set the sorting direction to ascending:
+    dir = "asc"; 
+    /*Make a loop that will continue until
+    no switching has been done:*/
+    while (switching) {
+      //start by saying: no switching is done:
+      switching = false;
+      rows = table.rows;
+      /*Loop through all table rows (except the
+      first, which contains table headers):*/
+      for (i = 1; i < (rows.length - 1); i++) {
+        //start by saying there should be no switching:
+        shouldSwitch = false;
+        /*Get the two elements you want to compare,
+        one from current row and one from the next:*/
+        x = rows[i].getElementsByTagName("td")[n];
+        y = rows[i + 1].getElementsByTagName("td")[n];
+        /*check if the two rows should switch place,
+        based on the direction, asc or desc:*/
+        if (dir == "asc") {
+          if (Number(x.innerHTML) > Number(y.innerHTML)) {
+            //if so, mark as a switch and break the loop:
+            shouldSwitch= true;
+            break;
+          }
+        } else if (dir == "desc") {
+          if (Number(x.innerHTML) < Number(y.innerHTML)) {
+            //if so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+          }
+        }
+      }
+      if (shouldSwitch) {
+        /*If a switch has been marked, make the switch
+        and mark that a switch has been done:*/
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+        //Each time a switch is done, increase this count by 1:
+        switchcount ++;      
+      } else {
+        /*If no switching has been done AND the direction is "asc",
+        set the direction to "desc" and run the while loop again.*/
+        if (switchcount == 0 && dir == "asc") {
+          dir = "desc";
+          switching = true;
+        }
+      }
+    }
+  }

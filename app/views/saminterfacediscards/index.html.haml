@@ -1,0 +1,82 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos del SAM - Reporte de Paquetes descartados en Interface SAR-7705 y SR-7750
+  .col-md-1
+%hr
+
+.row
+  .col-md-1
+  .col-md-10
+    %h3
+      Paquetes descartados en Interface SAR-7705 y SR-7750 Recividos y Transmitidos
+      = link_to 'Actualizar', samqosdiscards_saminterfacediscards_path, method: :post, class: 'btn btn-warning float-right'
+      .updated
+        Actualizado
+        - unless Saminterfacediscard.last == nil
+          = Saminterfacediscard.last.created_at.strftime("%d/%m/%Y %H:%M:%S")
+        - else
+          '-'
+  .col-md-1
+
+.row.margin-top-10
+  .col-md-1
+  .col-md-10
+    .float-left 
+      = link_to 'Volver', samqosdiscards_path, class: 'btn btn-success'
+    .float-right
+      = form_tag samqosdiscards_saminterfacediscard_path(:id), :method => :get do
+        = collection_select(:saminterfacediscard, :id, Saminterfacediscard.all, :id, :created_at, prompt: "10 Reportes anteriores")
+        = submit_tag "Consultar", :name => nil, class: 'btn btn-sm btn-info'
+  .col-md-2
+
+.row.margin-top-00
+  .col-md-1
+  .col-md-8.table-responsive
+    = will_paginate @table_interfacediscard
+    %table.table.table-striped.table-bordered.table-condensed.text-center.margin-top-10
+      %thead
+        %tr
+          %th.text-center
+            Item
+          %th.text-center
+            Nodo
+          %th.text-center
+            Puerto
+          %th.text-center
+            Paquetes Recividos Descartados
+          %th.text-center
+            Paquetes Transmitidos Descartados
+          %th.text-center
+            Total de Paquetes Descartados
+          %th.text-center
+            Incremento de Paquetes Descartados
+          %th.text-center
+            Tiempo de Captura
+      %tbody
+        - unless Saminterfacediscard.last == nil
+          - i = 0
+          - @table_interfacediscard.map do |item|
+            - i += 1
+            %tr
+              %td
+                = i
+              %td
+                = item[:node]
+              %td
+                = item[:port]
+              %td
+                = item[:discardin]
+              %td
+                = item[:discardout]
+              %td
+                = item[:discard]
+              %td
+                = item[:discard_incremento]
+              %td
+                = item[:timeCaptured]
+.col-md-2

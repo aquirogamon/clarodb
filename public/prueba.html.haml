@@ -1,0 +1,221 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos de KPIs - Reporte Interfaces Internet
+  .col-md-1
+%hr
+
+.row
+  .col-md-1
+  .col-md-10
+    %h3
+      Interfaces Internet
+      = link_to 'Excel', ppmreports_ppminterfaceinternets_path(format: "xls"), class: 'btn btn-warning float-right'
+      = link_to 'Actualizar', ppmreports_ppminterfaceinternets_path, method: :post, class: 'btn btn-warning float-right'
+      .updated
+        Actualizado
+        - unless Ppminterfaceinternet.last == nil
+          = Ppminterfaceinternet.last.created_at.strftime("%d/%m/%Y %H:%M:%S")
+        - else
+          '-'
+  .col-md-2
+
+.row.margin-top-10
+  .col-md-1
+  .col-md-10
+    .float-left 
+      = link_to 'Volver', ppmreports_path, class: 'btn btn-success'
+    .float-right
+      = form_tag ppmreports_ppminterfaceinternet_path(:id), :method => :get do
+        = collection_select(:ppminterfaceinternet, :id, Ppminterfaceinternet.all, :id, :created_at, prompt: "10 Reportes anteriores")
+        = submit_tag "Consultar", :name => nil, class: 'btn btn-sm btn-info'
+
+%input#myNodo{:onkeyup => "myNodo()", :placeholder => "Buscar Nodo ...", :title => "Equipo de Internet", :type => "text"}
+%input#myServicio{:onkeyup => "myServicio()", :placeholder => "Buscar Tipo de Servicio ...", :title => "Tipo de Servicio", :type => "text"}
+%input#myEnlace{:onkeyup => "myEnlace()", :placeholder => "Buscar Enlace ...", :title => "Peer de Conexión", :type => "text"}
+
+.row.margin-top-00
+  .col-md-12.table-responsive
+    %table#myTable.table.table-bordered.table-condensed.table-hover.table-responsive.text-center.margin-top-10
+      %thead
+        %tr.active
+          %th.text-center{:rowspan => 2}
+            Nodo
+          %th.text-center{:rowspan => 2}
+            Puerto
+          %th.text-center{:rowspan => 2}
+            Servicio
+          %th.text-center{:rowspan => 2}
+            Capacidad
+          %th.text-center{:rowspan => 2}
+            Enlace
+          %th.text-center{:colspan => 2}
+            Fecha
+            %br
+            = Ppminterfaceinternet.find((Ppminterfaceinternet.last.id)-3).created_at.strftime("%d/%m/%Y")
+          %th.text-center{:colspan => 2}
+            Fecha
+            %br
+            = Ppminterfaceinternet.last.created_at.strftime("%d/%m/%Y")
+          %th.text-center{:rowspan => 2}
+            Crecimiento
+        %tr.active
+          %th.text-center
+            Max Gbps
+          %th.text-center.cursor{:onclick => "sortTable(6)"}
+            Utilización %
+          %th.text-center
+            Max Gbps
+          %th.text-center.cursor{:onclick => "sortTable(8)"}
+            Utilización %
+
+      %tbody
+        - unless Ppminterfaceinternet.last == nil
+          - i = 0
+          - @table_interfaceinternet.map do |item|
+            %tr
+              %td
+                = item[:device]
+              %td
+                = item[:port]
+              %td
+                = item[:servicio]
+              %td
+                = item[:egressRate]
+              %td
+                = item[:neighbor]
+              %td
+                = item[:last_bps_max]
+              %td
+                = item[:last_status]
+              %td
+                = item[:bps_max]
+              - if item[:status] > 85.00
+                %td.danger
+                  = item[:status]
+              - elsif item[:status] > 75.00 and item[:status] < 84.999
+                %td.warning
+                  = item[:status]
+              - else
+                %td
+                  = item[:status]
+              - if item[:crecimiento] > 20.0
+                %td.danger
+                  = item[:crecimiento]
+              - elsif item[:crecimiento] < -20.0
+                %td.danger
+                  = item[:crecimiento]
+              - else
+                %td
+                  = item[:crecimiento]
+
+:javascript
+  function myServicio() {
+    var input, filter, table, tr, td, i;
+    input = document.getElementById("myServicio");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[2];
+      if (td) {
+        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }       
+    }
+  }
+  function myEnlace() {
+    var input, filter, table, tr, td, i;
+    input = document.getElementById("myEnlace");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[4];
+      if (td) {
+        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }       
+    }
+  }
+  function myNodo() {
+    var input, filter, table, tr, td, i;
+    input = document.getElementById("myNodo");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }       
+    }
+  }
+  function sortTable(n) {
+    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById("myTable");
+    switching = true;
+    //Set the sorting direction to ascending:
+    dir = "asc"; 
+    /*Make a loop that will continue until
+    no switching has been done:*/
+    while (switching) {
+      //start by saying: no switching is done:
+      switching = false;
+      rows = table.rows;
+      /*Loop through all table rows (except the
+      first, which contains table headers):*/
+      for (i = 1; i < (rows.length - 1); i++) {
+        //start by saying there should be no switching:
+        shouldSwitch = false;
+        /*Get the two elements you want to compare,
+        one from current row and one from the next:*/
+        x = rows[i].getElementsByTagName("TD")[n];
+        y = rows[i + 1].getElementsByTagName("TD")[n];
+        /*check if the two rows should switch place,
+        based on the direction, asc or desc:*/
+        if (dir == "asc") {
+          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+            //if so, mark as a switch and break the loop:
+            shouldSwitch= true;
+            break;
+          }
+        } else if (dir == "desc") {
+          if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+            //if so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+          }
+        }
+      }
+      if (shouldSwitch) {
+        /*If a switch has been marked, make the switch
+        and mark that a switch has been done:*/
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+        //Each time a switch is done, increase this count by 1:
+        switchcount ++;      
+      } else {
+        /*If no switching has been done AND the direction is "asc",
+        set the direction to "desc" and run the while loop again.*/
+        if (switchcount == 0 && dir == "asc") {
+          dir = "desc";
+          switching = true;
+        }
+      }
+    }
+  }

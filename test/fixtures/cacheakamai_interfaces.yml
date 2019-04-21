@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  device: MyString
+  port: MyString
+  nodo: MyString
+  gbpsrx: 1.5
+  gbpstx: 1.5
+  bps_max: 1.5
+  status: 1.5
+  last_bps_max: 1.5
+  last_status: 1.5
+  crecimiento: 1.5
+  egressRate: 1.5
+  time: 2018-11-14
+  comment: MyText
+  deviceindex: MyString
+
+two:
+  device: MyString
+  port: MyString
+  nodo: MyString
+  gbpsrx: 1.5
+  gbpstx: 1.5
+  bps_max: 1.5
+  status: 1.5
+  last_bps_max: 1.5
+  last_status: 1.5
+  crecimiento: 1.5
+  egressRate: 1.5
+  time: 2018-11-14
+  comment: MyText
+  deviceindex: MyString

@@ -1,0 +1,1 @@
+json.extract! @redcorporativa_interface, :id, :device, :port, :servicio, :gbpsrx, :gbpstx, :bps_max, :statustx, :statusrx, :status, :last_bps_max, :last_status, :crecimiento_rx, :crecimiento_tx, :egressRate, :time, :comment, :deviceindex, :created_at, :updated_at

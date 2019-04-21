@@ -1,0 +1,2 @@
+module ArborreportsHelper
+end

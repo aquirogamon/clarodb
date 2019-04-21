@@ -1,0 +1,67 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes de KPIs
+  .col-md-1
+%hr
+
+.row.margin-top-10
+  .col-md-2
+  .col-md-8
+    %h3
+      Reportes
+.row
+  .col-md-2
+  .col-md-8
+    %table.table.table-striped.table-bordered.table-condensed.text-center.table-hover
+      %thead
+        %tr.success
+          %th.text-center
+            Nombre
+          %th.text-center
+            Descripción
+      %tbody
+        %tr
+          %td
+            = link_to 'Interfaces Internet', "http://172.19.154.10:3000/internet_interfaces", target: :_blank
+          %td
+            Reporte de Utilización de interfaces de Internet
+        %tr
+          %td
+            = link_to 'Interfaces Core', "http://172.19.154.10:3000/core_interfaces", target: :_blank
+          %td
+            Utilización de interfaces de Core
+        %tr
+          %td
+            = link_to 'Interfaces Pre-AGG', "http://172.19.154.10:3000/preagg_interfaces", target: :_blank
+          %td
+            Utilización de interfaces de Pre-AGG Cisco
+        %tr
+          %td
+            = link_to 'Interfaces de Servidores de Caché', ppmreportcaches_path
+          %td
+            Utilización de interfaces de los Servidores de Caché (Google, Facebook, Netflix, etc)
+        %tr
+          %td
+            = link_to 'Interfaces Core Mobile', ppmreports_ppmpacketcores_path
+          %td
+            Utilización de interfaces de los enlaces de Packet Core (2G, 3G y 4G)
+        %tr
+          %td
+            = link_to 'Servicio de Internet Corporativo', ppmreports_ppminterfaceclientinternets_path
+          %td
+            Utilización del Servicio de Internet del Cliente Corporativo
+        %tr
+          %td
+            = link_to 'Interfaces de Red Corporativa', redcorporativa_interfaces_path
+          %td
+            Utilización de Enlaces de Red Corporativa
+  .col-md-2
+.row.margin-top-10
+  .col-md-2
+  .col-md-8
+    = link_to 'Volver', dashboard_path, class: 'btn btn-sm btn-success'

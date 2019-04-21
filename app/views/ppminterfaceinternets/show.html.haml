@@ -1,0 +1,83 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos de KPIs - Reporte Interfaces Internet
+  .col-md-1
+%hr
+
+.row
+  .col-md-2
+  .col-md-8
+    %h3
+      Interfaces Internet
+  .col-md-2
+
+.row.margin-top-10
+  .col-md-2
+  .col-md-8
+    .float-left 
+      = link_to 'Volver', ppmreports_ppminterfaceinternets_path, class: 'btn btn-success'
+    .updated
+      Actualizado
+      = @ppminterfaceinternet.created_at.strftime("%d/%m/%Y %H:%M:%S")
+  .col-md-2
+
+.row.margin-top-00
+  .col-md-12.table-responsive
+    %table.table.table-striped.table-bordered.table-condensed.text-center.margin-top-10
+      %thead
+        %tr
+          %th.text-center
+            \#
+          %th.text-center
+            Nodo
+          %th.text-center
+            Puerto
+          %th.text-center
+            Servicio
+          %th.text-center
+            Max Gbps Rx
+          %th.text-center
+            Max Gbps Tx
+          %th.text-center
+            Utilización %
+          %th.text-center
+            Capacidad
+          %th.text-center
+            Link
+          %th.text-center
+            deviceindextotal
+      %tbody
+        - unless Ppminterfaceinternet.last == nil
+          - i = 0
+          - @ppminterfaceinternet[:ppminterfaceinternets_array].map do |item|
+            - i += 1
+            %tr
+              %td
+                = i
+              %td
+                = item[:device]
+              %td
+                = item[:porttotal]
+              %td
+                = item[:serviciototal]
+              %td
+                = item[:gbpstxtotal]
+              %td
+                = item[:gbpsrxtotal]
+              - if item[:statustotal] > 84.99
+                %td.danger
+                  = item[:statustotal]
+              - else
+                %td
+                  = item[:statustotal]
+              %td
+                = item[:egressRatetotalppm]
+              %td
+                = item[:neighbor]
+              %td
+                = item[:deviceindextotal]                

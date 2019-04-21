@@ -1,0 +1,20 @@
+sar_shelf_m_fl_alpha_t1_e1,TiMOS-B-6.0.R2,sar_shelf_m_fl_alpha_t1_e1TiMOS-B-6.0.R2 ,16384,8192,4096,7705 SAR-A T1/E1
+sar_shelf_m_fl_alpha_t1_e1,TiMOS-B-6.0.R5,sar_shelf_m_fl_alpha_t1_e1TiMOS-B-6.0.R5 ,16384,8192,4096,7705 SAR-A T1/E1
+sar_shelf_m_fl_alpha_t1_e1,TiMOS-B-6.1.R4,sar_shelf_m_fl_alpha_t1_e1TiMOS-B-6.1.R4 ,32768,16384,8192,7705 SAR-A T1/E1
+sar_shelf_m_fl_alpha_t1_e1,TiMOS-B-6.1.R6,sar_shelf_m_fl_alpha_t1_e1TiMOS-B-6.1.R6 ,32768,16384,8192,7705 SAR-A T1/E1
+sar_shelf_m_fl_alpha,TiMOS-B-6.1.R6,sar_shelf_m_fl_alphaTiMOS-B-6.1.R6 ,32768,16384,8192,7705 SAR-A Eth
+sar_shelf_8Slot_v2,TiMOS-B-6.1.R6,sar_shelf_8Slot_v2TiMOS-B-6.1.R6 ,65536,32768,14334,7705-SAR8 v2
+sar_shelf_8Slot,TiMOS-B-4.0.R2,sar_shelf_8SlotTiMOS-B-4.0.R2 ,32768,16384,8192,7705-SAR8
+sar_shelf_8Slot,TiMOS-B-6.1.R6,sar_shelf_8SlotTiMOS-B-6.1.R6 ,32768,16384,10240,7705-SAR8
+sar_shelf_fixed,TiMOS-B-6.1.R6,sar_shelf_fixedTiMOS-B-6.1.R6 ,32768,16384,4096,7705-SARF
+sar_shelf_m,TiMOS-B-5.0.R1,sar_shelf_mTiMOS-B-5.0.R1 ,32768,16384,8192,7705-SARM ASAP
+sar_shelf_m,TiMOS-B-5.0.R2,sar_shelf_mTiMOS-B-5.0.R2 ,32768,16384,8192,7705-SARM ASAP
+sar_shelf_m,TiMOS-B-5.0.R3,sar_shelf_mTiMOS-B-5.0.R3 ,32768,16384,8192,7705-SARM ASAP
+sar_shelf_m,TiMOS-B-6.1.R6,sar_shelf_mTiMOS-B-6.1.R6 ,32768,16384,8192,7705-SARM ASAP
+sr_shelf_12Slot,TiMOS-C-12.0.R2,sr_shelf_12SlotTiMOS-C-12.0.R2 ,240000,256000,144000,7750-SR12
+sr_shelf_7Slot,TiMOS-C-12.0.R2,sr_shelf_7SlotTiMOS-C-12.0.R2 ,240000,256000,48000,7750-SR7
+sr_shelf_7Slot,TiMOS-C-12.0.R5,sr_shelf_7SlotTiMOS-C-12.0.R5 ,240000,256000,48000,7750-SR7
+sr_shelf_7Slot,TiMOS-C-12.0.R8,sr_shelf_7SlotTiMOS-C-12.0.R8 ,240000,256000,48000,7750-SR7
+sr_shelf_7750_a4,TiMOS-C-12.0.R13,sr_shelf_7750_a4TiMOS-C-12.0.R13 ,240000,80000,72000,7750-SRa4
+sr_shelf_12Slotc,TiMOS-B-12.0.R2,sr_shelf_12SlotcTiMOS-B-12.0.R2 ,240000,64000,40000,7750-SRc12
+sr_shelf_12Slotc,TiMOS-B-12.0.R8,sr_shelf_12SlotcTiMOS-B-12.0.R8 ,240000,64000,40000,7750-SRc12

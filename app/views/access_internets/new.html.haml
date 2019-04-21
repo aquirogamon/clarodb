@@ -1,0 +1,22 @@
+.row.margin-top-25
+	.col-md-1
+	.col-md-10
+		.logotitle
+		%h2.page_title
+			Sistema Ágil de Gestión y Provisionamiento
+		%h4.page_subtitle.margin-top-10
+			Reportes ejecutivos de KPIs - Reporte Acceso a Internet
+	.col-md-1
+%hr
+
+%div.container
+	.row.col-md-4
+		%h3
+			Crear nuevo Reporte
+
+		= render 'form'
+	
+		.margin-top-20
+		= link_to 'Volver', access_internets_path, class: 'btn btn-sm btn-success'
+
+.margin-top-20

@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+    <%= wicked_pdf_stylesheet_link_tag "application", media: 'all', 'data-turbolinks-track' => true %>
+    <%= wicked_pdf_stylesheet_link_tag "bootstrap" %>
+    <%= wicked_pdf_javascript_include_tag "number_pages" %>
+    <%= wicked_pdf_stylesheet_link_tag "pdf" %>
+    <%= csrf_meta_tags %>
+  </head>
+<body data-no-turbolinks="true">
+
+  <div class="container-fluid">
+
+    <div class="pull-right user-info">
+      Reporte Generado por Gerencia Planificación de Red de Datos
+    </div>
+<!-- 
+    <div id="header">
+      <%= wicked_pdf_image_tag 'amx.jpg', height: '80', width: '150' %>
+    </div>
+-->
+    <%= yield %>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,78 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos del SAM - Reporte de Estadistica de utilización de MPR en Radio y Ethernet
+  .col-md-1
+%hr
+
+.row
+  .col-md-2
+  .col-md-8
+    %h3
+      Porcentaje de Utilización de Interface de Radio y Ethernet
+  .col-md-2
+
+.row.margin-top-10
+  .col-md-2
+  .col-md-8
+    .float-left 
+      = link_to 'Volver', samqosdiscards_samutilizationmwinterfaces_path, class: 'btn btn-success'
+    .updated
+      Actualizado
+      = @samutilizationmwinterface.created_at.strftime("%d/%m/%Y %H:%M:%S")
+  .col-md-2
+
+.row.margin-top-00
+  .col-md-1
+  .col-md-8.table-responsive
+    = will_paginate @table_utilizationmwinterface_show
+    %table.table.table-striped.table-bordered.table-condensed.text-center.margin-top-10
+      %thead
+        %tr
+          %th.text-center
+            Item
+          %th.text-center
+            Nodo
+          %th.text-center
+            Puerto
+          %th.text-center
+            Descripción del Puerto
+          %th.text-center
+            Capacidad del enlace Ethernet o Radio (Mbps)
+          %th.text-center
+            TX (Mbps)
+          %th.text-center
+            Utilización del enlace TX (%)
+          %th.text-center
+            Tiempo de máximo throughput
+      %tbody
+        - unless Samutilizationmwinterface.last == nil
+          - i = 0
+          - @table_utilizationmwinterface_show.map do |item|
+            - i += 1
+            %tr
+              %td
+                = i
+              %td
+                = item[:node]
+              %td
+                = item[:port]
+              %td
+                = item[:description]
+              %td
+                = item[:velodidad]
+              %td
+                = item[:Mbps_bwtx]
+              - if item[:status] > 75.00
+                %td.danger
+                  = item[:status]
+              - else
+                %td
+                  = item[:status]
+              %td
+                = item[:timeCaptured]
+.col-md-2

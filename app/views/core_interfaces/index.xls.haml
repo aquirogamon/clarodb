@@ -1,0 +1,55 @@
+%table{:border => 1}
+  %thead
+    %tr
+      %th.text-center
+        Nodo
+      %th.text-center
+        Puerto
+      %th.text-center
+        Servicio
+      %th.text-center
+        Capacidad
+      %th.text-center
+        Max Gbps (Anterior)
+      %th.text-center
+        \% (Anterior)
+      %th.text-center
+        bps_max
+      %th.text-center
+        Status
+      %th.text-center
+        Crecimiento
+      %th.text-center
+        Comentarios
+      %th.text-center
+        Fecha de Solución
+      %th.text-center
+        deviceindex
+      %th.text-center
+        RX Gbps
+      %th.text-center
+        TX Gbps
+      %th.text-center
+        created_at
+      %th.text-center
+        weeks
+
+  %tbody
+    - @core_interfaces_all.each do |core_interface|
+      %tr
+        %td= core_interface.device
+        %td= core_interface.port
+        %td= core_interface.servicio
+        %td= core_interface.egressRate
+        %td= core_interface.last_bps_max
+        %td= core_interface.last_status
+        %td= core_interface.bps_max
+        %td= core_interface.status
+        %td= core_interface.crecimiento
+        %td= core_interface.comment
+        %td= core_interface.time
+        %td= core_interface.deviceindex
+        %td= core_interface.gbpsrx
+        %td= core_interface.gbpstx
+        %td= core_interface.created_at
+        %td 0

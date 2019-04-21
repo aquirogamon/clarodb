@@ -1,0 +1,1 @@
+json.extract! @internet_interface, :id, :device, :port, :servicio, :gbpsrx, :gbpstx, :bps_max, :last_bps_max, :last_status, :crecimiento, :status, :egressRate, :neighbor, :time, :comment, :deviceindex, :created_at, :updated_at

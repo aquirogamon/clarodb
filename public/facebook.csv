@@ -1,0 +1,13 @@
+Router,Host,Index,Transporte(Gbps),Descripcion
+ceAGREGADORServiciosPolo1,10.235.192.91,307,0,1er Nodo de Polo1
+ceAGREGADORServiciosPolo1,10.235.192.91,311,0,2do Nodo de Polo1
+ceAGREGADORServiciosVES,10.235.191.254,330,0,1er Nodo de VES
+cAGREGADORTrujillo4,10.235.212.45,209,0,1er Nodo de Trujillo
+cAGREGADORArequipa4,10.235.238.37,207,0,1er Nodo de Arequipa
+rMPLSIquitos2,10.235.2.108,119,0,1er Nodo de Iquitos
+rMPLSTacna,10.235.3.48,239,0,1er Nodo de Tacna
+rMPLSPiura3,10.235.3.8,580,0,1er Nodo de Piura
+rMPLSCajamarca4,10.235.3.13,372,0,1er Nodo de Cajamarca
+rMPLSChiclayo4,10.235.3.6,565,0,1er Nodo de Chiclayo
+cAGREGADORTrujillo4,10.235.212.45,231,0,2do Nodo de Trujillo
+cAGREGADORArequipa4,10.235.238.37,237,0,2do Nodo de Arequipa

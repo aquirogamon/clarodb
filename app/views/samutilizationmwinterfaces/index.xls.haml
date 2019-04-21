@@ -1,0 +1,45 @@
+%table{:border => 1}
+  %thead
+    %tr
+      %th.text-center
+        Item
+      %th.text-center
+        Nodo
+      %th.text-center
+        Puerto
+      %th.text-center
+        Descripción del Puerto
+      %th.text-center
+        Capacidad del enlace Ethernet o Radio (Mbps)
+      %th.text-center
+        TX (Mbps)
+      %th.text-center
+        Utilización del enlace TX (%)
+      %th.text-center
+        Tiempo de máximo throughput
+  %tbody
+    - unless Samutilizationmwinterface.last == nil
+      - i = 0
+      - @table_utilizationmwinterface.map do |item|
+        - i += 1
+        %tr
+          %td
+            = i
+          %td
+            = item[:node]
+          %td
+            = item[:port]
+          %td
+            = item[:description]
+          %td
+            = item[:velodidad]
+          %td
+            = item[:Mbps_bwtx]
+          - if item[:status] > 75.00
+            %td.danger
+              = item[:status]
+          - else
+            %td
+              = item[:status]
+          %td
+            = item[:timeCaptured]

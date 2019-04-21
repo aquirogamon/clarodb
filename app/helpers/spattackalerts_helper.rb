@@ -1,0 +1,2 @@
+module SpattackalertsHelper
+end

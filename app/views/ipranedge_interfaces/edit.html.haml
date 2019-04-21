@@ -1,0 +1,84 @@
+.row.margin-top-25
+	.col-md-1
+	.col-md-10
+		.logotitle
+		%h2.page_title
+			Sistema Ágil de Gestión y Provisionamiento
+		%h4.page_subtitle.margin-top-10
+			Reportes ejecutivos de KPIs - Reporte Interfaces IPRAN Edge
+	.col-md-1
+%hr
+
+.row.margin-top-00
+	.col-md-12.table-responsive
+		%table.table.table-striped.table-bordered.table-condensed.table-hover.text-center.margin-top-10
+			%thead
+				%tr
+					%th.text-center Equipo
+					%th.text-center Puerto
+					%th.text-center Descripción del Puerto
+					%th.text-center Capacidad (Mbps)
+					%th.text-center Tipo del Puerto
+					%th.text-center 
+						Max_Mbps
+						%br
+						= @ipranedge_interface.created_at.strftime("Sem_%U")
+					%th.text-center 
+						\%
+						%br
+						= @ipranedge_interface.created_at.strftime("Sem_%U")
+					%th.text-center.info 
+						RX Mbps
+						%br
+						= @ipranedge_interface.created_at.strftime("Sem_%W")
+					%th.text-center.info 
+						TX Mbps
+						%br
+						= @ipranedge_interface.created_at.strftime("Sem_%W")
+					%th.text-center.info 
+						\%
+						%br
+						= @ipranedge_interface.created_at.strftime("Sem_%W")
+					%th.text-center
+						Crecimiento
+
+			%tbody
+				%tr
+					%td= @ipranedge_interface.device
+					%td= @ipranedge_interface.port
+					%td= @ipranedge_interface.description
+					%td= @ipranedge_interface.egressRate
+					%td= @ipranedge_interface.speed
+					%td= @ipranedge_interface.last_bps_max
+
+					- if @ipranedge_interface.last_status > 85.00
+						%td.danger= @ipranedge_interface.last_status
+					-elsif @ipranedge_interface.last_status > 75.00 and @ipranedge_interface.last_status < 84.999
+						%td.warning= @ipranedge_interface.last_status
+					- else
+						%td= @ipranedge_interface.last_status
+
+					%td= @ipranedge_interface.gbpsrx
+					%td= @ipranedge_interface.gbpstx
+
+					- if @ipranedge_interface.status > 85.00
+						%td.danger= @ipranedge_interface.status
+					-elsif @ipranedge_interface.status > 75.00 and @ipranedge_interface.status < 84.999
+						%td.warning= @ipranedge_interface.status
+					- else
+						%td= @ipranedge_interface.status
+
+					- if @ipranedge_interface.crecimiento > 85.00
+						%td.danger= @ipranedge_interface.crecimiento
+					-elsif @ipranedge_interface.crecimiento > 75.00 and @ipranedge_interface.crecimiento < 84.999
+						%td.warning= @ipranedge_interface.crecimiento
+					- else
+						%td= @ipranedge_interface.crecimiento
+
+%div.col-md-4
+	= render 'form'
+
+	.margin-top-20
+	= link_to 'Historial', @ipranedge_interface, class: 'btn btn-sm btn-success'
+	= link_to 'Volver', ipranedge_interfaces_path, class: 'btn btn-sm btn-success'
+	.margin-top-20

@@ -1,0 +1,2951 @@
+<?xml version="1.0" encoding="utf-8"?>
+<peakflow version="2.0" report="alerts_dos">
+  <query id="query1" type="alert" mssp="false" sort_field="alert_id" sort_direction="descending">
+    <search limit="100" page_size="100" page="1">
+      <string>ac:"DoS" sev:high</string>
+    </search>
+    <filter type="importance">
+      <instance value="high"/>
+    </filter>
+    <filter type="status">
+      <instance value="any"/>
+    </filter>
+    <filter type="alert_class">
+      <instance value="dos"/>
+    </filter>
+    <filter type="alert_classification">
+      <instance value="all"/>
+    </filter>
+    <filter type="alert_type">
+      <instance value="dos_all"/>
+    </filter>
+    <filter type="impact_bps_lowerbound">
+      <instance value=""/>
+    </filter>
+    <filter type="impact_bps_upperbound">
+      <instance value=""/>
+    </filter>
+    <filter type="impact_pps_lowerbound">
+      <instance value=""/>
+    </filter>
+    <filter type="impact_pps_upperbound">
+      <instance value=""/>
+    </filter>
+    <filter type="severity_lowerbound">
+      <instance value=""/>
+    </filter>
+    <filter type="severity_upperbound">
+      <instance value=""/>
+    </filter>
+    <filter type="annotations">
+      <instance mode="last"/>
+    </filter>
+  </query>
+  <query-reply>
+    <alert-list>
+  <alert_count>100</alert_count>
+  <page_size>100</page_size>
+  <page>1</page>
+  <alert id="32361" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65401</id>
+        <added>1533055799</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 125.81 Mbps/10.38 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1533055799" stop="1533056096" length="297"/>
+    <host_detection host_address="190.117.97.219" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="361" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="361" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="126337504" pps="10427" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 127556974</impact_bps>
+    <impact_pps>0 0 0 0 10527</impact_pps>
+    <impact_recorded>1533055845 1533055845 1533055845 1533055845 1533055845</impact_recorded>
+  </alert>
+  <alert id="32358" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65395</id>
+        <added>1533048711</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSVillaSalvadorBR01". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 54.05 Mbps/4.47 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1533048711" stop="1533049017" length="306"/>
+    <host_detection host_address="190.117.92.116" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="155" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="155" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="54245728" pps="4483" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>248601751 0 0 0 405196 507948180</impact_bps>
+    <impact_pps>20500 0 0 0 33 41884</impact_pps>
+    <impact_recorded>1533048711 1533048765 1533048765 1533048765 1533048765 1533048765</impact_recorded>
+  </alert>
+  <alert id="32357" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65394</id>
+        <added>1533048599</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSVillaSalvadorBR01". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 117.26 Mbps/9.87 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1533048599" stop="1533048897" length="298"/>
+    <host_detection host_address="190.117.157.120" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="336" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="336" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="117679488" pps="9902" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>0 0 0 0 117886617</impact_bps>
+    <impact_pps>0 0 0 0 9935</impact_pps>
+    <impact_recorded>1533048645 1533048645 1533048645 1533048645 1533048645</impact_recorded>
+  </alert>
+  <alert id="32356" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65393</id>
+        <added>1533047747</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSVillaSalvadorBR01". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 44.35 Mbps/3.72 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1533047747" stop="1533048057" length="310"/>
+    <host_detection host_address="190.117.66.169" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="127" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="127" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="44535528" pps="3780" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>44549894 0 0 0 0 48481817</impact_bps>
+    <impact_pps>3733 0 0 0 0 4214</impact_pps>
+    <impact_recorded>1533047747 1533047805 1533047805 1533047805 1533047805 1533047805</impact_recorded>
+  </alert>
+  <alert id="32353" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65391</id>
+        <added>1533041634</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 57.96 Mbps/4.93 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1533041634" stop="1533041937" length="303"/>
+    <host_detection host_address="190.117.210.26" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="166" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="166" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="58088220" pps="4944" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>57957768 0 0 0 0 59341701</impact_bps>
+    <impact_pps>4933 0 0 0 0 5111</impact_pps>
+    <impact_recorded>1533041634 1533041685 1533041685 1533041685 1533041685 1533041685</impact_recorded>
+  </alert>
+  <alert id="32352" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65390</id>
+        <added>1533040248</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 42.09 Mbps/6.17 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1533040248" stop="1533040556" length="308"/>
+    <host_detection host_address="190.117.74.96" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="121" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="121" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="42186872" pps="6182" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>42085358 0 0 0 0 42605214</impact_bps>
+    <impact_pps>6166 0 0 0 0 6231</impact_pps>
+    <impact_recorded>1533040248 1533040305 1533040305 1533040305 1533040305 1533040305</impact_recorded>
+  </alert>
+  <alert id="32350" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65389</id>
+        <added>1533031440</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 52.99 Mbps/4.47 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1533031440" stop="1533031736" length="296"/>
+    <host_detection host_address="190.117.63.84" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="152" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="152" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="53048372" pps="4472" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 53048372</impact_bps>
+    <impact_pps>0 0 0 0 4471</impact_pps>
+    <impact_recorded>1533031485 1533031485 1533031485 1533031485 1533031485</impact_recorded>
+  </alert>
+  <alert id="32349" is_fast_detected="f" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65388</id>
+        <added>1533030285</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>The "ICMP" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 2.50 Kpps, observed rate: 12.36 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1533030045" stop="1533031076" length="1031"/>
+    <host_detection host_address="179.7.136.109" misuse_types="515" ip_version="4">
+      <blobs>
+        <blob gid="231" name="MOVIL_CGN_Trujillo" summary_url="/page?id=customer_summary&amp;gid=231" edit_url="" sev_pct="39985" sev_rate="10000" sev_is_bps="f" misuse_sig="IP Fragmentation" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="10000" pct="39985" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="38043652096" pps="4373654" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>12176001442 13064947593 15109042447 14601015829 37996041047 2506092317 10557815189 12051209198 12614514186 12486746293 13221924314 13288883313 12608815688 0 1536952 2753341 15536558 33109895869</impact_bps>
+    <impact_pps>1057703 1132080 1337839 1326139 4379410 213141 917211 1070362 1165534 1139688 1215231 1222660 1187484 0 216 300 1418 3949340</impact_pps>
+    <impact_recorded>1533030045 1533030105 1533030165 1533030225 1533030285 1533030345 1533030405 1533030465 1533030525 1533030585 1533030645 1533030705 1533030765 1533030825 1533030825 1533030825 1533030825 1533030825</impact_recorded>
+  </alert>
+  <alert id="32348" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65383</id>
+        <added>1533028634</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSVillaSalvadorBR01". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 73.08 Mbps/6.03 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1533028634" stop="1533028917" length="283"/>
+    <host_detection host_address="190.117.69.7" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="209" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="209" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="73154896" pps="6040" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>0 0 0 0 73154897</impact_bps>
+    <impact_pps>0 0 0 0 6039</impact_pps>
+    <impact_recorded>1533028665 1533028665 1533028665 1533028665 1533028665</impact_recorded>
+  </alert>
+  <alert id="32346" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65382</id>
+        <added>1533027218</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 164.36 Mbps/13.55 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1533027218" stop="1533027476" length="258"/>
+    <host_detection host_address="190.117.249.24" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="470" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="470" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="164540608" pps="13565" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 164540606</impact_bps>
+    <impact_pps>0 0 0 0 13565</impact_pps>
+    <impact_recorded>1533027225 1533027225 1533027225 1533027225 1533027225</impact_recorded>
+  </alert>
+  <alert id="32344" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65380</id>
+        <added>1533024472</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSVillaSalvadorBR01". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 55.26 Mbps/4.57 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1533024472" stop="1533024776" length="304"/>
+    <host_detection host_address="190.117.101.204" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="158" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="158" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="55335992" pps="4573" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>100038325 0 0 0 0 155587588</impact_bps>
+    <impact_pps>8266 0 0 0 0 12849</impact_pps>
+    <impact_recorded>1533024472 1533024525 1533024525 1533024525 1533024525 1533024525</impact_recorded>
+  </alert>
+  <alert id="32343" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65379</id>
+        <added>1533022358</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 63.90 Mbps/5.32 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1533022358" stop="1533022617" length="259"/>
+    <host_detection host_address="190.117.57.55" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="183" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="183" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="64003816" pps="5325" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 76978078</impact_bps>
+    <impact_pps>0 0 0 0 6393</impact_pps>
+    <impact_recorded>1533022365 1533022365 1533022365 1533022365 1533022365</impact_recorded>
+  </alert>
+  <alert id="32341" is_fast_detected="f" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65378</id>
+        <added>1533018345</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>The "IP Fragmentation" host alert signature severity rate configured for "HFC CGN Polo1 - Huawei" has been exceeded for 3 minutes, changing Severity Level from medium to high  (expected rate: 10.00 Kpps, observed rate: 68.44 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1533018225" stop="1533019376" length="1151"/>
+    <host_detection host_address="179.6.208.205" misuse_types="2563" ip_version="4">
+      <blobs>
+        <blob gid="258" name="HFC CGN Polo1 - Huawei" summary_url="/page?id=customer_summary&amp;gid=258" edit_url="" sev_pct="794" sev_rate="10000" sev_is_bps="f" misuse_sig="IP Fragmentation" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="10000" pct="794" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="1564701696" pps="158242" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>896184890 1210007187 1409691478 899288451 999835373 963740676 972622972 1223054955 1577411664 1556393938 1557813477 1378744649 1520622851 1477207648 1475028150 0 0 0 0 1333102827</impact_bps>
+    <impact_pps>90814 123505 143279 91563 101598 98056 99642 124518 159089 160947 158715 140244 155460 151147 150329 0 0 0 0 136714</impact_pps>
+    <impact_recorded>1533018225 1533018285 1533018345 1533018405 1533018465 1533018525 1533018585 1533018645 1533018705 1533018765 1533018825 1533018885 1533018945 1533019005 1533019065 1533019125 1533019125 1533019125 1533019125 1533019125</impact_recorded>
+  </alert>
+  <alert id="32340" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65372</id>
+        <added>1533017995</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 47.27 Mbps/3.97 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1533017995" stop="1533018296" length="301"/>
+    <host_detection host_address="190.117.144.12" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="135" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="135" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="47377208" pps="3976" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>47271500 0 0 0 0 128581767</impact_bps>
+    <impact_pps>3966 0 0 0 0 10690</impact_pps>
+    <impact_recorded>1533017995 1533018045 1533018045 1533018045 1533018045 1533018045</impact_recorded>
+  </alert>
+  <alert id="32339" is_fast_detected="f" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65371</id>
+        <added>1533016785</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>The "IP Fragmentation" host alert signature severity rate configured for "HFC CGN VES - Huawei" has been exceeded for 3 minutes, changing Severity Level from medium to high  (expected rate: 10.00 Kpps, observed rate: 122.28 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1533016605" stop="1533017217" length="612"/>
+    <host_detection host_address="179.6.193.101" misuse_types="515" ip_version="4">
+      <blobs>
+        <blob gid="259" name="HFC CGN VES - Huawei" summary_url="/page?id=customer_summary&amp;gid=259" edit_url="" sev_pct="9458" sev_rate="10000" sev_is_bps="f" misuse_sig="IP Fragmentation" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="10000" pct="9458" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="9767641088" pps="1099148" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>7961787886 0 9776616368 6254443987 7462271106 5778320238 0 0 0 0 2961127970</impact_bps>
+    <impact_pps>719046 0 1103375 544202 725873 585142 0 0 0 0 356840</impact_pps>
+    <impact_recorded>1533016605 1533016665 1533016665 1533016785 1533016845 1533016905 1533016965 1533016965 1533016965 1533016965 1533016965</impact_recorded>
+  </alert>
+  <alert id="32338" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65366</id>
+        <added>1533016377</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 114.23 Mbps/9.47 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1533016377" stop="1533016677" length="300"/>
+    <host_detection host_address="190.117.184.175" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="327" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="327" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="114552592" pps="9493" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 116176359</impact_bps>
+    <impact_pps>0 0 0 0 9627</impact_pps>
+    <impact_recorded>1533016425 1533016425 1533016425 1533016425 1533016425</impact_recorded>
+  </alert>
+  <alert id="32337" is_fast_detected="f" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65365</id>
+        <added>1533016065</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>The "ICMP" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 2.50 Kpps, observed rate: 3.63 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1533015765" stop="1533016977" length="1212"/>
+    <host_detection host_address="179.7.192.202" misuse_types="515" ip_version="4">
+      <blobs>
+        <blob gid="190" name="HFC_CGN_Trujillo" summary_url="/page?id=customer_summary&amp;gid=190" edit_url="" sev_pct="32471" sev_rate="10000" sev_is_bps="f" misuse_sig="IP Fragmentation" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="10000" pct="32471" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="25534224384" pps="3432410" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>8290839043 8776429146 5290405 13226342 8497823 7569428 15476296 13124880 9432866 6686388 6603056 7295574 23176862 8620422 40737546 8549181 0 0 0 61766 48949803</impact_bps>
+    <impact_pps>726336 789162 468 1838 802 651 1855 1454 802 618 568 635 3108 752 6250 835 0 0 0 33 7537</impact_pps>
+    <impact_recorded>1533015765 1533015825 1533015885 1533015945 1533016005 1533016065 1533016125 1533016185 1533016245 1533016305 1533016365 1533016425 1533016485 1533016545 1533016605 1533016665 1533016725 1533016725 1533016725 1533016725 1533016725</impact_recorded>
+  </alert>
+  <alert id="32336" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65360</id>
+        <added>1533015618</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 53.57 Mbps/4.47 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1533015618" stop="1533015897" length="279"/>
+    <host_detection host_address="190.117.92.47" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="154" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="154" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="53735016" pps="4481" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 53735015</impact_bps>
+    <impact_pps>0 0 0 0 4480</impact_pps>
+    <impact_recorded>1533015645 1533015645 1533015645 1533015645 1533015645</impact_recorded>
+  </alert>
+  <alert id="32335" is_fast_detected="f" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65359</id>
+        <added>1533014565</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>The "IP Fragmentation" host alert signature severity rate configured for "HFC_CGN_Trujillo" has been exceeded for 3 minutes, changing Severity Level from medium to high  (expected rate: 10.00 Kpps, observed rate: 338.83 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1533014445" stop="1533015957" length="1512"/>
+    <host_detection host_address="179.7.192.21" misuse_types="515" ip_version="4">
+      <blobs>
+        <blob gid="190" name="HFC_CGN_Trujillo" summary_url="/page?id=customer_summary&amp;gid=190" edit_url="" sev_pct="42742" sev_rate="10000" sev_is_bps="f" misuse_sig="IP Fragmentation" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="10000" pct="42742" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="39700856832" pps="4704312" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>6394554109 7575591266 6321641 9820794 6483483 8480064 9900952 9130729 13437119 51797746 4368164 8795616 9286877 13601980 11067321 6644286 7707028 8262572 11556696 15762388 8641748 0 213033 227222 3193828 80068018</impact_bps>
+    <impact_pps>565482 693820 618 869 886 969 919 986 1839 7725 418 852 886 1789 1086 601 752 752 1036 1404 785 0 66 66 317 12371</impact_pps>
+    <impact_recorded>1533014445 1533014505 1533014565 1533014625 1533014685 1533014745 1533014805 1533014865 1533014925 1533014985 1533015045 1533015105 1533015165 1533015225 1533015285 1533015345 1533015405 1533015465 1533015525 1533015585 1533015645 1533015705 1533015705 1533015705 1533015705 1533015705</impact_recorded>
+  </alert>
+  <alert id="32334" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65354</id>
+        <added>1533012869</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 77.01 Mbps/6.43 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1533012869" stop="1533013136" length="267"/>
+    <host_detection host_address="190.117.226.120" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="221" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="221" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="77309960" pps="6459" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 168396482</impact_bps>
+    <impact_pps>0 0 0 0 14038</impact_pps>
+    <impact_recorded>1533012885 1533012885 1533012885 1533012885 1533012885</impact_recorded>
+  </alert>
+  <alert id="32333" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65353</id>
+        <added>1533011486</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 35.44 Mbps/2.95 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1533011486" stop="1533011757" length="271"/>
+    <host_detection host_address="190.117.65.2" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="102" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="102" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="35594080" pps="2963" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 72996180</impact_bps>
+    <impact_pps>0 0 0 0 6042</impact_pps>
+    <impact_recorded>1533011505 1533011505 1533011505 1533011505 1533011505</impact_recorded>
+  </alert>
+  <alert id="32332" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65352</id>
+        <added>1533010791</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 37.25 Mbps/3.08 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1533010791" stop="1533011097" length="306"/>
+    <host_detection host_address="190.117.110.176" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="107" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="107" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="37415156" pps="3097" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>37859223 0 0 0 0 38431588</impact_bps>
+    <impact_pps>3133 0 0 0 0 3180</impact_pps>
+    <impact_recorded>1533010791 1533010845 1533010845 1533010845 1533010845 1533010845</impact_recorded>
+  </alert>
+  <alert id="32331" is_fast_detected="f" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65351</id>
+        <added>1533010725</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>The "IP Fragmentation" host alert signature severity rate configured for "HFC Pyme - IPv4" has been exceeded, changing Severity Level from low to high  (expected rate: 14.00 Kpps, observed rate: 40.43 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1533010725" stop="1533012297" length="1572"/>
+    <host_detection host_address="190.117.68.55" misuse_types="2" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="328" sev_rate="14000" sev_is_bps="f" misuse_sig="IP Fragmentation" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="14000" pct="328" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="400228864" pps="45917" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>717171524 727687934 739792933 788390466 702932553 712898050 714853045 811720014 811267044 735376292 633979831 602710354 612307583 542998617 530490500 571047836 782894692 675713139 608733871 603060305 648887229 606037273 0 0 0 0 465166957</impact_bps>
+    <impact_pps>70613 72493 72867 77780 69159 70280 70575 79683 80166 72865 62152 59020 60326 53814 52994 56340 77325 66884 60289 60021 64185 59431 0 0 0 0 46091</impact_pps>
+    <impact_recorded>1533010725 1533010785 1533010845 1533010905 1533010965 1533011025 1533011085 1533011145 1533011205 1533011265 1533011325 1533011385 1533011445 1533011505 1533011565 1533011625 1533011685 1533011745 1533011805 1533011865 1533011925 1533011985 1533012045 1533012045 1533012045 1533012045 1533012045</impact_recorded>
+  </alert>
+  <alert id="32330" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65349</id>
+        <added>1533010527</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSVillaSalvadorBR01". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 50.41 Mbps/4.17 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1533010527" stop="1533010797" length="270"/>
+    <host_detection host_address="190.117.64.192" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="145" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="145" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="50635748" pps="4185" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>0 0 0 0 217353616</impact_bps>
+    <impact_pps>0 0 0 0 17913</impact_pps>
+    <impact_recorded>1533010545 1533010545 1533010545 1533010545 1533010545</impact_recorded>
+  </alert>
+  <alert id="32329" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65348</id>
+        <added>1533010005</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>The "IP Fragmentation" host alert signature has been triggered at router "rMPLSVillaSalvadorBR01". (expected rate: 2.50 Kpps, observed rate: 8.54 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1533009981" stop="1533010556" length="575"/>
+    <host_detection host_address="190.117.183.14" misuse_types="2050" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="960" sev_rate="13000000" sev_is_bps="t" misuse_sig="DNS Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="13000000" pct="960" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="196774800" pps="20092" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>145841709 298092974 294663457 307212870 321655674 0 0 0 0 169816660</impact_bps>
+    <impact_pps>14416 29587 29034 30389 31277 0 0 0 0 17010</impact_pps>
+    <impact_recorded>1533010005 1533010065 1533010125 1533010185 1533010245 1533010305 1533010305 1533010305 1533010305 1533010305</impact_recorded>
+  </alert>
+  <alert id="32328" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65346</id>
+        <added>1533009708</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "SSDP Amplification" host alert signature has been triggered at router "rMPLSVillaSalvadorBR01". (expected rate: 4.00 Mbps/3.00 Kpps, observed rate: 15.10 Mbps/1.32 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1533009708" stop="1533010016" length="308"/>
+    <host_detection host_address="190.117.110.133" misuse_types="16384" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="101" sev_rate="15000000" sev_is_bps="t" misuse_sig="SSDP Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="15000000" pct="101" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="15170663" pps="1323" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>15157616 0 0 0 202811 43937908</impact_bps>
+    <impact_pps>1366 0 0 0 16 4002</impact_pps>
+    <impact_recorded>1533009708 1533009765 1533009765 1533009765 1533009765 1533009765</impact_recorded>
+  </alert>
+  <alert id="32327" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65345</id>
+        <added>1533009513</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 70.02 Mbps/5.83 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1533009513" stop="1533009776" length="263"/>
+    <host_detection host_address="190.117.197.148" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="201" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="201" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="70351784" pps="5861" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 70351784</impact_bps>
+    <impact_pps>0 0 0 0 5860</impact_pps>
+    <impact_recorded>1533009525 1533009525 1533009525 1533009525 1533009525</impact_recorded>
+  </alert>
+  <alert id="32318" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65333</id>
+        <added>1533005685</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSVillaSalvadorBR01". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 62.41 Mbps/5.53 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1533005685" stop="1533005997" length="312"/>
+    <host_detection host_address="190.117.179.140" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="179" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="179" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="62724660" pps="5561" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>62413376 0 0 0 0 62724661</impact_bps>
+    <impact_pps>5533 0 0 0 0 5560</impact_pps>
+    <impact_recorded>1533005685 1533005745 1533005745 1533005745 1533005745 1533005745</impact_recorded>
+  </alert>
+  <alert id="32316" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65332</id>
+        <added>1533005314</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 79.35 Mbps/6.55 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1533005314" stop="1533005576" length="262"/>
+    <host_detection host_address="190.117.65.84" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="228" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="228" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="79735688" pps="6582" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 79735686</impact_bps>
+    <impact_pps>0 0 0 0 6581</impact_pps>
+    <impact_recorded>1533005325 1533005325 1533005325 1533005325 1533005325</impact_recorded>
+  </alert>
+  <alert id="32315" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65331</id>
+        <added>1533004258</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 93.60 Mbps/7.83 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1533004258" stop="1533004556" length="298"/>
+    <host_detection host_address="190.117.95.173" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="269" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="269" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="94059424" pps="7872" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 285683386</impact_bps>
+    <impact_pps>0 0 0 0 24034</impact_pps>
+    <impact_recorded>1533004305 1533004305 1533004305 1533004305 1533004305</impact_recorded>
+  </alert>
+  <alert id="32312" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65327</id>
+        <added>1533003692</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 50.00 Mbps/4.13 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1533003692" stop="1533003956" length="264"/>
+    <host_detection host_address="190.117.112.25" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="144" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="144" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="50248508" pps="4154" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 146933850</impact_bps>
+    <impact_pps>0 0 0 0 12125</impact_pps>
+    <impact_recorded>1533003705 1533003705 1533003705 1533003705 1533003705</impact_recorded>
+  </alert>
+  <alert id="32306" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65322</id>
+        <added>1532993529</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 164.12 Mbps/13.85 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532993529" stop="1532993816" length="287"/>
+    <host_detection host_address="190.117.186.181" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="471" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="471" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="164868608" pps="13913" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 164868613</impact_bps>
+    <impact_pps>0 0 0 0 13913</impact_pps>
+    <impact_recorded>1532993565 1532993565 1532993565 1532993565 1532993565</impact_recorded>
+  </alert>
+  <alert id="32305" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65321</id>
+        <added>1532992642</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSVillaSalvadorBR01". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 36.16 Mbps/3.00 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532992642" stop="1532992916" length="274"/>
+    <host_detection host_address="190.117.111.3" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="104" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="104" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="36317344" pps="3013" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>0 0 0 202776 87643175</impact_bps>
+    <impact_pps>0 0 0 16 7382</impact_pps>
+    <impact_recorded>1532992665 1532992665 1532992665 1532992665 1532992665</impact_recorded>
+  </alert>
+  <alert id="32303" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65320</id>
+        <added>1532990314</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSVillaSalvadorBR01". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 126.35 Mbps/10.47 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532990314" stop="1532990577" length="263"/>
+    <host_detection host_address="190.117.162.143" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="363" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="363" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="126912296" pps="10514" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>0 0 0 0 522476698</impact_bps>
+    <impact_pps>0 0 0 0 43192</impact_pps>
+    <impact_recorded>1532990325 1532990325 1532990325 1532990325 1532990325</impact_recorded>
+  </alert>
+  <alert id="32302" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65319</id>
+        <added>1532990307</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSVillaSalvadorBR01". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 44.94 Mbps/3.72 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532990307" stop="1532990577" length="270"/>
+    <host_detection host_address="190.117.68.70" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="129" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="129" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="45152712" pps="3750" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>0 0 0 0 59889994</impact_bps>
+    <impact_pps>0 0 0 0 5273</impact_pps>
+    <impact_recorded>1532990325 1532990325 1532990325 1532990325 1532990325</impact_recorded>
+  </alert>
+  <alert id="32301" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65318</id>
+        <added>1532990195</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 71.69 Mbps/5.98 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532990195" stop="1532990457" length="262"/>
+    <host_detection host_address="190.117.121.156" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="206" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="206" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="72012744" pps="6010" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 143865709</impact_bps>
+    <impact_pps>0 0 0 0 12036</impact_pps>
+    <impact_recorded>1532990205 1532990205 1532990205 1532990205 1532990205</impact_recorded>
+  </alert>
+  <alert id="32300" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65317</id>
+        <added>1532989616</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 128.15 Mbps/10.62 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532989616" stop="1532989917" length="301"/>
+    <host_detection host_address="190.117.219.58" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="368" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="368" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="128718864" pps="10664" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>128172401 0 0 0 0 128777124</impact_bps>
+    <impact_pps>10633 0 0 0 0 10713</impact_pps>
+    <impact_recorded>1532989616 1532989665 1532989665 1532989665 1532989665 1532989665</impact_recorded>
+  </alert>
+  <alert id="32298" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65316</id>
+        <added>1532988954</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 213.34 Mbps/17.58 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532988954" stop="1532989257" length="303"/>
+    <host_detection host_address="190.117.207.189" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="612" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="612" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="214283088" pps="17661" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>213727618 0 0 0 0 216860179</impact_bps>
+    <impact_pps>17616 0 0 0 0 17928</impact_pps>
+    <impact_recorded>1532988954 1532989005 1532989005 1532989005 1532989005 1532989005</impact_recorded>
+  </alert>
+  <alert id="32297" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65315</id>
+        <added>1532981949</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 63.91 Mbps/5.30 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532981949" stop="1532982236" length="287"/>
+    <host_detection host_address="190.117.147.143" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="183" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="183" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="64197988" pps="5324" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 66449715</impact_bps>
+    <impact_pps>0 0 0 0 5524</impact_pps>
+    <impact_recorded>1532981985 1532981985 1532981985 1532981985 1532981985</impact_recorded>
+  </alert>
+  <alert id="32296" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65314</id>
+        <added>1532980890</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSVillaSalvadorBR01". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 37.25 Mbps/3.08 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532980890" stop="1532981156" length="266"/>
+    <host_detection host_address="190.117.54.140" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="107" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="107" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="37413664" pps="3097" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>0 0 0 0 38256370</impact_bps>
+    <impact_pps>0 0 0 0 3213</impact_pps>
+    <impact_recorded>1532980905 1532980905 1532980905 1532980905 1532980905</impact_recorded>
+  </alert>
+  <alert id="32295" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65313</id>
+        <added>1532979851</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 36.43 Mbps/3.07 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532979851" stop="1532980137" length="286"/>
+    <host_detection host_address="190.117.52.150" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="105" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="105" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="36584364" pps="3080" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 40227092</impact_bps>
+    <impact_pps>0 0 0 0 3381</impact_pps>
+    <impact_recorded>1532979885 1532979885 1532979885 1532979885 1532979885</impact_recorded>
+  </alert>
+  <alert id="32294" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65312</id>
+        <added>1532978465</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 64.25 Mbps/5.35 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532978465" stop="1532978757" length="292"/>
+    <host_detection host_address="190.117.170.57" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="184" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="184" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="64526436" pps="5373" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 64526436</impact_bps>
+    <impact_pps>0 0 0 0 5372</impact_pps>
+    <impact_recorded>1532978505 1532978505 1532978505 1532978505 1532978505</impact_recorded>
+  </alert>
+  <alert id="32293" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65311</id>
+        <added>1532976960</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 79.01 Mbps/6.57 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532976960" stop="1532977256" length="296"/>
+    <host_detection host_address="190.117.119.83" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="227" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="227" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="79344864" pps="6597" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 79548721</impact_bps>
+    <impact_pps>0 0 0 0 6614</impact_pps>
+    <impact_recorded>1532977005 1532977005 1532977005 1532977005 1532977005</impact_recorded>
+  </alert>
+  <alert id="32292" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65310</id>
+        <added>1532976016</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 47.54 Mbps/3.97 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532976016" stop="1532976296" length="280"/>
+    <host_detection host_address="190.117.64.120" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="136" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="136" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="47739420" pps="3983" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 47739418</impact_bps>
+    <impact_pps>0 0 0 0 3983</impact_pps>
+    <impact_recorded>1532976045 1532976045 1532976045 1532976045 1532976045</impact_recorded>
+  </alert>
+  <alert id="32290" is_fast_detected="f" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65309</id>
+        <added>1532969685</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>The "IP Fragmentation" host alert signature severity rate configured for "HFC CGN Polo1 - Huawei" has been exceeded for 3 minutes, changing Severity Level from medium to high  (expected rate: 10.00 Kpps, observed rate: 26.78 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532969445" stop="1532973477" length="4032"/>
+    <host_detection host_address="179.6.208.36" misuse_types="2" ip_version="4">
+      <blobs>
+        <blob gid="258" name="HFC CGN Polo1 - Huawei" summary_url="/page?id=customer_summary&amp;gid=258" edit_url="" sev_pct="268" sev_rate="10000" sev_is_bps="f" misuse_sig="IP Fragmentation" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="10000" pct="268" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="233607792" pps="26780" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>113318514 113017925 114048338 112352308 100894035 91839836 95850629 106019401 95927253 102213863 109131764 128118474 109952095 95773382 107857873 100209107 99762013 96364042 97326757 95089932 110140903 106878171 119641944 115658800 105623078 0 0 0 0 93423483</impact_bps>
+    <impact_pps>11197 11380 11716 11263 10293 9523 9724 10711 9691 10159 11013 12686 11247 9707 10544 9925 10076 9440 10009 9524 10979 10979 12118 11448 10561 0 0 0 0 9674</impact_pps>
+    <impact_recorded>1532971725 1532971785 1532971845 1532971905 1532971965 1532972025 1532972085 1532972145 1532972205 1532972265 1532972325 1532972385 1532972445 1532972505 1532972565 1532972625 1532972685 1532972745 1532972805 1532972865 1532972925 1532972985 1532973045 1532973105 1532973165 1532973225 1532973225 1532973225 1532973225 1532973225</impact_recorded>
+  </alert>
+  <alert id="32289" is_fast_detected="f" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65306</id>
+        <added>1532968545</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>The "IP Fragmentation" host alert signature severity rate configured for "HFC CGN Polo1 - Huawei" has been exceeded for 3 minutes, changing Severity Level from medium to high  (expected rate: 10.00 Kpps, observed rate: 14.43 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532968425" stop="1532968797" length="372"/>
+    <host_detection host_address="179.6.208.36" misuse_types="514" ip_version="4">
+      <blobs>
+        <blob gid="258" name="HFC CGN Polo1 - Huawei" summary_url="/page?id=customer_summary&amp;gid=258" edit_url="" sev_pct="330" sev_rate="10000" sev_is_bps="f" misuse_sig="IP Fragmentation" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="10000" pct="330" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="589771776" pps="57853" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>579293584 590847921 0 0 0 0 248380591</impact_bps>
+    <impact_pps>57281 58053 0 0 0 0 24950</impact_pps>
+    <impact_recorded>1532968425 1532968485 1532968545 1532968545 1532968545 1532968545 1532968545</impact_recorded>
+  </alert>
+  <alert id="32288" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65302</id>
+        <added>1532967515</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 56.84 Mbps/4.77 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532967515" stop="1532967777" length="262"/>
+    <host_detection host_address="190.117.85.246" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="163" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="163" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="57067460" pps="4786" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 178260735</impact_bps>
+    <impact_pps>0 0 0 0 14910</impact_pps>
+    <impact_recorded>1532967525 1532967525 1532967525 1532967525 1532967525</impact_recorded>
+  </alert>
+  <alert id="32287" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65301</id>
+        <added>1532960835</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 113.15 Mbps/9.33 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532960835" stop="1532961117" length="282"/>
+    <host_detection host_address="190.117.79.180" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="324" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="324" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="113526400" pps="9364" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 114135612</impact_bps>
+    <impact_pps>0 0 0 0 9414</impact_pps>
+    <impact_recorded>1532960865 1532960865 1532960865 1532960865 1532960865</impact_recorded>
+  </alert>
+  <alert id="32283" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65298</id>
+        <added>1532955862</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 91.03 Mbps/7.53 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532955862" stop="1532956136" length="274"/>
+    <host_detection host_address="190.117.144.95" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="261" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="261" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="91243408" pps="7551" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 91243405</impact_bps>
+    <impact_pps>0 0 0 0 7551</impact_pps>
+    <impact_recorded>1532955885 1532955885 1532955885 1532955885 1532955885</impact_recorded>
+  </alert>
+  <alert id="32282" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65297</id>
+        <added>1532934145</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 149.75 Mbps/12.38 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532934145" stop="1532934417" length="272"/>
+    <host_detection host_address="190.117.164.166" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="429" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="429" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="150025120" pps="12406" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 152052848</impact_bps>
+    <impact_pps>0 0 0 0 12573</impact_pps>
+    <impact_recorded>1532934165 1532934165 1532934165 1532934165 1532934165</impact_recorded>
+  </alert>
+  <alert id="32281" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65296</id>
+        <added>1532930452</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 64.07 Mbps/5.38 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532930452" stop="1532930756" length="304"/>
+    <host_detection host_address="190.117.136.40" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="184" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="184" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="64229920" pps="5397" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>64069653 0 0 0 0 80462436</impact_bps>
+    <impact_pps>5383 0 0 0 0 6733</impact_pps>
+    <impact_recorded>1532930452 1532930505 1532930505 1532930505 1532930505 1532930505</impact_recorded>
+  </alert>
+  <alert id="32279" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65293</id>
+        <added>1532928657</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 100.16 Mbps/8.28 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532928657" stop="1532928957" length="300"/>
+    <host_detection host_address="190.117.237.184" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="287" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="287" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="100464704" pps="8309" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 100464705</impact_bps>
+    <impact_pps>0 0 0 0 8308</impact_pps>
+    <impact_recorded>1532928705 1532928705 1532928705 1532928705 1532928705</impact_recorded>
+  </alert>
+  <alert id="32278" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65292</id>
+        <added>1532927446</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 69.01 Mbps/5.73 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532927446" stop="1532927757" length="311"/>
+    <host_detection host_address="190.117.146.51" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="198" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="198" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="69254952" pps="5754" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>69009122 0 0 0 0 72031741</impact_bps>
+    <impact_pps>5733 0 0 0 0 5987</impact_pps>
+    <impact_recorded>1532927446 1532927505 1532927505 1532927505 1532927505 1532927505</impact_recorded>
+  </alert>
+  <alert id="32277" is_fast_detected="f" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65291</id>
+        <added>1532926365</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>The "TCP SYN" host alert signature severity rate configured for "HFC CGN VES - Huawei" has been exceeded for 3 minutes, changing Severity Level from medium to high  (expected rate: 10.00 Kpps, observed rate: 12.62 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532926245" stop="1532926916" length="671"/>
+    <host_detection host_address="179.6.193.157" misuse_types="34" ip_version="4">
+      <blobs>
+        <blob gid="259" name="HFC CGN VES - Huawei" summary_url="/page?id=customer_summary&amp;gid=259" edit_url="" sev_pct="169" sev_rate="10000" sev_is_bps="f" misuse_sig="IP Fragmentation" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="10000" pct="169" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="159574144" pps="16882" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>23956846 39847645 127032769 187811920 160380282 180516898 160400806 0 0 0 0 49687214</impact_bps>
+    <impact_pps>14321 15526 25431 32441 24310 18319 17231 0 0 0 0 6006</impact_pps>
+    <impact_recorded>1532926245 1532926305 1532926365 1532926425 1532926485 1532926545 1532926605 1532926665 1532926665 1532926665 1532926665 1532926665</impact_recorded>
+  </alert>
+  <alert id="32276" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65287</id>
+        <added>1532921525</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 110.34 Mbps/9.15 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532921525" stop="1532921816" length="291"/>
+    <host_detection host_address="190.117.85.188" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="317" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="317" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="110872752" pps="9194" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 110872750</impact_bps>
+    <impact_pps>0 0 0 0 9194</impact_pps>
+    <impact_recorded>1532921565 1532921565 1532921565 1532921565 1532921565</impact_recorded>
+  </alert>
+  <alert id="32275" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65286</id>
+        <added>1532919272</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 68.32 Mbps/5.65 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532919272" stop="1532919536" length="264"/>
+    <host_detection host_address="190.117.167.226" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="196" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="196" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="68652976" pps="5677" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 68662357</impact_bps>
+    <impact_pps>0 0 0 0 5694</impact_pps>
+    <impact_recorded>1532919285 1532919285 1532919285 1532919285 1532919285</impact_recorded>
+  </alert>
+  <alert id="32274" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65285</id>
+        <added>1532918455</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 43.79 Mbps/3.63 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532918455" stop="1532918756" length="301"/>
+    <host_detection host_address="190.117.124.16" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="126" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="126" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="44005152" pps="3651" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>43791112 0 0 0 0 46649212</impact_bps>
+    <impact_pps>3633 0 0 0 0 3868</impact_pps>
+    <impact_recorded>1532918455 1532918505 1532918505 1532918505 1532918505 1532918505</impact_recorded>
+  </alert>
+  <alert id="32273" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65284</id>
+        <added>1532918452</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 39.22 Mbps/3.27 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532918452" stop="1532918757" length="305"/>
+    <host_detection host_address="190.117.63.84" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="113" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="113" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="39411984" pps="3283" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>129648364 0 0 0 0 130282048</impact_bps>
+    <impact_pps>10750 0 0 0 0 10802</impact_pps>
+    <impact_recorded>1532918452 1532918505 1532918505 1532918505 1532918505 1532918505</impact_recorded>
+  </alert>
+  <alert id="32272" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65282</id>
+        <added>1532918060</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 41.42 Mbps/3.45 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532918060" stop="1532918336" length="276"/>
+    <host_detection host_address="190.117.156.55" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="119" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="119" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="41621824" pps="3467" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 41621825</impact_bps>
+    <impact_pps>0 0 0 0 3467</impact_pps>
+    <impact_recorded>1532918085 1532918085 1532918085 1532918085 1532918085</impact_recorded>
+  </alert>
+  <alert id="32268" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65279</id>
+        <added>1532916203</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSVillaSalvadorBR01". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 50.71 Mbps/4.22 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532916203" stop="1532916477" length="274"/>
+    <host_detection host_address="190.117.76.32" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="146" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="146" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="50954884" pps="4237" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>0 0 0 0 51158276</impact_bps>
+    <impact_pps>0 0 0 0 4254</impact_pps>
+    <impact_recorded>1532916225 1532916225 1532916225 1532916225 1532916225</impact_recorded>
+  </alert>
+  <alert id="32267" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65278</id>
+        <added>1532916112</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 159.73 Mbps/13.33 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532916112" stop="1532916416" length="304"/>
+    <host_detection host_address="190.117.161.202" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="459" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="459" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="160509632" pps="13398" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>159732514 0 0 0 8842 161323176</impact_bps>
+    <impact_pps>13333 0 0 0 16 13465</impact_pps>
+    <impact_recorded>1532916112 1532916165 1532916165 1532916165 1532916165 1532916165</impact_recorded>
+  </alert>
+  <alert id="32263" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65274</id>
+        <added>1532913445</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSVillaSalvadorBR01". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 57.35 Mbps/4.75 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532913445" stop="1532913717" length="272"/>
+    <host_detection host_address="190.117.40.232" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="165" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="165" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="57633216" pps="4789" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>0 0 0 0 258774704</impact_bps>
+    <impact_pps>0 0 0 0 21383</impact_pps>
+    <impact_recorded>1532913465 1532913465 1532913465 1532913465 1532913465</impact_recorded>
+  </alert>
+  <alert id="32257" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65272</id>
+        <added>1532903850</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 36.47 Mbps/3.12 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532903850" stop="1532904116" length="266"/>
+    <host_detection host_address="190.117.107.75" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="105" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="105" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="36627708" pps="3130" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 110595701</impact_bps>
+    <impact_pps>0 0 0 0 9424</impact_pps>
+    <impact_recorded>1532903865 1532903865 1532903865 1532903865 1532903865</impact_recorded>
+  </alert>
+  <alert id="32254" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65269</id>
+        <added>1532902430</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 58.98 Mbps/4.88 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532902430" stop="1532902736" length="306"/>
+    <host_detection host_address="190.117.76.6" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="169" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="169" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="59245128" pps="4905" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>58982178 0 0 0 0 59245127</impact_bps>
+    <impact_pps>4883 0 0 0 0 4905</impact_pps>
+    <impact_recorded>1532902430 1532902485 1532902485 1532902485 1532902485 1532902485</impact_recorded>
+  </alert>
+  <alert id="32252" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65268</id>
+        <added>1532900672</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSVillaSalvadorBR01". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 42.22 Mbps/3.52 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532900672" stop="1532900937" length="265"/>
+    <host_detection host_address="190.117.166.71" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="121" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="121" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="42398496" pps="3532" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>0 0 0 0 46551128</impact_bps>
+    <impact_pps>0 0 0 0 3950</impact_pps>
+    <impact_recorded>1532900685 1532900685 1532900685 1532900685 1532900685</impact_recorded>
+  </alert>
+  <alert id="32251" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65267</id>
+        <added>1532898937</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 96.36 Mbps/8.02 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532898937" stop="1532899196" length="259"/>
+    <host_detection host_address="190.117.106.181" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="277" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="277" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="96777224" pps="8051" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 97183776</impact_bps>
+    <impact_pps>0 0 0 0 8084</impact_pps>
+    <impact_recorded>1532898945 1532898945 1532898945 1532898945 1532898945</impact_recorded>
+  </alert>
+  <alert id="32250" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65266</id>
+        <added>1532898813</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 36.44 Mbps/3.02 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532898813" stop="1532899076" length="263"/>
+    <host_detection host_address="190.117.99.156" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="105" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="105" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="36600164" pps="3030" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 36600164</impact_bps>
+    <impact_pps>0 0 0 0 3029</impact_pps>
+    <impact_recorded>1532898825 1532898825 1532898825 1532898825 1532898825</impact_recorded>
+  </alert>
+  <alert id="32249" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65265</id>
+        <added>1532894996</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "DNS Amplification" host alert signature has been triggered at router "rMPLSVillaSalvadorBR01". (expected rate: 4.00 Mbps/3.00 Kpps, observed rate: 18.96 Mbps/1.67 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532894996" stop="1532895477" length="481"/>
+    <host_detection host_address="190.117.134.44" misuse_types="2048" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="160" sev_rate="13000000" sev_is_bps="t" misuse_sig="DNS Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="13000000" pct="160" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="20763184" pps="1891" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>19181212 0 0 31121877 0 0 0 0 14247500</impact_bps>
+    <impact_pps>1716 0 0 2929 0 0 0 0 1355</impact_pps>
+    <impact_recorded>1532894996 1532895045 1532895045 1532895045 1532895225 1532895225 1532895225 1532895225 1532895225</impact_recorded>
+  </alert>
+  <alert id="32248" is_fast_detected="f" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65264</id>
+        <added>1532893665</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>The "DNS Amplification" host alert signature severity rate configured for "HFC Pyme - IPv4" has been exceeded, changing Severity Level from low to high  (expected rate: 13.00 Mbps/15.00 Kpps, observed rate: 13.65 Mbps/1.21 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532893665" stop="1532894637" length="972"/>
+    <host_detection host_address="190.117.134.44" misuse_types="2048" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="105" sev_rate="13000000" sev_is_bps="t" misuse_sig="DNS Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="13000000" pct="105" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="13651327" pps="1205" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>0 0 0 19793166 0 28482253 0 0 0 8139779 0 17758770 0 0 0 0 12208696</impact_bps>
+    <impact_pps>0 0 0 1957 0 2577 0 0 0 836 0 1707 0 0 0 0 1205</impact_pps>
+    <impact_recorded>1532893665 1532893665 1532893665 1532893665 1532893905 1532893905 1532894025 1532894025 1532894025 1532894025 1532894265 1532894265 1532894385 1532894385 1532894385 1532894385 1532894385</impact_recorded>
+  </alert>
+  <alert id="32246" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65262</id>
+        <added>1532893387</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 107.24 Mbps/8.98 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532893387" stop="1532893676" length="289"/>
+    <host_detection host_address="190.117.228.198" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="308" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="308" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="107695320" pps="9021" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 108325434</impact_bps>
+    <impact_pps>0 0 0 0 9104</impact_pps>
+    <impact_recorded>1532893425 1532893425 1532893425 1532893425 1532893425</impact_recorded>
+  </alert>
+  <alert id="32245" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65261</id>
+        <added>1532893014</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSVillaSalvadorBR01". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 75.00 Mbps/6.68 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532893014" stop="1532893316" length="302"/>
+    <host_detection host_address="190.117.157.63" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="215" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="215" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="75314376" pps="6711" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>75003921 0 0 0 0 75323751</impact_bps>
+    <impact_pps>6683 0 0 0 0 6727</impact_pps>
+    <impact_recorded>1532893014 1532893065 1532893065 1532893065 1532893065 1532893065</impact_recorded>
+  </alert>
+  <alert id="32244" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65260</id>
+        <added>1532893009</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "DNS Amplification" host alert signature has been triggered at router "rMPLSVillaSalvadorBR01". (expected rate: 4.00 Mbps/3.00 Kpps, observed rate: 28.88 Mbps/2.53 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532893009" stop="1532893556" length="547"/>
+    <host_detection host_address="190.117.134.44" misuse_types="2048" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="225" sev_rate="13000000" sev_is_bps="t" misuse_sig="DNS Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="13000000" pct="225" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="29211230" pps="2577" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>28875750 0 0 0 39550925 0 0 0 0 202713</impact_bps>
+    <impact_pps>2533 0 0 0 3614 0 0 0 0 16</impact_pps>
+    <impact_recorded>1532893009 1532893065 1532893065 1532893065 1532893065 1532893305 1532893305 1532893305 1532893305 1532893305</impact_recorded>
+  </alert>
+  <alert id="32243" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65259</id>
+        <added>1532892504</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "DNS Amplification" host alert signature has been triggered at router "rMPLSVillaSalvadorBR01". (expected rate: 4.00 Mbps/3.00 Kpps, observed rate: 14.71 Mbps/1.35 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532892504" stop="1532892776" length="272"/>
+    <host_detection host_address="190.117.134.44" misuse_types="2048" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="119" sev_rate="13000000" sev_is_bps="t" misuse_sig="DNS Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="13000000" pct="119" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="15412068" pps="1439" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>0 0 0 0 22313183</impact_bps>
+    <impact_pps>0 0 0 0 2091</impact_pps>
+    <impact_recorded>1532892525 1532892525 1532892525 1532892525 1532892525</impact_recorded>
+  </alert>
+  <alert id="32242" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65258</id>
+        <added>1532892379</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSVillaSalvadorBR01". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 36.29 Mbps/3.02 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532892379" stop="1532892656" length="277"/>
+    <host_detection host_address="190.117.128.209" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="104" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="104" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="36442332" pps="3029" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>0 0 1226255 5878348 45384593</impact_bps>
+    <impact_pps>0 0 117 485 3765</impact_pps>
+    <impact_recorded>1532892405 1532892405 1532892405 1532892405 1532892405</impact_recorded>
+  </alert>
+  <alert id="32241" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65257</id>
+        <added>1532892020</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "DNS Amplification" host alert signature has been triggered at router "rMPLSVillaSalvadorBR01". (expected rate: 4.00 Mbps/3.00 Kpps, observed rate: 59.74 Mbps/5.17 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532892020" stop="1532892296" length="276"/>
+    <host_detection host_address="190.117.134.44" misuse_types="2048" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="461" sev_rate="13000000" sev_is_bps="t" misuse_sig="DNS Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="13000000" pct="461" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="59988760" pps="5188" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>0 0 0 0 62878989</impact_bps>
+    <impact_pps>0 0 0 0 5522</impact_pps>
+    <impact_recorded>1532892045 1532892045 1532892045 1532892045 1532892045</impact_recorded>
+  </alert>
+  <alert id="32240" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65256</id>
+        <added>1532891515</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSVillaSalvadorBR01". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 58.25 Mbps/4.87 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532891515" stop="1532891817" length="302"/>
+    <host_detection host_address="190.117.92.66" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="167" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="167" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="58489736" pps="4887" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>58643243 0 0 0 58778455 136588082</impact_bps>
+    <impact_pps>4900 0 0 0 4852 11396</impact_pps>
+    <impact_recorded>1532891515 1532891565 1532891565 1532891565 1532891565 1532891565</impact_recorded>
+  </alert>
+  <alert id="32239" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65255</id>
+        <added>1532890683</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "DNS Amplification" host alert signature has been triggered at router "rMPLSVillaSalvadorBR01". (expected rate: 4.00 Mbps/3.00 Kpps, observed rate: 28.07 Mbps/2.43 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532890683" stop="1532890976" length="293"/>
+    <host_detection host_address="190.117.134.44" misuse_types="2048" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="217" sev_rate="13000000" sev_is_bps="t" misuse_sig="DNS Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="13000000" pct="217" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="28180716" pps="2443" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>0 0 0 0 31315788</impact_bps>
+    <impact_pps>0 0 0 0 2827</impact_pps>
+    <impact_recorded>1532890725 1532890725 1532890725 1532890725 1532890725</impact_recorded>
+  </alert>
+  <alert id="32238" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65254</id>
+        <added>1532889456</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 36.78 Mbps/3.12 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532889456" stop="1532889716" length="260"/>
+    <host_detection host_address="190.117.40.2" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="106" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="106" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="36934568" pps="3129" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 50741552</impact_bps>
+    <impact_pps>0 0 0 0 4334</impact_pps>
+    <impact_recorded>1532889465 1532889465 1532889465 1532889465 1532889465</impact_recorded>
+  </alert>
+  <alert id="32237" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65253</id>
+        <added>1532884773</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 63.99 Mbps/5.32 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532884773" stop="1532885037" length="264"/>
+    <host_detection host_address="190.117.62.123" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="184" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="184" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="64243040" pps="5338" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 64243038</impact_bps>
+    <impact_pps>0 0 0 0 5337</impact_pps>
+    <impact_recorded>1532884785 1532884785 1532884785 1532884785 1532884785</impact_recorded>
+  </alert>
+  <alert id="32236" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65252</id>
+        <added>1532882916</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 37.12 Mbps/3.08 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532882916" stop="1532883176" length="260"/>
+    <host_detection host_address="190.117.84.2" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="106" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="106" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="37268628" pps="3095" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 37471824</impact_bps>
+    <impact_pps>0 0 0 0 3112</impact_pps>
+    <impact_recorded>1532882925 1532882925 1532882925 1532882925 1532882925</impact_recorded>
+  </alert>
+  <alert id="32235" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65251</id>
+        <added>1532882692</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSVillaSalvadorBR01". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 40.50 Mbps/3.37 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532882692" stop="1532882996" length="304"/>
+    <host_detection host_address="190.117.99.24" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="116" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="116" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="40661116" pps="3380" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>40499763 0 0 0 0 41473942</impact_bps>
+    <impact_pps>3366 0 0 0 0 3447</impact_pps>
+    <impact_recorded>1532882692 1532882745 1532882745 1532882745 1532882745 1532882745</impact_recorded>
+  </alert>
+  <alert id="32234" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65250</id>
+        <added>1532882557</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 79.49 Mbps/6.62 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532882557" stop="1532882816" length="259"/>
+    <host_detection host_address="190.117.123.150" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="228" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="228" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="79802616" pps="6643" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 79802619</impact_bps>
+    <impact_pps>0 0 0 0 6642</impact_pps>
+    <impact_recorded>1532882565 1532882565 1532882565 1532882565 1532882565</impact_recorded>
+  </alert>
+  <alert id="32233" is_fast_detected="f" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65249</id>
+        <added>1532882025</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>The "DNS Amplification" host alert signature severity rate configured for "HFC Pyme - IPv4" has been exceeded, changing Severity Level from low to high  (expected rate: 13.00 Mbps/15.00 Kpps, observed rate: 19.41 Mbps/1.69 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532881965" stop="1532882697" length="732"/>
+    <host_detection host_address="190.117.134.44" misuse_types="2048" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="149" sev_rate="13000000" sev_is_bps="t" misuse_sig="DNS Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="13000000" pct="149" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="19413722" pps="1690" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>17187258 0 0 25996465 0 0 12934401 9565951 0 0 0 0 12008007</impact_bps>
+    <impact_pps>1673 0 0 2292 0 0 1321 903 0 0 0 0 1121</impact_pps>
+    <impact_recorded>1532881965 1532882025 1532882025 1532882025 1532882205 1532882205 1532882205 1532882385 1532882445 1532882445 1532882445 1532882445 1532882445</impact_recorded>
+  </alert>
+  <alert id="32231" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65243</id>
+        <added>1532879663</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 35.63 Mbps/3.02 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532879663" stop="1532879937" length="274"/>
+    <host_detection host_address="190.117.90.31" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="102" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="102" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="35758600" pps="3028" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 66636518</impact_bps>
+    <impact_pps>0 0 0 0 5570</impact_pps>
+    <impact_recorded>1532879685 1532879685 1532879685 1532879685 1532879685</impact_recorded>
+  </alert>
+  <alert id="32228" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65240</id>
+        <added>1532872388</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSVillaSalvadorBR01". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 177.98 Mbps/14.68 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532872388" stop="1532872677" length="289"/>
+    <host_detection host_address="190.117.148.5" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="510" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="510" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="178467888" pps="14723" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>0 0 0 0 178479927</impact_bps>
+    <impact_pps>0 0 0 0 14740</impact_pps>
+    <impact_recorded>1532872425 1532872425 1532872425 1532872425 1532872425</impact_recorded>
+  </alert>
+  <alert id="32227" is_fast_detected="f" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65239</id>
+        <added>1532869965</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>The "IP Fragmentation" host alert signature severity rate configured for "HFC_CGN_Trujillo" has been exceeded for 3 minutes, changing Severity Level from medium to high  (expected rate: 10.00 Kpps, observed rate: 10.89 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532869665" stop="1532870336" length="671"/>
+    <host_detection host_address="179.7.192.202" misuse_types="8706" ip_version="4">
+      <blobs>
+        <blob gid="190" name="HFC_CGN_Trujillo" summary_url="/page?id=customer_summary&amp;gid=190" edit_url="" sev_pct="425" sev_rate="10000" sev_is_bps="f" misuse_sig="IP Fragmentation" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="10000" pct="425" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="596828160" pps="61589" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>382240447 0 436340 566872 597691863 205496980 472098652 0 21116 198335 337724 330578152</impact_bps>
+    <impact_pps>38670 0 83 50 61823 20514 47543 0 33 16 33 33528</impact_pps>
+    <impact_recorded>1532869665 1532869725 1532869725 1532869725 1532869725 1532869965 1532870025 1532870085 1532870085 1532870085 1532870085 1532870085</impact_recorded>
+  </alert>
+  <alert id="32216" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65225</id>
+        <added>1532845136</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSVillaSalvadorBR01". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 48.79 Mbps/4.03 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532845136" stop="1532845437" length="301"/>
+    <host_detection host_address="190.117.182.4" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="140" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="140" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="48916488" pps="4044" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>48788829 0 0 0 0 48925845</impact_bps>
+    <impact_pps>4033 0 0 0 0 4060</impact_pps>
+    <impact_recorded>1532845136 1532845185 1532845185 1532845185 1532845185 1532845185</impact_recorded>
+  </alert>
+  <alert id="32215" is_fast_detected="f" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65224</id>
+        <added>1532844765</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>The "TCP SYN" host alert signature severity rate configured for "HFC_CGN_Trujillo" has been exceeded for 3 minutes, changing Severity Level from medium to high  (expected rate: 10.00 Kpps, observed rate: 17.55 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532844645" stop="1532845137" length="492"/>
+    <host_detection host_address="179.7.192.202" misuse_types="32" ip_version="4">
+      <blobs>
+        <blob gid="190" name="HFC_CGN_Trujillo" summary_url="/page?id=customer_summary&amp;gid=190" edit_url="" sev_pct="205" sev_rate="10000" sev_is_bps="f" misuse_sig="TCP SYN" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="10000" pct="205" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="9833672" pps="20487" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>10850992 13127338 180756 17647 0 19788 36632 198401 676521</impact_bps>
+    <impact_pps>18932 20837 50 33 0 33 66 16 83</impact_pps>
+    <impact_recorded>1532844645 1532844705 1532844765 1532844825 1532844885 1532844885 1532844885 1532844885 1532844885</impact_recorded>
+  </alert>
+  <alert id="32211" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65215</id>
+        <added>1532836918</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 37.99 Mbps/3.23 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532836918" stop="1532837216" length="298"/>
+    <host_detection host_address="190.117.70.218" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="109" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="109" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="38155784" pps="3248" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 117584527</impact_bps>
+    <impact_pps>0 0 0 0 9910</impact_pps>
+    <impact_recorded>1532836965 1532836965 1532836965 1532836965 1532836965</impact_recorded>
+  </alert>
+  <alert id="32210" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65214</id>
+        <added>1532834163</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 137.87 Mbps/11.38 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532834163" stop="1532834457" length="294"/>
+    <host_detection host_address="190.117.150.21" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="396" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="396" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="138494112" pps="11435" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 139097242</impact_bps>
+    <impact_pps>0 0 0 0 11501</impact_pps>
+    <impact_recorded>1532834205 1532834205 1532834205 1532834205 1532834205</impact_recorded>
+  </alert>
+  <alert id="32209" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65213</id>
+        <added>1532833550</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 83.88 Mbps/6.93 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532833550" stop="1532833857" length="307"/>
+    <host_detection host_address="190.117.99.170" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="241" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="241" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="84257528" pps="6965" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>83877393 0 0 0 0 86900654</impact_bps>
+    <impact_pps>6933 0 0 0 0 7182</impact_pps>
+    <impact_recorded>1532833550 1532833605 1532833605 1532833605 1532833605 1532833605</impact_recorded>
+  </alert>
+  <alert id="32208" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65212</id>
+        <added>1532831171</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 39.39 Mbps/3.28 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532831171" stop="1532831456" length="285"/>
+    <host_detection host_address="190.117.72.104" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="113" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="113" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="39570420" pps="3298" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 40586960</impact_bps>
+    <impact_pps>0 0 0 0 3381</impact_pps>
+    <impact_recorded>1532831205 1532831205 1532831205 1532831205 1532831205</impact_recorded>
+  </alert>
+  <alert id="32207" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65211</id>
+        <added>1532830139</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "IP Fragmentation" host alert signature has been triggered at router "rMPLSVillaSalvadorBR01". (expected rate: 2.50 Kpps, observed rate: 15.62 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532830139" stop="1532830437" length="298"/>
+    <host_detection host_address="190.117.127.92" misuse_types="2" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="112" sev_rate="14000" sev_is_bps="f" misuse_sig="IP Fragmentation" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="14000" pct="112" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="8692481" pps="15736" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>0 0 0 0 333292662</impact_bps>
+    <impact_pps>0 0 0 0 53603</impact_pps>
+    <impact_recorded>1532830185 1532830185 1532830185 1532830185 1532830185</impact_recorded>
+  </alert>
+  <alert id="32205" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65209</id>
+        <added>1532827000</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 36.66 Mbps/3.07 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532827000" stop="1532827256" length="256"/>
+    <host_detection host_address="190.117.75.202" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="105" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="105" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="36825516" pps="3080" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 93323290</impact_bps>
+    <impact_pps>0 0 0 0 7784</impact_pps>
+    <impact_recorded>1532827005 1532827005 1532827005 1532827005 1532827005</impact_recorded>
+  </alert>
+  <alert id="32204" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65208</id>
+        <added>1532826844</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 57.60 Mbps/4.77 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532826844" stop="1532827136" length="292"/>
+    <host_detection host_address="190.117.245.192" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="165" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="165" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="57848224" pps="4788" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 122071439</impact_bps>
+    <impact_pps>0 0 0 0 10094</impact_pps>
+    <impact_recorded>1532826885 1532826885 1532826885 1532826885 1532826885</impact_recorded>
+  </alert>
+  <alert id="32203" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65207</id>
+        <added>1532826686</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 47.14 Mbps/4.12 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532826686" stop="1532826956" length="270"/>
+    <host_detection host_address="190.117.71.220" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="135" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="135" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="47344060" pps="4135" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 50393433</impact_bps>
+    <impact_pps>0 0 0 0 4385</impact_pps>
+    <impact_recorded>1532826705 1532826705 1532826705 1532826705 1532826705</impact_recorded>
+  </alert>
+  <alert id="32202" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65206</id>
+        <added>1532826369</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSVillaSalvadorBR01". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 38.74 Mbps/3.35 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532826369" stop="1532826656" length="287"/>
+    <host_detection host_address="190.117.251.220" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="111" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="111" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="38915508" pps="3365" boundary="rMPLSVillaSalvadorBR01"/>
+    <impact_bps>0 0 0 0 38951264</impact_bps>
+    <impact_pps>0 0 0 0 3398</impact_pps>
+    <impact_recorded>1532826405 1532826405 1532826405 1532826405 1532826405</impact_recorded>
+  </alert>
+  <alert id="32201" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65205</id>
+        <added>1532825667</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 115.61 Mbps/9.65 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532825667" stop="1532825936" length="269"/>
+    <host_detection host_address="190.117.226.122" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="332" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="332" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="116117640" pps="9693" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 516417746</impact_bps>
+    <impact_pps>0 0 0 0 43056</impact_pps>
+    <impact_recorded>1532825685 1532825685 1532825685 1532825685 1532825685</impact_recorded>
+  </alert>
+  <alert id="32200" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65204</id>
+        <added>1532823974</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 54.62 Mbps/4.55 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532823974" stop="1532824257" length="283"/>
+    <host_detection host_address="190.117.121.186" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="157" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="157" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="54859236" pps="4570" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>0 0 0 0 55062518</impact_bps>
+    <impact_pps>0 0 0 0 4586</impact_pps>
+    <impact_recorded>1532824005 1532824005 1532824005 1532824005 1532824005</impact_recorded>
+  </alert>
+  <alert id="32199" is_fast_detected="t" type="27" class="2">
+    <device gid="137" name="SP-Polo1"/>
+    <annotation-list>
+      <annotation>
+        <id>65203</id>
+        <added>1532819690</added>
+        <author>auto-annotation</author>
+        <section-list>
+          <section>This alert was generated due to fast flood detection. The "TCP SYN/ACK Amplification" host alert signature has been triggered at router "rMPLSPolo1BR02". (expected rate: 20.00 Mbps/3.00 Kpps, observed rate: 48.99 Mbps/4.12 Kpps)</section>
+        </section-list>
+      </annotation>
+    </annotation-list>
+    <importance level="2"/>
+    <resource/>
+    <ticket/>
+    <classification>Possible Attack</classification>
+    <duration ongoing="f" start="1532819690" stop="1532819997" length="307"/>
+    <host_detection host_address="190.117.173.198" misuse_types="131072" ip_version="4">
+      <blobs>
+        <blob gid="260" name="HFC Pyme - IPv4" summary_url="/page?id=customer_summary&amp;gid=260" edit_url="" sev_pct="141" sev_rate="35000000" sev_is_bps="t" misuse_sig="TCP SYN/ACK Amplification" importance="2"/>
+      </blobs>
+    </host_detection>
+    <severity threshold="35000000" pct="141" unit="bps"/>
+    <direction>Incoming</direction>
+    <impact bps="49202344" pps="4134" boundary="rMPLSPolo1BR02"/>
+    <impact_bps>48992298 0 0 0 0 49202345</impact_bps>
+    <impact_pps>4116 0 0 0 0 4134</impact_pps>
+    <impact_recorded>1532819690 1532819745 1532819745 1532819745 1532819745 1532819745</impact_recorded>
+  </alert>
+</alert-list>
+  </query-reply>
+</peakflow>

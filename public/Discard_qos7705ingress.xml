@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP:Header>
+      <header xmlns="xmlapi_1.0">
+         <security>
+            <user>C14593</user>
+            <password hashed="false">Claro348!</password>
+         </security>
+         <requestID>aquiroga:0001</requestID>
+      </header>
+   </SOAP:Header>
+   <SOAP:Body>
+      <find xmlns="xmlapi_1.0">
+         <fullClassName>service.SapIngQosQueueStatsLogRecord</fullClassName>
+         <filter>
+           <and>
+            <or>
+             <between name="timeCaptured" first="1523408400000" second="1523412000000"/>
+            </or>
+            <or>
+              <wildcard name="monitoredObjectSiteName" value="%AN0%"/>
+              <wildcard name="monitoredObjectSiteName" value="%CSR%"/>
+            </or>
+            <not>
+             <or>
+              <wildcard name="displayedName" value="Channel%"/>
+              <wildcard name="displayedName" value="system%"/>
+              <wildcard name="displayedName" value="loopback%"/>
+             </or>
+            </not>
+          </and>
+         </filter>
+         <resultFilter>
+            <attribute>monitoredObjectSiteName</attribute>
+            <attribute>displayedName</attribute>
+            <attribute>queueId</attribute>
+            <attribute>droppedHiPrioOctets</attribute>
+            <attribute>droppedLoPrioOctets</attribute>
+            <attribute>timeCaptured</attribute>
+            <children/>
+         </resultFilter>
+      </find>
+   </SOAP:Body>
+</SOAP:Envelope>

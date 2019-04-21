@@ -1,0 +1,99 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos del SAM - Reporte de Estadistica de utilización de enlaces de Azteca
+  .col-md-1
+%hr
+
+.row
+  .col-md-1
+  .col-md-10
+    %h3
+      Porcentaje de Utilización de enlaces de Azteca
+      = link_to 'Excel', samqosdiscards_samaztecainterfaces_path(format: "xls"), class: 'btn btn-warning float-right'
+      = link_to 'Actualizar', samqosdiscards_samaztecainterfaces_path, method: :post, class: 'btn btn-warning float-right'
+      .updated
+        Actualizado
+        - unless Samaztecainterface.last == nil
+          = Samaztecainterface.last.created_at.strftime("%d/%m/%Y %H:%M:%S")
+        - else
+          '-'
+  .col-md-1
+
+.row.margin-top-10
+  .col-md-1
+  .col-md-10
+    .float-left 
+      = link_to 'Volver', samqosdiscards_path, class: 'btn btn-success'
+    .float-right
+      = form_tag samqosdiscards_samaztecainterface_path(:id), :method => :get do
+        = collection_select(:samaztecainterface, :id, Samaztecainterface.all, :id, :created_at, prompt: "10 Reportes anteriores")
+        = submit_tag "Consultar", :name => nil, class: 'btn btn-sm btn-info'
+  .col-md-2
+
+.row.margin-top-00
+  .col-md-1
+  .col-md-8.table-responsive
+    = will_paginate @table_aztecainterface
+    %table.table.table-striped.table-bordered.table-condensed.text-center.margin-top-10
+      %thead
+        %tr
+          %th.text-center
+            Item
+          %th.text-center
+            Nodo
+          %th.text-center
+            Puerto
+          %th.text-center
+            Descripción del Puerto
+          %th.text-center
+            Capacidad Contratada (Mbps)
+          %th.text-center
+            Download (Mbps)
+          %th.text-center
+            Upload (Mbps)
+          %th.text-center
+            Utilización (%)
+          %th.text-center
+            BW_P95 (Mbps)
+          %th.text-center
+            Utilización_P95 (%)
+      %tbody
+        - unless Samaztecainterface.last == nil
+          - i = 0
+          - @table_aztecainterface.map do |item|
+            - i += 1
+            %tr
+              %td
+                = i
+              %td
+                = item[:node]
+              %td
+                = item[:port]
+              %td
+                = item[:description]
+              %td
+                = item[:velodidad]
+              %td
+                = item[:Mbps_bwrx]
+              %td
+                = item[:Mbps_bwtx]
+              - if item[:status] > 75.00
+                %td.danger
+                  = item[:status]
+              - else
+                %td
+                  = item[:status]
+              %td
+                = item[:Mbps_bw_per]
+              - if item[:status_per] > 75.00
+                %td.danger
+                  = item[:status_per]
+              - else
+                %td
+                  = item[:status_per]
+.col-md-2

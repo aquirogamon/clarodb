@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP:Header>
+      <header xmlns="xmlapi_1.0">
+         <security>
+            <user>C14593</user>
+            <password hashed="false">Claro348!</password>
+         </security>
+         <requestID>aquiroga:0001</requestID>
+      </header>
+   </SOAP:Header>
+   <SOAP:Body>
+      <find xmlns="xmlapi_1.0">
+         <fullClassName>equipment.PortNetIngressStatsLogRecord</fullClassName>
+         <filter>
+          <and>
+        <between name="timeCaptured" first="1504710000000" second="1504760280000"/>
+        <between name="timeCaptured" first="1504796400000" second="1504846680000"/>
+          </and>
+         </filter>
+         <resultFilter>
+            <attribute>monitoredObjectSiteName</attribute>
+            <attribute>displayedName</attribute>
+            <attribute>portNetIngressQueueId</attribute>
+            <attribute>inProfileOctetsDropped</attribute>
+            <attribute>outOfProfileOctetsDropped</attribute>
+            <attribute>timeCaptured</attribute>
+            <children/>
+         </resultFilter>
+      </find>
+   </SOAP:Body>
+</SOAP:Envelope>

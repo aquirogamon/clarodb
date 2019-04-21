@@ -1,0 +1,84 @@
+.row.margin-top-25
+	.col-md-1
+	.col-md-10
+		.logotitle
+		%h2.page_title
+			Sistema Ágil de Gestión y Provisionamiento
+		%h4.page_subtitle.margin-top-10
+			Reportes ejecutivos de KPIs - Reporte Interfaces Internet
+	.col-md-1
+%hr
+
+.row.margin-top-00
+	.col-md-12.table-responsive
+		%table.table.table-striped.table-bordered.table-condensed.table-hover.text-center.margin-top-10
+			%thead
+				%tr
+					%th.text-center
+						Nodo
+					%th.text-center
+						Puerto
+					%th.text-center
+						Servicio
+					%th.text-center
+						Capacidad
+					%th.text-center
+						Enlace
+					%th.text-center 
+						Max_Gbps
+						%br
+						= @internet_interface.created_at.strftime("Sem_%U")
+					%th.text-center
+						\%
+						%br
+						= @internet_interface.created_at.strftime("Sem_%U")
+					%th.text-center.info
+						RX Gbps
+						%br
+						= @internet_interface.created_at.strftime("Sem_%W")
+					%th.text-center.info
+						TX Gbps
+						%br
+						= @internet_interface.created_at.strftime("Sem_%W")
+					%th.text-center.info
+						\%
+						%br
+						= @internet_interface.created_at.strftime("Sem_%W")
+					%th.text-center
+						Crecimiento
+
+			%tbody
+				%tr
+					%td= @internet_interface.device
+					%td= @internet_interface.port
+					%td= @internet_interface.servicio
+					%td= @internet_interface.egressRate
+					%td= @internet_interface.neighbor
+					%td= @internet_interface.last_bps_max
+
+					- if @internet_interface.last_status > 85.00
+						%td.danger= @internet_interface.last_status
+					- elsif @internet_interface.last_status > 75.00 and @internet_interface.last_status < 84.999
+						%td.warning= @internet_interface.last_status
+					- else
+						%td= @internet_interface.last_status
+
+					%td= @internet_interface.gbpsrx
+					%td= @internet_interface.gbpstx
+
+					- if @internet_interface.status > 85.00
+						%td.danger= @internet_interface.status
+					-elsif @internet_interface.status > 75.00 and @internet_interface.status < 84.999
+						%td.warning= @internet_interface.status
+					- else
+						%td= @internet_interface.status
+
+					%td= @internet_interface.crecimiento
+
+%div.col-md-4
+	= render 'form'
+
+	.margin-top-20
+	= link_to 'Historial', @internet_interface, class: 'btn btn-sm btn-success'
+	= link_to 'Volver', internet_interfaces_path, class: 'btn btn-sm btn-success'
+	.margin-top-20

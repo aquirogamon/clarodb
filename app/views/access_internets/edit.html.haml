@@ -1,0 +1,56 @@
+.row.margin-top-25
+	.col-md-1
+	.col-md-10
+		.logotitle
+		%h2.page_title
+			Sistema Ágil de Gestión y Provisionamiento
+		%h4.page_subtitle.margin-top-10
+			Reportes ejecutivos de KPIs - Reporte Acceso a Internet
+	.col-md-1
+%hr
+
+.margin-top-20
+%div.container
+	.row.col-md-10
+		%h3
+			Editar reporte de Semana
+			= @access_internet.created_at.strftime("%W - %Y")
+
+.margin-top-20
+%div.container
+	.row.col-md-4
+		%p
+			%b Total de Tráfico:
+		%p
+			%b HFC:
+		%p
+			%b Móvil (2G, 3G y 4G):
+		%p
+			%b Total Olo:
+		%p
+			%b Corporativo (FO - WIMAX):
+		%p
+			%b Caché IN:
+	.row.col-md-8
+		%p
+			= @access_internet.total_traffic
+		%p
+			= @access_internet.hfc
+		%p
+			= @access_internet.mobile
+		%p
+			= @access_internet.mobile_olo
+		%p
+			= @access_internet.corporate
+		%p
+			= @access_internet.cache_in
+
+%div.container
+	.row.col-md-4
+		= render 'form'
+	
+		.margin-top-20
+		= link_to 'Reporte', @access_internet, class: 'btn btn-sm btn-success'
+		= link_to 'Volver', access_internets_path, class: 'btn btn-sm btn-success'
+
+.margin-top-20

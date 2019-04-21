@@ -1,0 +1,74 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos del SAM - Reporte de Utilización de Memoria
+  .col-md-1
+%hr
+
+.row
+  .col-md-2
+  .col-md-8
+    %h3
+      Utilización de Memoria
+      = link_to 'Actualizar', samreports_sammemos_path, method: :post, class: 'btn btn-warning float-right'
+      .updated
+        Actualizado
+        - unless Sammemo.last == nil
+          = Sammemo.last.created_at.strftime("%d/%m/%Y %H:%M:%S")
+        - else
+          '-'
+  .col-md-2
+
+.row.margin-top-10
+  .col-md-2
+  .col-md-8
+    .float-left 
+      = link_to 'Volver', samreports_path, class: 'btn btn-success'
+    .float-right
+      = form_tag samreports_sammemo_path(:id), :method => :get do
+        = collection_select(:sammemo, :id, Sammemo.all, :id, :created_at, prompt: "10 Reportes anteriores")
+        = submit_tag "Consultar", :name => nil, class: 'btn btn-sm btn-info'
+  .col-md-2
+
+.row.margin-top-00
+  .col-md-2
+  .col-md-8.table-responsive
+    %table.table.table-striped.table-bordered.table-condensed.text-center.margin-top-10
+      %thead
+        %tr
+          %th.text-center
+            Item
+          %th.text-center
+            Nodo
+          %th.text-center
+            Memoria Utilizada
+          %th.text-center
+            Memoria Libre
+          %th.text-center
+            Utilización de Memoria (%)
+      %tbody
+        - unless Sammemo.last == nil
+          - i = 0
+          - @table_memory.map do |item|
+            - i += 1
+            %tr
+              %td
+                = i
+              %td
+                = item[:node]
+              %td
+                = item[:memory_used]
+              %td
+                = item[:memory_libre]
+              - if item[:status].to_f > 70.00
+                %td.danger
+                  = item[:status]
+              - else
+                %td
+                  = item[:status]
+
+.col-md-2

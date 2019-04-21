@@ -1,0 +1,49 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos de Evolución de Tráfico
+  .col-md-1
+%hr
+
+.row.margin-top-50
+.row
+  .col-md-2
+  .col-md-8
+    %table.table.table-striped.table-bordered.table-condensed.text-center
+      %thead
+        %tr
+          %th.text-center
+            Nombre
+          %th.text-center
+            Descripción
+      %tbody
+        %tr
+          %td
+            = link_to 'Utilización de Interfaces Core', summaryreports_utilizationreports_path
+          %td
+            Evolución de las utilización de Interfaces de Core, Internete IPRAN
+        %tr
+          %td
+            = link_to 'Utilización de Interfaces Acceso', summaryreports_utilizationaccessreports_path
+          %td
+            Evolución de las utilización de Interfaces de Acceso y MicroOndas
+        %tr
+          %td
+            = link_to 'Utilización de Interfaces de CDNs', summaryreports_utilizationcachereports_path
+          %td
+            Evolución de las utilización de Interfaces de Servidores de CDN (Google, Facebook, Netflix, etc)
+        %tr
+          %td
+            = link_to 'Porcentaje de Utilización de Acceso de Internet', access_internets_path
+          %td
+            Distribución de Tráfico de Acceso por tipo de Servicio
+
+  .col-md-2
+.row.margin-top-10
+  .col-md-2
+  .col-md-8
+    = link_to 'Volver', dashboard_path, class: 'btn btn-success'

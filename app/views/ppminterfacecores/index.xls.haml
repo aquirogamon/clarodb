@@ -1,0 +1,44 @@
+%table{:border => 1}
+  %thead
+    %tr
+      %th.text-center
+        Nodo
+      %th.text-center
+        Puerto
+      %th.text-center
+        Capacidad (Gbps)
+      %th.text-center
+        Max Gbps Tx
+      %th.text-center
+        Max Gbps Rx
+      %th.text-center
+        Utilización % Tx
+      %th.text-center
+        Utilización % Rx
+  %tbody
+    - unless Ppminterfaceinternet.last == nil
+      - i = 0
+      - @table_interfaceinternet.map do |item|
+        %tr
+          %td
+            = item[:node]
+          %td
+            = item[:interface]
+          %td
+            = item[:bw]
+          %td
+            = item[:bps_tx]
+          %td
+            = item[:bps_rx]
+          - if item[:utilization_tx] > 70
+            %td.danger
+              = item[:utilization_tx]
+          - else
+            %td
+              = item[:utilization_tx]
+          - if item[:utilization_rx] > 70
+            %td.danger
+              = item[:utilization_rx]
+          - else
+            %td
+              = item[:utilization_rx]

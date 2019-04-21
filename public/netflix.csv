@@ -1,0 +1,22 @@
+Router,Host,Index,Transporte(Gbps),Descripcion
+ceAGREGADORServiciosPolo1,10.235.192.91,282,18,1er Storage Polo1
+ceAGREGADORServiciosPolo1,10.235.192.91,279,18,2do Storage Polo1
+ceAGREGADORServiciosPolo1,10.235.192.91,266,36,1er Server Flash Polo1
+ceAGREGADORServiciosPolo1,10.235.192.91,268,36,2do Server Flash Polo1
+ceAGREGADORServiciosPolo1,10.235.192.91,269,36,3er Server Flash Polo1
+ceAGREGADORServiciosPolo1,10.235.192.91,267,36,4to Server Flash Polo1
+ceAGREGADORServiciosVES,10.235.191.254,326,18,1er Storage VillaSalvador
+ceAGREGADORServiciosVES,10.235.191.254,328,18,2do Storage VillaSalvador
+ceAGREGADORServiciosVES,10.235.191.254,313,36,1er Server Flash VillaSalvador
+ceAGREGADORServiciosVES,10.235.191.254,314,36,2do Server Flash VillaSalvador
+ceAGREGADORServiciosVES,10.235.191.254,315,36,3er Server Flash VillaSalvador
+ceAGREGADORServiciosVES,10.235.191.254,316,36,4to Server Flash VillaSalvador
+cAGREGADORTrujillo4,10.235.212.45,223,18,1er Storage Trujillo
+cAGREGADORTrujillo4,10.235.212.45,235,18,2do Storage Trujillo
+cAGREGADORTrujillo4,10.235.212.45,236,36,1er Server Flash Trujillo
+cAGREGADORTrujillo4,10.235.212.45,237,36,2do Server Flash Trujillo
+cAGREGADORArequipa4,10.235.238.37,214,18,1er Storage Arequipa
+cAGREGADORArequipa4,10.235.238.37,233,18,2do Storage Arequipa
+cAGREGADORArequipa4,10.235.238.37,234,36,1er Server Flash Arequipa
+cAGREGADORArequipa4,10.235.238.37,235,36,2do Server Flash Arequipa
+rMPLSCajamarca4,10.235.3.13,239,18,1er Storage Cajamarca

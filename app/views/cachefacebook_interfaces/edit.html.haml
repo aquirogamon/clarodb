@@ -1,0 +1,80 @@
+.row.margin-top-25
+	.col-md-1
+	.col-md-10
+		.logotitle
+		%h2.page_title
+			Sistema Ágil de Gestión y Provisionamiento
+		%h4.page_subtitle.margin-top-10
+			Reportes de Interface de Servidores de Caché de FACEBOOK
+	.col-md-1
+%hr
+
+.row.margin-top-00
+	.col-md-12.table-responsive
+		%table.table.table-striped.table-bordered.table-condensed.table-hover.text-center.margin-top-10
+			%thead
+				%tr
+					%th.text-center
+						Nodo
+					%th.text-center
+						Puerto
+					%th.text-center
+						Servicio
+					%th.text-center
+						Capacidad
+					%th.text-center.info
+						Max Gbps
+						%br
+						= @cachefacebook_interface.created_at.strftime("Sem_%U")
+					%th.text-center.info
+						\%
+						%br
+						= @cachefacebook_interface.created_at.strftime("Sem_%U")
+					%th.text-center.info
+						RX Gbps
+						%br
+						= @cachefacebook_interface.created_at.strftime("Sem_%W")
+					%th.text-center.info
+						TX Gbps
+						%br
+						= @cachefacebook_interface.created_at.strftime("Sem_%W")
+					%th.text-center.info
+						\%
+						%br
+						= @cachefacebook_interface.created_at.strftime("Sem_%W")
+					%th.text-center
+						Crecimiento
+			%tbody
+				%tr
+					%td= @cachefacebook_interface.nodo
+					%td= @cachefacebook_interface.device
+					%td= @cachefacebook_interface.port
+					%td= @cachefacebook_interface.egressRate
+					%td= @cachefacebook_interface.last_bps_max
+			    
+					- if @cachefacebook_interface.last_status > 85.00
+						%td.danger= @cachefacebook_interface.last_status
+					- elsif @cachefacebook_interface.last_status > 75.00 and @cachefacebook_interface.last_status < 84.999
+						%td.warning= @cachefacebook_interface.last_status
+					- else
+						%td= @cachefacebook_interface.last_status
+
+					%td= @cachefacebook_interface.gbpsrx
+					%td= @cachefacebook_interface.gbpstx
+
+					- if @cachefacebook_interface.status > 85.00
+						%td.danger= @cachefacebook_interface.status
+					-elsif @cachefacebook_interface.status > 75.00 and @cachefacebook_interface.status < 84.999
+						%td.warning= @cachefacebook_interface.status
+					- else
+						%td= @cachefacebook_interface.status
+			    
+					%td= @cachefacebook_interface.crecimiento
+
+%div.col-md-4
+	= render 'form'
+
+	.margin-top-20
+	= link_to 'Historial', @cachefacebook_interface, class: 'btn btn-sm btn-success'
+	= link_to 'Volver', cachefacebook_interfaces_path, class: 'btn btn-sm btn-success'
+	.margin-top-20

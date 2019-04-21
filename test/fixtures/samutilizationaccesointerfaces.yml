@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  samutilizationaccesointerfaces_array: MyText
+
+two:
+  samutilizationaccesointerfaces_array: MyText

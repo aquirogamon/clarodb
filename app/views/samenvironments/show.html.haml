@@ -1,0 +1,58 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos del SAM - Reporte de Temperatura
+  .col-md-1
+%hr
+
+.row
+  .col-md-2
+  .col-md-8
+    %h3
+      Temperatura
+  .col-md-2
+
+.row.margin-top-10
+  .col-md-2
+  .col-md-8
+    .float-left 
+      = link_to 'Volver', samreports_samenvironments_path, class: 'btn btn-success'
+    .updated
+      Actualizado
+      = @samenvironment.created_at.strftime("%d/%m/%Y %H:%M:%S")
+  .col-md-2
+
+.row.margin-top-00
+  .col-md-2
+  .col-md-8.table-responsive
+    %table.table.table-striped.table-bordered.table-condensed.text-center.margin-top-10
+      %thead
+        %tr
+          %th.text-center
+            Item
+          %th.text-center
+            Nodo
+          %th.text-center
+            Temperatura (°C)
+      %tbody
+        - unless Samenvironment.last == nil
+          - i = 0
+          - @samenvironment[:samenvironments_array].map do |item|
+            - i += 1
+            %tr
+              %td
+                = i
+              %td
+                = item[:node]
+              - if item[:status].to_f > 75.00
+                %td.danger
+                  = item[:status]
+              - else
+                %td
+                  = item[:status]
+
+.col-md-2

@@ -1,0 +1,72 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos del SAM
+  .col-md-1
+%hr
+
+.row.margin-top-10
+  .col-md-2
+  .col-md-8
+    %h3
+      Reportes
+.row
+  .col-md-2
+  .col-md-8
+    %table.table.table-striped.table-bordered.table-condensed.text-center
+      %thead
+        %tr
+          %th.text-center
+            Nombre
+          %th.text-center
+            Descripción
+      %tbody
+        %tr
+          %td
+            = link_to 'Porcentaje de Utilización de Edge', ipranedge_interfaces_path
+          %td
+            Utilización en Interface en todos los equipos SR-7750
+        %tr
+          %td
+            = link_to 'Porcentaje de Utilización de Acceso', ipranaccess_interfaces_path
+          %td
+            Utilización en Interface en todos los equipos SAR-7705
+        %tr
+          %td
+            = link_to 'Utilización Enlace Azteca', samqosdiscards_samaztecainterfaces_path
+          %td
+            Utilización en Interface en los enlaces de Azteca
+        %tr
+          %td
+            = link_to 'Utilización Enlace Gilat', samqosdiscards_samgilatinterfaces_path
+          %td
+            Utilización en Interface en los enlaces de Gilat
+        %tr
+          %td
+            = link_to 'Utilización Enlace Internexa', samqosdiscards_saminternexainterfaces_path
+          %td
+            Utilización en Interface en los enlaces de Internexa
+        %tr
+          %td
+            = link_to 'Utilización Enlace de MicroOndas', samqosdiscards_samutilizationmwinterfaces_path
+          %td
+            Utilización en Interface en los enlaces de MicroOndas Nokia
+        %tr
+          %td
+            = link_to 'Packet Discard x Interfaces', samqosdiscards_saminterfacediscards_path
+          %td
+            Paquetes Descartados en Interfaces en todos los equipos Nokia
+        %tr
+          %td
+            = link_to 'Información del puerto', samqosdiscards_samstatusports_path
+          %td
+            Status e información del puerto
+  .col-md-2
+.row.margin-top-10
+  .col-md-2
+  .col-md-8
+    = link_to 'Volver', samreports_path, class: 'btn btn-success'

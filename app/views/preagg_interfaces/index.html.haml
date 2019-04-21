@@ -1,0 +1,252 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes de Interface de Pre-AGG
+  .col-md-1
+%hr
+
+.row
+  .col-md-1
+  .col-md-10
+    %h3
+      Interfaces de Pre-AGG
+      = link_to 'PDF', preagg_interfaces_path(format: "pdf"), class: 'btn btn-sm btn-warning float-right'
+      = link_to 'Excel', preagg_interfaces_path(format: "xls"), class: 'btn btn-sm btn-warning float-right'
+      .updated
+        Actualizado:
+        - unless PreaggInterface.last == nil
+          = PreaggInterface.maximum(:created_at).strftime("Semana %U-%Y")
+        - else
+          '-'
+  .col-md-2
+
+.row.margin-top-10
+  .col-md-1
+  .col-md-10
+    .float-left 
+      = link_to 'Volver', ppmreports_path, class: 'btn btn-sm btn-success'
+
+.row.margin-top-00
+  .col-md-1
+  .col-md-8
+    %input#myEquipo{:onkeyup => "myEquipo()", :placeholder => "Buscar Equipo ...", :title => "Equipo", :type => "text"}
+    %input#myServicio{:onkeyup => "myServicio()", :placeholder => "Buscar Servicio ...", :title => "Servicio", :type => "text"}
+
+
+.row.margin-top-10
+  .col-md-12
+  .col-md-12.table-responsive
+    %table.table.table-striped.table-bordered.table-condensed.table-hover.text-center.margin-top-10#myTable
+      %thead
+        %tr
+          %th.text-center.cursor{:onclick => "sortTableName(0)"}
+            Equipo
+          %th.text-center.cursor
+            Puerto
+          %th.text-center
+            Servicio
+          %th.text-center.cursor{:onclick => "sortTableNumeric(3)"}
+            Capacidad
+          %th.text-center.success
+            Max_Gbps
+            %br
+            = PreaggInterface.maximum(:created_at).strftime("Sem_%U")
+          %th.text-center.cursor.success{:onclick => "sortTableNumeric(5)"}
+            \%
+            %br
+            = PreaggInterface.maximum(:created_at).strftime("Sem_%U")
+          %th.text-center.info
+            Max_Gbps
+            %br
+            = PreaggInterface.maximum(:created_at).strftime("Sem_%W")
+          %th.text-center.cursor.info{:onclick => "sortTableNumeric(7)"}
+            \%
+            %br
+            = PreaggInterface.maximum(:created_at).strftime("Sem_%W")
+          %th.text-center
+            Crecimiento
+          %th.text-center
+            Comentario
+          %th.text-center
+            Fecha de Solución
+          %th
+          %th
+
+      %tbody
+        - @preagg_interfaces.each do |preagg_interface|
+          %tr
+            %td= preagg_interface.device
+            %td= preagg_interface.port
+            %td= preagg_interface.servicio
+            %td= preagg_interface.egressRate
+            %td= preagg_interface.last_bps_max
+            %td= preagg_interface.last_status
+            %td= preagg_interface.bps_max
+
+            - if preagg_interface.status > 80.00
+              %td.danger= preagg_interface.status
+            -elsif preagg_interface.status > 70.00 and preagg_interface.status < 80.999
+              %td.warning= preagg_interface.status
+            - else
+              %td= preagg_interface.status
+
+            %td= preagg_interface.crecimiento
+            %td= preagg_interface.comment
+            %td= preagg_interface.time
+            %td= link_to 'Historial', preagg_interface, target: :_blank
+            %td= link_to 'Editar', edit_preagg_interface_path(preagg_interface), target: :_blank
+%br
+
+.margin-top-20
+
+%br
+
+
+:javascript
+  function myEquipo() {
+    var input, filter, table, tr, td, i;
+    input = document.getElementById("myEquipo");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[0];
+      if (td) {
+        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }       
+    }
+  }
+  function myServicio() {
+    var input, filter, table, tr, td, i;
+    input = document.getElementById("myServicio");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[2];
+      if (td) {
+        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }       
+    }
+  }
+  function sortTableName(n) {
+    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById("myTable");
+    switching = true;
+    //Set the sorting direction to ascending:
+    dir = "asc"; 
+    /*Make a loop that will continue until
+    no switching has been done:*/
+    while (switching) {
+      //start by saying: no switching is done:
+      switching = false;
+      rows = table.rows;
+      /*Loop through all table rows (except the
+      first, which contains table headers):*/
+      for (i = 1; i < (rows.length - 1); i++) {
+        //start by saying there should be no switching:
+        shouldSwitch = false;
+        /*Get the two elements you want to compare,
+        one from current row and one from the next:*/
+        x = rows[i].getElementsByTagName("td")[n];
+        y = rows[i + 1].getElementsByTagName("td")[n];
+        /*check if the two rows should switch place,
+        based on the direction, asc or desc:*/
+        if (dir == "asc") {
+          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+            //if so, mark as a switch and break the loop:
+            shouldSwitch= true;
+            break;
+          }
+        } else if (dir == "desc") {
+          if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+            //if so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+          }
+        }
+      }
+      if (shouldSwitch) {
+        /*If a switch has been marked, make the switch
+        and mark that a switch has been done:*/
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+        //Each time a switch is done, increase this count by 1:
+        switchcount ++;      
+      } else {
+        /*If no switching has been done AND the direction is "asc",
+        set the direction to "desc" and run the while loop again.*/
+        if (switchcount == 0 && dir == "asc") {
+          dir = "desc";
+          switching = true;
+        }
+      }
+    }
+  }
+  function sortTableNumeric(n) {
+    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById("myTable");
+    switching = true;
+    //Set the sorting direction to ascending:
+    dir = "asc"; 
+    /*Make a loop that will continue until
+    no switching has been done:*/
+    while (switching) {
+      //start by saying: no switching is done:
+      switching = false;
+      rows = table.rows;
+      /*Loop through all table rows (except the
+      first, which contains table headers):*/
+      for (i = 1; i < (rows.length - 1); i++) {
+        //start by saying there should be no switching:
+        shouldSwitch = false;
+        /*Get the two elements you want to compare,
+        one from current row and one from the next:*/
+        x = rows[i].getElementsByTagName("td")[n];
+        y = rows[i + 1].getElementsByTagName("td")[n];
+        /*check if the two rows should switch place,
+        based on the direction, asc or desc:*/
+        if (dir == "asc") {
+          if (Number(x.innerHTML) > Number(y.innerHTML)) {
+            //if so, mark as a switch and break the loop:
+            shouldSwitch= true;
+            break;
+          }
+        } else if (dir == "desc") {
+          if (Number(x.innerHTML) < Number(y.innerHTML)) {
+            //if so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+          }
+        }
+      }
+      if (shouldSwitch) {
+        /*If a switch has been marked, make the switch
+        and mark that a switch has been done:*/
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+        //Each time a switch is done, increase this count by 1:
+        switchcount ++;      
+      } else {
+        /*If no switching has been done AND the direction is "asc",
+        set the direction to "desc" and run the while loop again.*/
+        if (switchcount == 0 && dir == "asc") {
+          dir = "desc";
+          switching = true;
+        }
+      }
+    }
+  }
+  

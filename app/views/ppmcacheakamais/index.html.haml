@@ -1,0 +1,82 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos de KPIs - Reporte Interfaces de los Servidores Akamai
+  .col-md-1
+
+.row
+  .col-md-1
+  .col-md-10
+    %h3
+      Porcentaje de Utilización de Interfaces de Akamai
+      = link_to 'Excel', ppmreportcaches_ppmcacheakamais_path(format: "xls"), class: 'btn btn-warning float-right'
+      = link_to 'Actualizar', ppmreportcaches_ppmcacheakamais_path, method: :post, class: 'btn btn-warning float-right'
+      .updated
+        Actualizado
+        - unless Ppmcacheakamai.last == nil
+          = Ppmcacheakamai.last.created_at.strftime("%d/%m/%Y %H:%M:%S")
+        - else
+          '-'
+  .col-md-2
+
+.row.margin-top-10
+  .col-md-1
+  .col-md-10
+    .float-left 
+      = link_to 'Volver', ppmreportcaches_path, class: 'btn btn-success'
+    .float-right
+      = form_tag ppmreportcaches_ppmcacheakamai_path(:id), :method => :get do
+        = collection_select(:ppmcacheakamai, :id, Ppmcacheakamai.all, :id, :created_at, prompt: "10 Reportes anteriores")
+        = submit_tag "Consultar", :name => nil, class: 'btn btn-sm btn-info'
+
+.row.margin-top-00
+  .col-md-12.table-responsive
+    %table.table.table-striped.table-bordered.table-condensed.text-center.margin-top-10
+      %thead
+        %tr
+          %th.text-center
+            Item
+          %th.text-center
+            Nodo
+          %th.text-center
+            Equipo
+          %th.text-center
+            Interfaz
+          %th.text-center
+            Capacidad (Gbps)
+          %th.text-center
+            Max Gbps Tx
+          %th.text-center
+            Max Gbps Rx
+          %th.text-center
+            Utilización %
+      %tbody
+        - unless Ppmcacheakamai.last == nil
+          - i = 0
+          - @table_cacheakamai.map do |item|
+            - i += 1
+            %tr
+              %td
+                = i
+              %td
+                = item[:descriptionmax]
+              %td
+                = item[:devicemax]
+              %td
+                = item[:portmax]
+              %td
+                = item[:egressRatemax]
+              %td
+                = item[:bps_txmax]
+              %td
+                = item[:bps_rxmax]
+              - if item[:status] > 70
+                %td.danger
+                  = item[:status]
+              - else
+                %td
+                  = item[:status]

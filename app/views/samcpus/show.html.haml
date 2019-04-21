@@ -1,0 +1,59 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos del SAM - Reporte de Utilización de CPU
+  .col-md-1
+%hr
+
+.row
+  .col-md-2
+  .col-md-8
+    %h3
+      Utilización de CPU
+  .col-md-2
+
+.row.margin-top-10
+  .col-md-2
+  .col-md-8
+    .float-left 
+      = link_to 'Volver', samreports_samcpus_path, class: 'btn btn-success'
+    .updated
+      Actualizado
+      = @samcpu.created_at.strftime("%d/%m/%Y %H:%M:%S")
+  .col-md-2
+
+.row.margin-top-00
+  .col-md-2
+  .col-md-8.table-responsive
+    = will_paginate @table_cpu_show
+    %table.table.table-striped.table-bordered.table-condensed.text-center.margin-top-10
+      %thead
+        %tr
+          %th.text-center
+            Item
+          %th.text-center
+            Nodo
+          %th.text-center
+            Utilización de CPU (%)
+      %tbody
+        - unless Samcpu.last == nil
+          - i = 0
+          - @table_cpu_show.map do |item|
+            - i += 1
+            %tr
+              %td
+                = i
+              %td
+                = item[:node]
+              - if item[:status].to_f > 70.00
+                %td.danger
+                  = item[:status]
+              - else
+                %td
+                  = item[:status]
+
+.col-md-2

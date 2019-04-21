@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP:Header>
+      <header xmlns="xmlapi_1.0">
+         <security>
+            <user>C14593</user>
+            <password hashed="false">Claro348!</password>
+         </security>
+         <requestID>aquiroga:0001</requestID>
+      </header>
+   </SOAP:Header>
+
+   <SOAP:Body>
+      <find xmlns="xmlapi_1.0">
+         <fullClassName>equipment.PhysicalPort</fullClassName>
+         <filter>
+           <and>
+             <notEqual name="portClass" value="tdm"/>
+             <notEqual name="portClass" value="sonet"/>
+             <notEqual name="state" value="linkDown"/>
+             <notEqual name="actualSpeed" value="0"/>
+          </and>
+         </filter>
+         <resultFilter>
+            <attribute>description</attribute>
+            <attribute>actualSpeed</attribute>
+            <attribute>displayedName</attribute>
+            <attribute>siteName</attribute>
+            <attribute>portClass</attribute>
+            <attribute>speed</attribute>
+            <children/>
+         </resultFilter>
+      </find>
+   </SOAP:Body>
+</SOAP:Envelope>

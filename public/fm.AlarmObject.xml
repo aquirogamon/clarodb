@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP:Header>
+      <header xmlns="xmlapi_1.0">
+         <security>
+            <user>C12285</user>
+            <password hashed="false">Peru2018#</password>
+         </security>
+         <requestID>aquiroga:0001</requestID>
+      </header>
+   </SOAP:Header>
+
+   <SOAP:Body>
+      <find xmlns="xmlapi_1.0">
+         <fullClassName>fm.AlarmObject</fullClassName>
+         <filter>
+           <and>
+              <wildcard name="affectedObjectClassName" value="%ospf%"/>
+              <wildcard name="alarmClassTag" value="%down%"/>
+          </and>
+         </filter>
+         <resultFilter>
+            <attribute>nodeName</attribute>
+            <attribute>affectedObjectDisplayedName</attribute>
+            <attribute>affectedObjectClassName</attribute>
+            <attribute>affectedObjectFullName</attribute>
+            <attribute>name</attribute>
+            <attribute>firstTimeDetected</attribute>
+            <attribute>lastTimeDetected</attribute>
+            <attribute>alarmClassTag</attribute>
+            <attribute>probableCause</attribute>
+            <attribute>frequency</attribute>
+            <attribute>numberOfOccurences</attribute>
+            <attribute>numberOfOccurencesSinceAck</attribute>
+            <attribute>numberOfOccurencesSinceClear</attribute>
+            <children/>
+         </resultFilter>
+      </find>
+   </SOAP:Body>
+
+</SOAP:Envelope>

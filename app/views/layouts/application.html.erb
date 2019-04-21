@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ClaroDB</title>
+  <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900" rel="stylesheet">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag "https://www.google.com/jsapi" %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="pull-right user-info">
+      <%if current_user %>
+        Bienvenido
+        <%= (current_user.email) %> !
+        <%= link_to destroy_user_session_path, method: :delete, class: 'btn btn-primary btn-sm' do %>
+          <span class="glyphicon glyphicon-log-out"></span>
+        <% end %>
+      <% end %>
+    </div>
+
+
+    <% if flash[:notice] %>
+    <div class="msg alert alert-success">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <%= flash[:notice] %>
+    </div>
+    <% elsif flash[:error] %>
+    <div class="msg alert alert-danger">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <%= flash[:error] %>
+    </div>
+    <% elsif flash[:alert] %>
+    <div class="msg alert alert-warning">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <%= flash[:alert] %>
+    </div>
+    <% end %>
+
+    <%= yield %>
+
+  </div>
+
+</body>
+</html>

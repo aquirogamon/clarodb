@@ -1,0 +1,31 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos de Cantidad de Interfaces de Acceso Saturadas por Arquitectura
+  .col-md-1
+%hr
+
+.row.margin-top-20
+  .col-md-2
+  .col-md-8
+    %h4.margin-top-20
+      Cantidad de Enlace Crítico ( >85%) y Semi-Críticos ( >75%) en IPRAN Acceso -
+      %strong
+        =IpranaccessInterface.maximum(:created_at).strftime("Semana " "%U")
+    =link_to 'Detalle ', ipranaccess_interfaces_path, class: 'btn btn-sm btn-info', target: :_blank
+
+.margin-top-20
+%div.container
+  = column_chart [ {name: "Críticos", data: IpranaccessInterface.where("status >= 85").group_by_week(:created_at, format: "%W").count}, {name: "SemiCríticos", data: IpranaccessInterface.where("status >= 75 AND status < 85").group_by_week(:created_at, format: "%W").count} ], download: true, xtitle: "Semana", library: { animation: { easing: 'easeOutQuad' }}, legend: "bottom", colors: ["#F23C50", "#36B1BF"]
+
+.row.margin-top-40
+  .col-md-2
+  .col-md-8
+    = link_to 'Volver', summaryreports_path, class: 'btn btn-sm btn-success'
+
+.row.margin-top-20
+

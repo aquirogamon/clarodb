@@ -1,0 +1,30 @@
+%table{:border => 1}
+  %thead
+    %tr
+      %th ID
+      %th Tipo de Sesión
+      %th Tipo de Equipo
+      %th Nombre de la Sesión
+      %th STATUS Sesión
+      %th Actuador
+      %th Reflector
+      %th IP Reflector
+      %th Tipo de Reflector
+      %th STATUS Reflector
+      %th SLA
+
+  %tbody
+    - @session_accedians_all.each do |session_accedian|
+      %tr
+        %td= session_accedian.id
+        %td= session_accedian.sessionType
+        %td= session_accedian.product_endpoint
+        %td= session_accedian.name_session
+        %td= session_accedian.state_session
+        %td= session_accedian.srcEndpoint
+        %td= session_accedian.dstEndpoint
+        %td= session_accedian.ip_endpoint
+        %td= session_accedian.type_endpoint
+        %td= session_accedian.state_endpoint
+        %td= session_accedian.sla
+        %td= session_accedian.status_device

@@ -1,0 +1,134 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes de Interface de Red Corporativa
+  .col-md-1
+%hr
+
+.margin-top-20
+%div.container
+  #HistorialRedcorporativa
+
+.margin-top-20
+%div.container
+  #UtilizationRedcorporativa
+
+.margin-top-20
+%div.container
+  .row.col-md-2
+    %p
+      %b ID:
+    %p
+      %b Equipo:
+    %p
+      %b Puerto:
+    %p
+      %b Servicio:
+    %p
+      %b Capacidad Gbps:
+    %p
+      %b RX Gbps:
+    %p
+      %b TX Gbps:
+    %p
+      %b % Utilización:
+    %p
+      %b % Crecimiento RX:
+    %p
+      %b % Crecimiento TX:
+    %p
+      %b Comentario:
+    %p
+      %b Fecha de Solución:
+  .row.col-md-10
+    %p
+      = @redcorporativa_interface.id
+    %p
+      = @redcorporativa_interface.device
+    %p
+      = @redcorporativa_interface.port
+    %p
+      = @redcorporativa_interface.servicio
+    %p
+      = @redcorporativa_interface.egressRate
+    %p
+      = @redcorporativa_interface.gbpsrx
+    %p
+      = @redcorporativa_interface.gbpstx
+    %p
+      = @redcorporativa_interface.status
+    %p
+      = @redcorporativa_interface.crecimiento_rx
+    %p
+      = @redcorporativa_interface.crecimiento_tx
+    %p
+      = @redcorporativa_interface.comment
+    %p
+      = @redcorporativa_interface.time
+
+%div.container
+  .margin-top-20
+  = link_to 'Editar', edit_redcorporativa_interface_path(@redcorporativa_interface), class: 'btn btn-sm btn-success'
+  = link_to 'Volver', redcorporativa_interfaces_path, class: 'btn btn-sm btn-success'
+  .margin-top-20
+
+:javascript
+  google.charts.load('current', {packages: ['corechart', 'bar', 'line']});
+
+  google.charts.setOnLoadCallback(UtilizationRedcorporativa);
+  function UtilizationRedcorporativa() {
+    var UtilizationRedcorporativa = JSON.parse('#{(RedcorporativaInterface.where(deviceindex: @redcorporativa_interface.deviceindex).order("created_at ASC").pluck(:created_at, :status).map { |e| [ e[0].strftime("%U-%Y"), e[1] ] }).to_json.html_safe}');
+    UtilizationRedcorporativa = [['Fecha/Semana', 'Utilización']].concat(UtilizationRedcorporativa);
+    UtilizationRedcorporativa = google.visualization.arrayToDataTable(UtilizationRedcorporativa);
+    var options = {
+      'height':300,
+      hAxis: {
+        title: 'Fecha/Semana',
+        textStyle: {fontSize: 12, color: 'black' },
+        titleTextStyle: {fontSize: 12, color: 'black' }
+      },
+      vAxis: {
+        title: '%',
+        textStyle: {fontSize: 12, color: 'black' },
+        titleTextStyle: {fontSize: 12, color: 'black' },
+        minValue: 0
+      },
+      colors: ['#99b2e5'],
+      legend: { position: 'top' }
+    };
+
+    var UtilizationRedcorporativaChart = new google.visualization.ColumnChart(document.getElementById('UtilizationRedcorporativa'));
+    UtilizationRedcorporativaChart.draw(UtilizationRedcorporativa, options);
+  }
+
+  google.charts.setOnLoadCallback(HistorialRedcorporativa);
+  function HistorialRedcorporativa() {
+    var HistorialRedcorporativa = JSON.parse('#{(RedcorporativaInterface.where(deviceindex: @redcorporativa_interface.deviceindex).order("created_at ASC").pluck(:created_at, :bps_max).map { |e| [ e[0].strftime("%U-%Y"), e[1] ] }).to_json.html_safe}');
+    HistorialRedcorporativa = [['Fecha/Semana', 'Tráfico Gbps']].concat(HistorialRedcorporativa);
+    HistorialRedcorporativa = google.visualization.arrayToDataTable(HistorialRedcorporativa);
+    var options = {
+      height: 300,
+      hAxis: {
+        title: 'Fecha/Semana',
+        textStyle: {fontSize: 12, color: 'black' },
+        titleTextStyle: {fontSize: 12, color: 'black' }
+      },
+      vAxis: {
+        title: 'Gbps',
+        textStyle: {fontSize: 12, color: 'black' },
+        titleTextStyle: {fontSize: 12, color: 'black' },
+        minValue: 0
+      },
+      colors: ['#99b2e5'],
+      curveType: 'function',
+      legend: { position: 'top' },
+      pointsVisible: 'true'
+    };
+
+    var HistorialRedcorporativaChart = new google.visualization.LineChart(document.getElementById('HistorialRedcorporativa'));
+    HistorialRedcorporativaChart.draw(HistorialRedcorporativa, options);
+  }

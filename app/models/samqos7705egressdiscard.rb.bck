@@ -1,0 +1,98 @@
+class Samqos7705egressdiscard < ActiveRecord::Base
+
+  serialize :samqos7705egressdiscards_array
+
+  require 'rest-client'
+  require 'json'
+  require 'open-uri'
+  require 'csv'
+
+  def self.qos7705egressdiscard_summary
+   xml = File.read("#{Rails.root}/public/Discard_qos7705egress.xml")
+   data = RestClient.post("http://10.140.255.1:8080/xmlapi/invoke", xml,{:"Content-Type" => 'application/soap+xml'})
+   data_parsed = Hash.from_xml(data)
+   return data_parsed
+  end
+
+  def self.samqos7705egressdiscardtotal_table
+   tabletotal = Array.new []
+   data_stats = qos7705egressdiscard_summary['Envelope']['Body']['findResponse']['result']['service.SapEgrQosQueueStatsLogRecord']
+
+   data_stats.map do |qosdiscard_device|
+    devicetotal = qosdiscard_device["monitoredObjectSiteName"]
+    porttotal = qosdiscard_device["displayedName"]
+    queueIdtotal = qosdiscard_device["queueId"]
+    discardinproftotal = qosdiscard_device["droppedInProfOctets"].to_i
+    discardoutproftotal = qosdiscard_device["droppedOutProfOctets"].to_i
+    time_unixtotal = (qosdiscard_device["timeCaptured"]).to_i/1000
+     hash = Hash[devicetotal: devicetotal, porttotal: porttotal, queueIdtotal: queueIdtotal, discardtotal: (discardinproftotal + discardoutproftotal), device_int_stats_total: (devicetotal+porttotal+queueIdtotal).to_s, timeCapturedtotal: (Time.at(time_unixtotal).strftime("%B %e, %Y at %I:%M %p")), time_unixtotal: time_unixtotal]
+     tabletotal << hash
+   end
+
+   return tabletotal.sort! { |a,b| b[:time_unixtotal] <=> a[:time_unixtotal] }
+  end
+
+  def self.samqos7705egressdiscardsub_table
+   groupedtotal  = samqos7705egressdiscardtotal_table.group_by {|h| h[:device_int_stats_total]}
+   
+   keystotal = groupedtotal.keys
+
+      arr_sub = keystotal.map { |k|
+      [k, groupedtotal[k].each_cons(2).map do |g,h|
+          { devicetotal: g[:devicetotal], porttotal: g[:porttotal], queueIdtotal: g[:queueIdtotal], device_int_stats_total: g[:device_int_stats_total], discard_sub: g[:discardtotal]-h[:discardtotal]}
+      end
+      ]
+      }
+
+   
+   table_sub = Array.new []
+   arr_sub.each do |traf_sub|
+    table_sub << traf_sub[1]
+   end
+   table_sub.map(&:first).compact
+  end
+
+
+  def self.statsinterfacemax_table
+
+   tablemax = Array.new []
+   samqos7705egressdiscardsub_table.map do |stats_device|
+    devicemax = stats_device[:devicetotal]
+    portmax = stats_device[:porttotal]
+    queueIdmax = stats_device[:queueIdtotal]
+    discardmax = (((stats_device[:discard_sub].to_f)*8/300000)).round(2)
+    device_int_stats_max = stats_device[:device_int_stats_total]
+     hash = Hash[devicemax: devicemax, portmax: portmax, queueIdmax: queueIdmax, discardmax: discardmax, device_int_stats_max: device_int_stats_max]
+     tablemax << hash
+   end
+   groupedmax  = tablemax.group_by {|h| h[:device_int_stats_max]}
+   keysmax = groupedmax.keys
+   arrmax = keysmax.map {|k| [k, groupedmax[k].max_by {|h| h[:discardmax]}]}
+
+   table_max1 = Array.new []
+   table_max2 = Array.new []
+   arrmax.each do |traf_sub|
+    table_max1 << traf_sub[1]
+   end
+   table_max1.each do |traf_sub|
+    table_max2 << traf_sub[1]
+   end
+  end
+
+  def self.samqos7705egressdiscard_table
+   table = Array.new []
+
+   statsinterfacemax_table.map do |qosdiscard_device|
+    device = qosdiscard_device[:devicemax]
+    port = qosdiscard_device[:portmax]
+    queueId = qosdiscard_device[:queueIdmax]
+    discard = qosdiscard_device[:discardmax]
+    unless discard == 0
+     hash = Hash[node: device, port: port, queueId: queueId, discard: discard]
+     table << hash   
+    end
+   end
+  return table.sort! { |a,b| b[:discard] <=> a[:discard] }
+  end
+
+end

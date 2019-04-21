@@ -1,0 +1,62 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos del SAM - Reporte de Octetos descartados en QoS
+  .col-md-1
+%hr
+
+.row
+  .col-md-2
+  .col-md-8
+    %h3
+      Octetos descartados por cola de QoS - SAR-7705 - SAP Ingress
+  .col-md-2
+
+.row.margin-top-10
+  .col-md-2
+  .col-md-8
+    .float-left 
+      = link_to 'Volver', samqosreports_samqos7705ingressdiscards_path, class: 'btn btn-success'
+    .updated
+      Actualizado
+      = @samqos7705ingressdiscard.created_at.strftime("%d/%m/%Y %H:%M:%S")
+  .col-md-2
+
+.row.margin-top-00
+  .col-md-2
+  .col-md-8.table-responsive
+    = will_paginate @table_qos7705ingressdiscard_show
+    %table.table.table-striped.table-bordered.table-condensed.text-center.margin-top-10
+      %thead
+        %tr
+          %th.text-center
+            Item
+          %th.text-center
+            Nodo
+          %th.text-center
+            Puerto
+          %th.text-center
+            Cola de QoS
+          %th.text-center
+            Tráfico descartado (Kbps)
+      %tbody
+        - unless Samqos7705ingressdiscard.last == nil
+          - i = 0
+          - @table_qos7705ingressdiscard_show.map do |item|
+            - i += 1
+            %tr
+              %td
+                = i
+              %td
+                = item[:node]
+              %td
+                = item[:port]
+              %td
+                = item[:queueId]
+              %td
+                = item[:discard]
+.col-md-2

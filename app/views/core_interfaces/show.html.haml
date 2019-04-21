@@ -1,0 +1,132 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes de KPIs - Reporte Interfaces Core MPLS
+  .col-md-1
+%hr
+
+%p#notice= notice
+
+.margin-top-20
+%div.container
+  #HistorialCore
+
+.margin-top-20
+%div.container
+  #UtilizationCore
+
+.margin-top-20
+%div.container
+  .row.col-md-2
+    %p
+      %b ID:
+    %p
+      %b Nodo:
+    %p
+      %b Puerto:
+    %p
+      %b Capacidad Gbps:
+    %p
+      %b Servicio:
+    %p
+      %b RX Gbps:
+    %p
+      %b TX Gbps:
+    %p
+      %b % Utilización:
+    %p
+      %b % Crecimiento:
+    %p
+      %b Comentario:
+    %p
+      %b Fecha de Solución:
+  .row.col-md-10
+    %p
+      = @core_interface.id
+    %p
+      = @core_interface.device
+    %p
+      = @core_interface.port
+    %p
+      = @core_interface.egressRate
+    %p
+      = @core_interface.servicio
+    %p
+      = @core_interface.gbpsrx
+    %p
+      = @core_interface.gbpstx
+    %p
+      = @core_interface.status
+    %p
+      = @core_interface.crecimiento
+    %p
+      = @core_interface.comment
+    %p
+      = @core_interface.time
+
+%div.container
+  .margin-top-20
+  = link_to 'Editar', edit_core_interface_path(@core_interface), class: 'btn btn-sm btn-success'
+  = link_to 'Volver', core_interfaces_path, class: 'btn btn-sm btn-success'
+  .margin-top-20
+
+:javascript
+  google.charts.load('current', {packages: ['corechart', 'bar', 'line']});
+
+  google.charts.setOnLoadCallback(UtilizationCore);
+  function UtilizationCore() {
+    var UtilizationCore = JSON.parse('#{(CoreInterface.where(deviceindex: @core_interface.deviceindex).order("created_at ASC").pluck(:created_at, :status).map { |e| [ e[0].strftime("%U-%Y"), e[1] ] }).to_json.html_safe}');
+    UtilizationCore = [['Fecha/Semana', 'Utilización']].concat(UtilizationCore);
+    UtilizationCore = google.visualization.arrayToDataTable(UtilizationCore);
+    var options = {
+      'height':300,
+      hAxis: {
+        title: 'Fecha/Semana',
+        textStyle: {fontSize: 12, color: 'black' },
+        titleTextStyle: {fontSize: 12, color: 'black' }
+      },
+      vAxis: {
+        title: '%',
+        textStyle: {fontSize: 12, color: 'black' },
+        titleTextStyle: {fontSize: 12, color: 'black' },
+        minValue: 0
+      },
+      colors: ['#99b2e5'],
+      legend: { position: 'top' }
+    };
+
+    var UtilizationCoreChart = new google.visualization.ColumnChart(document.getElementById('UtilizationCore'));
+    UtilizationCoreChart.draw(UtilizationCore, options);
+  }
+
+  google.charts.setOnLoadCallback(HistorialCore);
+  function HistorialCore() {
+    var HistorialCore = JSON.parse('#{(CoreInterface.where(deviceindex: @core_interface.deviceindex).order("created_at ASC").pluck(:created_at, :bps_max).map { |e| [ e[0].strftime("%U-%Y"), e[1] ] }).to_json.html_safe}');
+    HistorialCore = [['Fecha/Semana', 'Tráfico Gbps']].concat(HistorialCore);
+    HistorialCore = google.visualization.arrayToDataTable(HistorialCore);
+    var options = {
+      height: 300,
+      hAxis: {
+        title: 'Fecha/Semana',
+        textStyle: {fontSize: 12, color: 'black' },
+        titleTextStyle: {fontSize: 12, color: 'black' }
+      },
+      vAxis: {
+        title: 'Gbps',
+        textStyle: {fontSize: 12, color: 'black' },
+        titleTextStyle: {fontSize: 12, color: 'black' },
+        minValue: 0
+      },
+      colors: ['#99b2e5'],
+      curveType: 'function',
+      legend: { position: 'top' },
+      pointsVisible: 'true'
+    };
+
+    var HistorialCoreChart = new google.visualization.LineChart(document.getElementById('HistorialCore'));
+    HistorialCoreChart.draw(HistorialCore, options);
+  }

@@ -1,0 +1,83 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos de KPIs - Reporte Unified MPLS KPI
+  .col-md-1
+%hr
+
+.row
+  .col-md-2
+  .col-md-8
+    %h3
+      Unified MPLS KPI
+      = link_to 'Actualizar', ppmreports_ppmroutes_path, method: :post, class: 'btn btn-warning float-right'
+      .updated
+        Actualizado
+        - unless Ppmroute.last == nil
+          = Ppmroute.last.created_at.strftime("%d/%m/%Y %H:%M:%S")
+        - else
+          '-'
+  .col-md-2
+
+.row.margin-top-10
+  .col-md-2
+  .col-md-8
+    .float-left 
+      = link_to 'Volver', ppmreports_path, class: 'btn btn-success'
+    .float-right
+      = form_tag ppmreports_ppmroute_path(:id), :method => :get do
+        = collection_select(:ppmroute, :id, Ppmroute.all, :id, :created_at, prompt: "10 Reportes anteriores")
+        = submit_tag "Consultar", :name => nil, class: 'btn btn-sm btn-info'
+  .col-md-2
+
+.row.margin-top-00
+  .col-md-2
+  .col-md-8.table-responsive
+    %table.table.table-striped.table-bordered.table-condensed.text-center.margin-top-10
+      %thead
+        %tr
+          %th.text-center
+            \#
+          %th.text-center
+            Nodo
+          %th.text-center
+            Modelo
+          %th.text-center
+            Escalabilidad
+          %th.text-center
+            Rutas
+          %th.text-center
+            Estado (%)
+      %tbody
+        - unless Ppmroute.last == nil
+          - i = 0
+          - @table.map do |item|
+            - i += 1
+            %tr
+              %td
+                = i
+              %td
+                = item[:node]
+              %td
+                = item[:model]
+              %td
+                = item[:scale]
+              - if item[:routes] == '-'
+                %td.danger
+                  = item[:routes]
+              -else
+                %td
+                  = item[:routes]              
+              - if item[:status] > 70.00
+                %td.danger
+                  = item[:status]
+              - else
+                %td
+                  = item[:status]
+
+.col-md-2
+

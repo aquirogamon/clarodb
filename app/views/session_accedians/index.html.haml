@@ -1,0 +1,221 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes de Sesiones de TWAMP creadas en Accedian
+  .col-md-1
+
+.row
+  .col-md-1
+  .col-md-10
+    %h3
+      Sesiones TWAMP
+      = link_to 'Excel', session_accedians_path(format: "xls"), class: 'btn btn-sm btn-warning float-right'
+      = link_to 'Actualizar', session_accedians_path, method: :post, class: 'btn btn-sm btn-warning float-right'
+      .updated
+        Actualizado:
+        - unless SessionAccedian.last == nil
+          = SessionAccedian.last.created_at.strftime("%d/%m/%Y %H:%M:%S")
+        - else
+          '-'
+  .col-md-2
+
+.row.margin-top-10
+  .col-md-1
+  .col-md-10
+    .float-left 
+      = link_to 'Volver', ppmreports_path, class: 'btn btn-sm btn-success'
+
+.row.margin-top-00
+  .col-md-1
+  .col-md-8
+    %input#mySession{:onkeyup => "mySession()", :placeholder => "Sesión ...", :title => "Sesión TWAMP", :type => "text"}
+    %input#mySessionStatus{:onkeyup => "mySessionStatus()", :placeholder => "Status Sesión ...", :title => "Status Sesión TWAMP", :type => "text"}
+    %input#mySla{:onkeyup => "mySla()", :placeholder => "SLA ...", :title => "SLA", :type => "text"}
+    %input#myReflector{:onkeyup => "myReflector()", :placeholder => "Reflector ...", :title => "Reflector", :type => "text"}
+    %input#myReflectorStatus{:onkeyup => "myReflectorStatus()", :placeholder => "Status Reflector ...", :title => "Status Reflector", :type => "text"}
+
+.row.margin-top-00
+  .col-md-12
+    = will_paginate @session_accedians, renderer: BootstrapPagination::Rails
+    %table.table.table-striped.table-bordered.table-condensed.table-hover.text-center.margin-top-10#myTable
+      %thead
+        %tr
+          %th Tipo de Sesión
+          %th Tipo de Equipo
+          %th Nombre de la Sesión
+          %th STATUS Sesión
+          %th Actuador
+          %th Reflector
+          %th IP Reflector
+          %th Tipo de Reflector
+          %th STATUS Reflector
+          %th SLA
+          %th.cursor{:onclick => "sortTableName(10)"} STATUS Equipo
+          %th
+          %th
+          %th
+
+      %tbody
+        - @session_accedians.each do |session_accedian|
+          %tr
+            %td= session_accedian.sessionType
+            %td= session_accedian.product_endpoint
+            %td= session_accedian.name_session
+            %td= session_accedian.state_session
+            %td= session_accedian.srcEndpoint
+            %td= session_accedian.dstEndpoint
+            %td= session_accedian.ip_endpoint
+            %td= session_accedian.type_endpoint
+            %td= session_accedian.state_endpoint
+            %td= session_accedian.sla
+            %td= session_accedian.status_device
+            %td= link_to 'Show', session_accedian
+            %td= link_to 'Edit', edit_session_accedian_path(session_accedian)
+            %td= link_to 'Destroy', session_accedian, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+:javascript
+  function mySession() {
+    var input, filter, table, tr, td, i;
+    input = document.getElementById("mySession");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[2];
+      if (td) {
+        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }       
+    }
+  }
+  function mySessionStatus() {
+    var input, filter, table, tr, td, i;
+    input = document.getElementById("mySessionStatus");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[3];
+      if (td) {
+        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }       
+    }
+  }
+  function myReflector() {
+    var input, filter, table, tr, td, i;
+    input = document.getElementById("myReflector");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[5];
+      if (td) {
+        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }       
+    }
+  }
+  function myReflectorStatus() {
+    var input, filter, table, tr, td, i;
+    input = document.getElementById("myReflectorStatus");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[8];
+      if (td) {
+        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }       
+    }
+  }
+  function mySla() {
+    var input, filter, table, tr, td, i;
+    input = document.getElementById("mySla");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("myTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td")[9];
+      if (td) {
+        if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }       
+    }
+  }
+  function sortTableName(n) {
+    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById("myTable");
+    switching = true;
+    //Set the sorting direction to ascending:
+    dir = "asc"; 
+    /*Make a loop that will continue until
+    no switching has been done:*/
+    while (switching) {
+      //start by saying: no switching is done:
+      switching = false;
+      rows = table.rows;
+      /*Loop through all table rows (except the
+      first, which contains table headers):*/
+      for (i = 1; i < (rows.length - 1); i++) {
+        //start by saying there should be no switching:
+        shouldSwitch = false;
+        /*Get the two elements you want to compare,
+        one from current row and one from the next:*/
+        x = rows[i].getElementsByTagName("td")[n];
+        y = rows[i + 1].getElementsByTagName("td")[n];
+        /*check if the two rows should switch place,
+        based on the direction, asc or desc:*/
+        if (dir == "asc") {
+          if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+            //if so, mark as a switch and break the loop:
+            shouldSwitch= true;
+            break;
+          }
+        } else if (dir == "desc") {
+          if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+            //if so, mark as a switch and break the loop:
+            shouldSwitch = true;
+            break;
+          }
+        }
+      }
+      if (shouldSwitch) {
+        /*If a switch has been marked, make the switch
+        and mark that a switch has been done:*/
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+        //Each time a switch is done, increase this count by 1:
+        switchcount ++;      
+      } else {
+        /*If no switching has been done AND the direction is "asc",
+        set the direction to "desc" and run the while loop again.*/
+        if (switchcount == 0 && dir == "asc") {
+          dir = "desc";
+          switching = true;
+        }
+      }
+    }
+  }

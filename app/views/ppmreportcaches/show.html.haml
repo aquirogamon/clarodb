@@ -1,0 +1,57 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos del Cisco Prime Performance
+  .col-md-1
+%hr
+
+.row.margin-top-10
+  .col-md-2
+  .col-md-8
+    %h3
+      Reportes
+.row
+  .col-md-2
+  .col-md-8
+    %table.table.table-striped.table-bordered.table-condensed.text-center
+      %thead
+        %tr
+          %th.text-center
+            Nombre
+          %th.text-center
+            Descripción
+      %tbody
+        %tr
+          %td
+            = link_to 'Utilización de Google', cachegoogle_interfaces_path
+          %td
+            Utilización de los Servidores de Google
+        %tr
+          %td
+            = link_to 'Utilización de Facebook', cachefacebook_interfaces_path
+          %td
+            Utilización de los Servidores de Facebook
+        %tr
+          %td
+            = link_to 'Utilización de Netflix', cachenetflix_interfaces_path
+          %td
+            Utilización de los Servidores de Netflix
+        %tr
+          %td
+            = link_to 'Utilización de Akamai', cacheakamai_interfaces_path
+          %td
+            Utilización de los Servidores de Akamai
+        %tr
+          %td
+            = link_to 'Utilización de UDN', ppmreportcaches_ppmcacheudns_path
+          %td
+            Utilización de los Servidores de UDN
+  .col-md-2
+.row.margin-top-10
+  .col-md-2
+  .col-md-8
+    = link_to 'Volver', ppmreports_path, class: 'btn btn-sm btn-success'

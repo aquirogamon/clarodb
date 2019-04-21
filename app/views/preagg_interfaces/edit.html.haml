@@ -1,0 +1,80 @@
+.row.margin-top-25
+	.col-md-1
+	.col-md-10
+		.logotitle
+		%h2.page_title
+			Sistema Ágil de Gestión y Provisionamiento
+		%h4.page_subtitle.margin-top-10
+			Reportes de Interface de Pre-AGG
+	.col-md-1
+%hr
+
+.row.margin-top-00
+	.col-md-12.table-responsive
+		%table.table.table-striped.table-bordered.table-condensed.table-hover.text-center.margin-top-10
+			%thead
+				%tr
+					%th.text-center
+						Equipo
+					%th.text-center
+						Puerto
+					%th.text-center
+						Servicio
+					%th.text-center
+						Capacidad
+					%th.text-center.info
+						Max Gbps
+						%br
+						= @preagg_interface.created_at.strftime("Sem_%U")
+					%th.text-center.info
+						\%
+						%br
+						= @preagg_interface.created_at.strftime("Sem_%U")
+					%th.text-center.info
+						RX Gbps
+						%br
+						= @preagg_interface.created_at.strftime("Sem_%W")
+					%th.text-center.info
+						TX Gbps
+						%br
+						= @preagg_interface.created_at.strftime("Sem_%W")
+					%th.text-center.info
+						\%
+						%br
+						= @preagg_interface.created_at.strftime("Sem_%W")
+					%th.text-center
+						Crecimiento
+			%tbody
+				%tr
+					%td= @preagg_interface.device
+					%td= @preagg_interface.port
+					%td= @preagg_interface.servicio
+					%td= @preagg_interface.egressRate
+					%td= @preagg_interface.last_bps_max
+			    
+					- if @preagg_interface.last_status > 85.00
+						%td.danger= @preagg_interface.last_status
+					- elsif @preagg_interface.last_status > 75.00 and @preagg_interface.last_status < 84.999
+						%td.warning= @preagg_interface.last_status
+					- else
+						%td= @preagg_interface.last_status
+
+					%td= @preagg_interface.gbpsrx
+					%td= @preagg_interface.gbpstx
+
+					- if @preagg_interface.status > 85.00
+						%td.danger= @preagg_interface.status
+					-elsif @preagg_interface.status > 75.00 and @preagg_interface.status < 84.999
+						%td.warning= @preagg_interface.status
+					- else
+						%td= @preagg_interface.status
+			    
+					%td= @preagg_interface.crecimiento
+
+%div.col-md-4
+	= render 'form'
+
+	.margin-top-20
+	= link_to 'Historial', @preagg_interface, class: 'btn btn-sm btn-success'
+	= link_to 'Volver', preagg_interfaces_path, class: 'btn btn-sm btn-success'
+	.margin-top-20

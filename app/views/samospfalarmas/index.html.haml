@@ -1,0 +1,90 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos del SAM - Reporte de Cantidad de alarmas OSPF
+  .col-md-1
+%hr
+
+.row
+  .col-md-1
+  .col-md-10
+    %h3
+      Alarmas OSPF
+      = link_to 'Actualizar', samreportalarmas_samospfalarmas_path, method: :post, class: 'btn btn-warning float-right'
+      .updated
+        Actualizado
+        - unless Samospfalarma.last == nil
+          = Samospfalarma.last.created_at.strftime("%d/%m/%Y %H:%M:%S")
+        - else
+          '-'
+  .col-md-1
+
+.row.margin-top-10
+  .col-md-1
+  .col-md-10
+    .float-left 
+      = link_to 'Volver', samreportalarmas_path, class: 'btn btn-success'
+    .float-right
+      = form_tag samreportalarmas_samospfalarma_path(:id), :method => :get do
+        = collection_select(:samospfalarma, :id, Samospfalarma.all, :id, :created_at, prompt: "10 Reportes anteriores")
+        = submit_tag "Consultar", :name => nil, class: 'btn btn-sm btn-info'
+  .col-md-2
+
+.row.margin-top-00
+  .col-md-4
+  .col-md-12.table-responsive
+    %table.table.table-striped.table-bordered.table-condensed.text-center.margin-top-10
+      %thead
+        %tr
+          %th.text-center
+            Item
+          %th.text-center
+            Nodo
+          %th.text-center
+            Tipo de Alarma
+          %th.text-center
+            Nombre de la Alarma
+          %th.text-center
+            Objeto afectado
+          %th.text-center
+            Detalle de Objeto afectado
+          %th.text-center
+            Probable causa
+          %th.text-center
+            Primera Fecha que se Detectó
+          %th.text-center
+            Última Fecha que se Detectó
+          %th.text-center
+            \# de Ocurrencia
+      %tbody
+        - unless Samospfalarma.last == nil
+          - i = 0
+          - @table_ospfalarma.map do |item|
+            - i += 1
+            %tr
+              %td
+                = i
+              %td
+                = item[:nodeName]
+              %td
+                = item[:affectedObjectClassName]
+              %td
+                = item[:alarmClassTag]
+              %td
+                = item[:affectedObjectDisplayedName]
+              %td
+                = item[:affectedObjectFullName]
+              %td
+                = item[:probableCause]
+              %td
+                = item[:timefirts]
+              %td
+                = item[:timelast]
+              %td
+                = item[:numberOfOccurences]
+                
+.col-md-2

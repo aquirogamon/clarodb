@@ -1,0 +1,2 @@
+module SamaztecainterfacesHelper
+end

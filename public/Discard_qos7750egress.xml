@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP:Header>
+      <header xmlns="xmlapi_1.0">
+         <security>
+            <user>C14593</user>
+            <password hashed="false">Claro348!</password>
+         </security>
+         <requestID>aquiroga:0001</requestID>
+      </header>
+   </SOAP:Header>
+   <SOAP:Body>
+      <find xmlns="xmlapi_1.0">
+         <fullClassName>service.CompleteServiceEgressPacketOctetsLogRecord</fullClassName>
+         <filter>
+          <and>
+            <between name="timeCaptured" first="1521853200000" second="1521856800000"/>
+          </and>
+         </filter>
+         <resultFilter>
+            <attribute>inProfileOctetsDropped</attribute>
+            <attribute>outOfProfileOctetsDropped</attribute>
+            <attribute>svcId</attribute>
+            <attribute>sapId</attribute>
+            <attribute>queueId</attribute>
+            <attribute>timeCaptured</attribute>
+            <attribute>displayedName</attribute>
+            <attribute>monitoredObjectSiteName</attribute>
+            <children/>
+         </resultFilter>
+      </find>
+   </SOAP:Body>
+</SOAP:Envelope>

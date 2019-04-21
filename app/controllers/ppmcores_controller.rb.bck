@@ -1,0 +1,39 @@
+class PpmcoresController < ApplicationController
+
+  def index
+    @ppmcores = Ppmcore.all
+    unless Ppmcore.last == nil
+      @table_interfaces = Ppmcore.last[:ppmcores_array]
+    end
+    rescue => e
+     flash[:error] = "Error de conexión con Prime Performance Manager"
+     redirect_to ppmreports_path
+  end
+
+  def show
+    @ppmcore = Ppmcore.find(params[:ppmcore][:id])
+    rescue => e
+     flash[:error] = "Escoja un reporte válido."
+     redirect_to ppmreports_ppminterfaces_path
+  end
+
+  def create
+    @ppmcores = Ppmcore.all
+    @ppmcore = Ppmcore.create(:ppmcores_array => Ppmcore.interface_table_core("core"))
+    if @ppmcore.save
+      @ppmcore.created_at.in_time_zone('Eastern Time (US & Canada)')
+      flash[:notice] = "Reporte actualizado y almacenado."
+      redirect_to '/ppmreports/ppmcores'
+      if @ppmcores.count > 20
+        @ppmcores.first.delete
+      end
+    else
+      flash[:error] = "Error al actualizar el reporte."
+      render :new
+    end    
+    #rescue => e
+    # flash[:error] = "Error de conexión con Prime Performance Manager"
+    # redirect_to ppmreports_path
+  end
+
+end

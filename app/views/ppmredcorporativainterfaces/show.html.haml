@@ -1,0 +1,99 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos de KPIs - Reporte de Interfaces de Red Corporativa
+  .col-md-1
+%hr
+
+.row
+  .col-md-2
+  .col-md-8
+    %h3
+      Red Corporativa
+  .col-md-2
+
+.row.margin-top-10
+  .col-md-2
+  .col-md-8
+    .float-left 
+      = link_to 'Volver', ppmreports_ppmredcorporativainterfaces_path, class: 'btn btn-success'
+    .updated
+      Actualizado
+      = @ppmredcorporativainterface.created_at.strftime("%d/%m/%Y %H:%M:%S")
+  .col-md-2
+
+.row.margin-top-00
+  .col-md-12.table-responsive
+    %table.table.table-striped.table-bordered.table-condensed.text-center.margin-top-10
+      %thead
+        %tr
+          %th.text-center
+            \#
+          %th.text-center
+            Nodo
+          %th.text-center
+            Puerto
+          %th.text-center
+            Servicio
+          %th.text-center
+            Capacidad
+          %th.text-center
+            Max Gbps RX
+          %th.text-center
+            Max Gbps TX
+          %th.text-center
+            Utilización RX (%)
+          %th.text-center
+            Utilización TX (%)
+          %th.text-center
+            Crecimiento RX (%)
+          %th.text-center
+            Crecimiento TX (%)
+      %tbody
+        - unless Ppmredcorporativainterface.last == nil
+          - i = 0
+          - @ppmredcorporativainterface[:ppmredcorporativainterfaces_array].map do |item|
+            - i += 1
+            %tr
+              %td
+                = i
+              %td
+                = item[:device_crecimiento]
+              %td
+                = item[:port_crecimiento]
+              %td
+                = item[:servicio_crecimiento]
+              %td
+                = item[:egressRate_crecimiento]
+              %td
+                = item[:gbpsrx_crecimiento]
+              %td
+                = item[:gbpstx_crecimiento]
+              - if item[:status_rx] > 84.99
+                %td.danger
+                  = item[:status_rx]
+              - else
+                %td
+                  = item[:status_rx]
+              - if item[:status_tx] > 84.99
+                %td.danger
+                  = item[:status_tx]
+              - else
+                %td
+                  = item[:status_tx]
+              - if item[:crecimiento_rx] > 19.99
+                %td.danger
+                  = item[:crecimiento_rx]
+              - else
+                %td
+                  = item[:crecimiento_rx]
+              - if item[:crecimiento_tx] > 19.99
+                %td.danger
+                  = item[:crecimiento_tx]
+              - else
+                %td
+                  = item[:crecimiento_tx]

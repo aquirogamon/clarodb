@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  samroutebgps_array: MyText
+
+two:
+  samroutebgps_array: MyText

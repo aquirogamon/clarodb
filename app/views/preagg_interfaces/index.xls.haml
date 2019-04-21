@@ -1,0 +1,53 @@
+%table{:border => 1}
+  %thead
+    %tr
+      %th.text-center
+        Nodo
+      %th.text-center
+        Puerto
+      %th.text-center
+        Servicio
+      %th.text-center
+        Capacidad
+      %th.text-center
+        Max Gbps (Anterior)
+      %th.text-center
+        \% (Anterior)
+      %th.text-center
+        bps_max
+      %th.text-center
+        Status
+      %th.text-center
+        Crecimiento
+      %th.text-center
+        Comentarios
+      %th.text-center
+        Fecha de Solución
+      %th.text-center
+        deviceindex
+      %th.text-center
+        RX Gbps
+      %th.text-center
+        TX Gbps
+      %th.text-center
+        created_at
+
+  %tbody
+    - @preagg_interfaces_all.each do |preagg_interface|
+      %tr
+        %td= preagg_interface.device
+        %td= preagg_interface.port
+        %td= preagg_interface.servicio
+        %td= preagg_interface.egressRate
+        %td= preagg_interface.last_bps_max
+        %td= preagg_interface.last_status
+        %td= preagg_interface.bps_max
+        %td= preagg_interface.status
+        %td= preagg_interface.crecimiento
+        %td= preagg_interface.comment
+        %td= preagg_interface.time
+        %td= preagg_interface.deviceindex
+        %td= preagg_interface.gbpsrx
+        %td= preagg_interface.gbpstx
+        %td= preagg_interface.created_at
+        %td 0

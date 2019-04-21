@@ -1,0 +1,68 @@
+%table{:border => 1}
+  %thead
+    %tr
+      %th.text-center
+        device
+      %th.text-center
+        port
+      %th.text-center
+        servicio
+      %th.text-center
+        egressRate
+      %th.text-center
+        neighbor
+      %th.text-center
+        last_bps_max
+      %th.text-center
+        last_status
+      %th.text-center
+        bps_max
+      %th.text-center
+        status
+      %th.text-center
+        crecimiento
+      %th.text-center
+        comentarios
+      %th.text-center
+        time
+      %th.text-center
+        deviceindex
+      %th.text-center
+        gbpsrx
+      %th.text-center
+        gbpstx
+  %tbody
+    - unless Ppminterfaceinternet.last == nil
+      - i = 0
+      - @table_interfaceinternet.map do |item|
+        %tr
+          %td
+            = item[:device]
+          %td
+            = item[:port]
+          %td
+            = item[:servicio]
+          %td
+            = item[:egressRate]
+          %td
+            = item[:neighbor]
+          %td
+            = item[:last_bps_max]
+          %td
+            = item[:last_status]
+          %td
+            = item[:bps_max]
+          %td
+            = item[:status]
+          %td
+            = item[:crecimiento]
+          %td
+            = item[:comentarios]
+          %td
+            = item[:time]
+          %td
+            = item[:deviceindex]
+          %td
+            = item[:gbpsrx]
+          %td
+            = item[:gbpstx]

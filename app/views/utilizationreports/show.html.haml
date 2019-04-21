@@ -1,0 +1,91 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos de Cantidad de Interfaces Saturadas por Arquitectura
+  .col-md-1
+%hr
+
+.row.margin-top-10
+  .col-md-2
+  .col-md-8
+    %h4.margin-top-20
+      Cantidad de Enlace Crítico ( >85%) y Semi-Críticos ( >75%) en Internet -
+      %strong
+        =InternetInterface.maximum(:created_at).strftime("Semana " "%U")
+    =link_to 'Detalle ', internet_interfaces_path, class: 'btn btn-sm btn-info', target: :_blank
+
+.margin-top-20
+%div.container
+  #UtilizationCountInternet
+
+.margin-top-20
+%div.container
+  = column_chart [ {name: "Críticos", data: InternetInterface.where("status >= 85").where.not(servicio: "PeerIntFacebook").group_by_week(:created_at, format: "%W-%Y").count}, {name: "SemiCríticos", data: InternetInterface.where("status >= 75 AND status < 85").group_by_week(:created_at, format: "%W-%Y").count} ], download: true, xtitle: "Senana", library: { animation: { easing: 'easeOutQuad' }}, legend: "bottom", colors: ["#F23C50", "#36B1BF"]
+
+.row.margin-top-20
+  .col-md-2
+  .col-md-8
+    %h4.margin-top-20
+      Cantidad de Enlace Crítico ( >85%) y Semi-Críticos ( >75%) en Core MPLS -
+      %strong
+        =CoreInterface.maximum(:created_at).strftime("Semana " "%U")
+    =link_to 'Detalle ', core_interfaces_path, class: 'btn btn-sm btn-info', target: :_blank
+
+.margin-top-20
+%div.container
+  = column_chart [ {name: "Críticos", data: CoreInterface.where("status >= 85").group_by_week(:created_at, format: "%W").count}, {name: "SemiCríticos", data: CoreInterface.where("status >= 75 AND status < 85").group_by_week(:created_at, format: "%W").count} ], download: true, xtitle: "Semana", library: { animation: { easing: 'easeOutQuad' }}, legend: "bottom", colors: ["#F23C50", "#36B1BF"]
+
+.row.margin-top-20
+  .col-md-2
+  .col-md-8
+    %h4.margin-top-20
+      Cantidad de Enlace Crítico ( >85%) y Semi-Críticos ( >75%) en IPRAN Edge -
+      %strong
+        =IpranedgeInterface.maximum(:created_at).strftime("Semana " "%U")
+    =link_to 'Detalle ', ipranedge_interfaces_path, class: 'btn btn-sm btn-info', target: :_blank
+
+.margin-top-20
+%div.container
+  = column_chart [ {name: "Críticos", data: IpranedgeInterface.where("status >= 85").group_by_week(:created_at, format: "%W").count}, {name: "SemiCríticos", data: IpranedgeInterface.where("status >= 75 AND status < 85").group_by_week(:created_at, format: "%W").count} ], download: true, xtitle: "Semana", library: { animation: { easing: 'easeOutQuad' }}, legend: "bottom", colors: ["#F23C50", "#36B1BF"]
+
+.row.margin-top-40
+  .col-md-2
+  .col-md-8
+    = link_to 'Volver', summaryreports_path, class: 'btn btn-sm btn-success'
+
+.row.margin-top-20
+
+
+:javascript
+  google.charts.load('current', {packages: ['corechart', 'bar']});
+
+  google.charts.setOnLoadCallback(UtilizationCountInternet);
+  function CriticalInternet() {
+    var CriticalInternet = JSON.parse('#{(InternetInterface.where("status >= 85").where.not(servicio: "PeerIntFacebook").group_by_week(:created_at, format: "Semana %W").count).to_json.html_safe}');
+    var SemiCriticalInternet = JSON.parse('#{(InternetInterface.where("status >= 75 AND status < 85").group_by_week(:created_at, format: "Semana %W").count).to_json.html_safe}');
+    UtilizationCountInternet = [['Fecha/Semana', 'Cantidad']].concat(UtilizationCountInternet);
+    UtilizationCountInternet = google.visualization.arrayToDataTable(CriticalInternet);
+    UtilizationCountInternet = google.visualization.arrayToDataTable(SemiCriticalInternet);
+    var options = {
+      'height':300,
+      hAxis: {
+        title: 'Fecha/Semana',
+        textStyle: {fontSize: 12, color: 'black' },
+        titleTextStyle: {fontSize: 12, color: 'black' }
+      },
+      vAxis: {
+        title: 'Cantidad',
+        textStyle: {fontSize: 12, color: 'black' },
+        titleTextStyle: {fontSize: 12, color: 'black' }
+      },
+      colors: ['#99b2e5'],
+      legend: { position: 'top' }
+    };
+
+    var UtilizationInternetChart = new google.visualization.ColumnChart(document.getElementById('UtilizationCountInternet'));
+    UtilizationInternetChart.draw(UtilizationCountInternet, options);
+  }

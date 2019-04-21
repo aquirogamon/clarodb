@@ -1,0 +1,2 @@
+module PpmcacheakamaisHelper
+end

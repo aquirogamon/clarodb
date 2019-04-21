@@ -1,0 +1,67 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos del SAM
+  .col-md-1
+%hr
+
+.row.margin-top-10
+  .col-md-2
+  .col-md-8
+    %h3
+      Reportes
+.row
+  .col-md-2
+  .col-md-8
+    %table.table.table-striped.table-bordered.table-condensed.text-center
+      %thead
+        %tr
+          %th.text-center
+            Nombre
+          %th.text-center
+            Descripción
+      %tbody
+        %tr
+          %td
+            = link_to 'Utlización de CPU', samreports_samcpus_path
+          %td
+            Estado de rutas por equipo
+        %tr
+          %td
+            = link_to 'Utilización de Memoria', samreports_sammemos_path
+          %td
+            Utilización de Memoría de todos los Equipos Nokia
+        %tr
+          %td
+            = link_to 'Temperatura', samreports_samenvironments_path
+          %td
+            Temperatura del Equipo en Celcius
+        %tr
+          %td
+            = link_to 'Seamles MPLS', samreportroutes_path
+          %td
+            Utilización de rutas en memoria - Seamless
+        %tr
+          %td
+            = link_to 'Estadisticas de Interfaces', samqosdiscards_path
+          %td
+            Estadisticas de Paquetes Descartados y Porcentaje de utilización en los equipos Nokia
+        %tr
+          %td
+            = link_to 'Estadisticas de QoS', samqosreports_path
+          %td
+            Estadisticas de QoS en los equipos Nokia
+        %tr
+          %td
+            = link_to 'Reporte de Alarmas', samreportalarmas_path
+          %td
+            Estadisticas de Alarmas en los equipos Nokia
+  .col-md-2
+.row.margin-top-10
+  .col-md-2
+  .col-md-8
+    = link_to 'Volver', dashboard_path, class: 'btn btn-success'

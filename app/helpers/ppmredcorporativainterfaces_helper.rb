@@ -1,0 +1,2 @@
+module PpmredcorporativainterfacesHelper
+end

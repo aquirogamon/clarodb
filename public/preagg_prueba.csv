@@ -1,0 +1,5 @@
+Router,Host,Index,Transporte(Gbps),Status,Port
+cMPLSArriola,10.253.2.20,10124,1,-,cMPLSArriola10124
+cMPLSArriola,10.253.2.20,10201,10,-,cMPLSArriola10201
+cMPLSRafaelEscardo,10.253.4.28,10201,10,-,cMPLSRafaelEscardo10201
+cMPLSPuntaHermosa,10.253.6.26,10201,10,-,cMPLSPuntaHermosa10201

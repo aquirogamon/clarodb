@@ -1,0 +1,39 @@
+%table{:border => 1}
+  %thead
+    %tr
+      %th.text-center
+        Nodo
+      %th.text-center
+        Puerto
+      %th.text-center
+        Descripción del Puerto
+      %th.text-center
+        Capacidad del enlace (Mbps)
+      %th.text-center
+        Tipo de Puerto
+      %th.text-center
+        Download (Mbps)
+      %th.text-center
+        Upload (Mbps)
+      %th.text-center
+        Utilización del enlace (%)
+  %tbody
+    - unless Samutilizationinterface.last == nil
+      - @table_utilizationinterface.map do |item|
+        %tr
+          %td
+            = item[:node]
+          %td
+            = item[:port]
+          %td
+            = item[:description]
+          %td
+            = item[:velodidad]
+          %td
+            = item[:speed]
+          %td
+            = item[:Mbps_bwrx]
+          %td
+            = item[:Mbps_bwtx]
+          %td
+            = item[:status]

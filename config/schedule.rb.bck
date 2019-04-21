@@ -1,0 +1,55 @@
+# config/schedule.rb
+
+set :output, { error: 'log/error.log', standard: 'log/cron.log' }
+set :chronic_options, :hours24 => true
+
+env :PATH, ENV['PATH']
+
+every :sunday, :at => '00:05' do
+  rake 'new_report_ipranqosegressacceso'
+end
+
+every :sunday, :at => '04:05' do
+  rake 'new_report_ipranazteca'
+end
+
+every :monday, :at => '00:01' do
+  rake 'new_report_ipranedge'
+end
+
+every :monday, :at => '01:30' do
+  rake 'new_report_ipranacceso'
+end
+
+every :monday, :at => '03:00' do
+  rake 'new_report_internet'
+end
+
+every :monday, :at => '03:30' do
+  rake 'new_report_core'
+end
+
+every :monday, :at => '05:00' do
+  rake 'new_report_preagg'
+end
+
+every :tuesday, :at => '00:01' do
+  rake 'new_report_google'
+end
+
+every :tuesday, :at => '01:00' do
+  rake 'new_report_facebook'
+end
+
+every :tuesday, :at => '02:00' do
+  rake 'new_report_netflix'
+end
+
+every :tuesday, :at => '03:00' do
+  rake 'new_report_akamai'
+end
+
+every :tuesday, :at => '04:00' do
+  rake 'new_report_core_mobile'
+end
+

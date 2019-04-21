@@ -1,0 +1,57 @@
+%table{:border => 1}
+  %thead
+    %tr
+      %th.text-center
+        Item
+      %th.text-center
+        Nodo
+      %th.text-center
+        Puerto
+      %th.text-center
+        Descripción del Puerto
+      %th.text-center
+        Capacidad Contratada (Mbps)
+      %th.text-center
+        Download (Mbps)
+      %th.text-center
+        Upload (Mbps)
+      %th.text-center
+        Utilización (%)
+      %th.text-center
+        BW_P95 (Mbps)
+      %th.text-center
+        Utilización_P95 (%)
+  %tbody
+    - unless Saminternexainterface.last == nil
+      - i = 0
+      - @table_internexainterface.map do |item|
+        - i += 1
+        %tr
+          %td
+            = i
+          %td
+            = item[:node]
+          %td
+            = item[:port]
+          %td
+            = item[:description]
+          %td
+            = item[:velodidad]
+          %td
+            = item[:Mbps_bwrx]
+          %td
+            = item[:Mbps_bwtx]
+          - if item[:status] > 75.00
+            %td.danger
+              = item[:status]
+          - else
+            %td
+              = item[:status]
+          %td
+            = item[:Mbps_bw_per]
+          - if item[:status_per] > 75.00
+            %td.danger
+              = item[:status_per]
+          - else
+            %td
+              = item[:status_per]

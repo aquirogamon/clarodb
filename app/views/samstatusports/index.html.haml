@@ -1,0 +1,75 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos del SAM - Reporte de Status del puerto
+  .col-md-1
+%hr
+
+.row
+  .col-md-1
+  .col-md-10
+    %h3
+      Detalles y Status del puerto
+      = link_to 'Excel', samqosdiscards_samstatusports_path(format: "xls"), class: 'btn btn-warning float-right'
+      = link_to 'Actualizar', samqosdiscards_samstatusports_path, method: :post, class: 'btn btn-warning float-right'
+      .updated
+        Actualizado
+        - unless Samstatusport.last == nil
+          = Samstatusport.last.created_at.strftime("%d/%m/%Y %H:%M:%S")
+        - else
+          '-'
+  .col-md-1
+
+.row.margin-top-10
+  .col-md-1
+  .col-md-10
+    .float-left 
+      = link_to 'Volver', samqosdiscards_path, class: 'btn btn-success'
+    .float-right
+      = form_tag samqosdiscards_samstatusport_path(:id), :method => :get do
+        = collection_select(:samstatusport, :id, Samstatusport.all, :id, :created_at, prompt: "10 Reportes anteriores")
+        = submit_tag "Consultar", :name => nil, class: 'btn btn-sm btn-info'
+  .col-md-2
+
+.row
+  %table.table.table-bordered.table-condensed.table-hover.text-center.margin-top-10
+    %thead
+      %tr
+        %th.text-center
+          Item
+        %th.text-center
+          Nodo
+        %th.text-center
+          Tipo de equipo
+        %th.text-center
+          Puerto
+        %th.text-center
+          Velocidad Configurada (Mbps)
+        %th.text-center
+          Tipo de puerto
+        %th.text-center
+          Descripción
+    %tbody
+      - unless Samstatusport.last == nil
+        - i = 0
+        - @table_statusport.map do |item|
+          - i += 1
+          %tr
+            %td
+              = i
+            %td
+              = item[:device]
+            %td
+              = item[:tipo_equipo]
+            %td
+              = item[:port]
+            %td
+              = item[:actualSpeed]
+            %td
+              = item[:speed]
+            %td
+              = item[:description]

@@ -1,0 +1,49 @@
+%table{:border => 1}
+  %thead
+    %tr
+      %th.text-center
+        Item
+      %th.text-center
+        Cliente
+      %th.text-center
+        CID
+      %th.text-center
+        Capacidad (Mbps)
+      %th.text-center
+        Max Mbps Tx
+      %th.text-center
+        Max Mbps Rx
+      %th.text-center
+        Utilización %
+      %th.text-center
+        Utilización_P90 %
+  %tbody
+    - unless Ppminterfaceclientinternet.last == nil
+      - i = 0
+      - @table_interfaceclientinternet.map do |item|
+        - i += 1
+        %tr
+          %td
+            = i
+          %td
+            = item[:clientmax]
+          %td
+            = item[:cidmax]
+          %td
+            = item[:egressRatemax]
+          %td
+            = item[:bps_txmax]
+          %td
+            = item[:bps_rxmax]
+          - if item[:status] > 80
+            %td.danger
+              = item[:status]
+          - else
+            %td
+              = item[:status]
+          - if item[:status_per] > 80.00
+            %td.danger
+              = item[:status_per]
+          - else
+            %td
+              = item[:status_per]

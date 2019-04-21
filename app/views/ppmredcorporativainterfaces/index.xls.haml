@@ -1,0 +1,69 @@
+%table{:border => 1}
+  %thead
+    %tr
+      %th.text-center
+        \#
+      %th.text-center
+        Nodo
+      %th.text-center
+        Puerto
+      %th.text-center
+        Servicio
+      %th.text-center
+        Capacidad
+      %th.text-center
+        Max Gbps RX
+      %th.text-center
+        Max Gbps TX
+      %th.text-center
+        Utilización RX (%)
+      %th.text-center
+        Utilización TX (%)
+      %th.text-center
+        Crecimiento RX (%)
+      %th.text-center
+        Crecimiento TX (%)
+  %tbody
+    - unless Ppmredcorporativainterface.last == nil
+      - i = 0
+      - @table_redcorporativainterface.flatten.map do |item|
+        - i += 1
+          %tr
+            %td
+              = i
+            %td
+              = item[:device_crecimiento]
+            %td
+              = item[:port_crecimiento]
+            %td
+              = item[:servicio_crecimiento]
+            %td
+              = item[:egressRate_crecimiento]
+            %td
+              = item[:gbpsrx_crecimiento]
+            %td
+              = item[:gbpstx_crecimiento]
+            - if item[:status_rx] > 84.99
+              %td.danger
+                = item[:status_rx]
+            - else
+              %td
+                = item[:status_rx]
+            - if item[:status_tx] > 84.99
+              %td.danger
+                = item[:status_tx]
+            - else
+              %td
+                = item[:status_tx]
+            - if item[:crecimiento_rx] > 19.99
+              %td.danger
+                = item[:crecimiento_rx]
+            - else
+              %td
+                = item[:crecimiento_rx]
+            - if item[:crecimiento_tx] > 19.99
+              %td.danger
+                = item[:crecimiento_tx]
+            - else
+              %td
+                = item[:crecimiento_tx]

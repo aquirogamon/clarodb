@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  total_traffic: 1.5
+  hfc_cgn: 1.5
+  hfc_public: 1.5
+  hfc_ipv6: 1.5
+  hfc: 1.5
+  mobile_cgn: 1.5
+  mobile_corporate: 1.5
+  mobile_ipv6: 1.5
+  mobile: 1.5
+  mobile_olo: 1.5
+  corporate: 1.5
+  cache_in: 1.5
+
+two:
+  total_traffic: 1.5
+  hfc_cgn: 1.5
+  hfc_public: 1.5
+  hfc_ipv6: 1.5
+  hfc: 1.5
+  mobile_cgn: 1.5
+  mobile_corporate: 1.5
+  mobile_ipv6: 1.5
+  mobile: 1.5
+  mobile_olo: 1.5
+  corporate: 1.5
+  cache_in: 1.5

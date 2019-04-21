@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP:Header>
+      <header xmlns="xmlapi_1.0">
+         <security>
+            <user>C12285</user>
+            <password hashed="false">Peru2018#</password>
+         </security>
+         <requestID>aquiroga:0001</requestID>
+      </header>
+   </SOAP:Header>
+
+   <SOAP:Body>
+      <find xmlns="xmlapi_1.0">
+         <fullClassName>equipment.InterfaceAdditionalStatsLogRecord</fullClassName>
+         <filter>
+           <and>
+            <or>
+              <wildcard name="monitoredObjectSiteName" value="%LRT-YRM-AN01%"/>
+              <wildcard name="monitoredObjectSiteName" value="%rCSRAcomayo%"/>
+              <wildcard name="monitoredObjectSiteName" value="%rCSRAntabamba%"/>
+              <wildcard name="monitoredObjectSiteName" value="%rCSRBolivarTrujillo%"/>
+              <wildcard name="monitoredObjectSiteName" value="%rCSRCajatambo%"/>
+              <wildcard name="monitoredObjectSiteName" value="%rCSRCaraveli %"/>
+              <wildcard name="monitoredObjectSiteName" value="%rCSRCastrovirreyna%"/>
+              <wildcard name="monitoredObjectSiteName" value="%rCSRChalhuanca%"/>
+              <wildcard name="monitoredObjectSiteName" value="%rCSRChuquibambilla%"/>
+              <wildcard name="monitoredObjectSiteName" value="%rCSRCoraCora%"/>
+              <wildcard name="monitoredObjectSiteName" value="%rCSRCotahuasiHuaynacotas%"/>
+              <wildcard name="monitoredObjectSiteName" value="%rCSRElonur%"/>
+              <wildcard name="monitoredObjectSiteName" value="%rCSRHuacrachuco%"/>
+              <wildcard name="monitoredObjectSiteName" value="%rCSRHuancaSancos%"/>
+              <wildcard name="monitoredObjectSiteName" value="%rCSRHuaytara%"/>
+              <wildcard name="monitoredObjectSiteName" value="%rCSRInhapari%"/>
+              <wildcard name="monitoredObjectSiteName" value="%rCSROmate%"/>
+              <wildcard name="monitoredObjectSiteName" value="%rCSROyon%"/>
+              <wildcard name="monitoredObjectSiteName" value="%rCSRParuro%"/>
+              <wildcard name="monitoredObjectSiteName" value="%rCSRPausa%"/>
+              <wildcard name="monitoredObjectSiteName" value="%rCSRPiscobamba%"/>
+              <wildcard name="monitoredObjectSiteName" value="%rCSRPuertoInca%"/>
+              <wildcard name="monitoredObjectSiteName" value="%rCSRPuquio%"/>
+              <wildcard name="monitoredObjectSiteName" value="%rCSRRodriguezMendoza%"/>
+              <wildcard name="monitoredObjectSiteName" value="%rCSRSandia%"/>
+              <wildcard name="monitoredObjectSiteName" value="%rCSRTarata%"/>
+              <wildcard name="monitoredObjectSiteName" value="%rCSRTayabamba%"/>
+              <wildcard name="monitoredObjectSiteName" value="%rCSRUcoPaucasChingas%"/>
+              <wildcard name="monitoredObjectSiteName" value="%rCSRYauyos%"/>
+              <wildcard name="monitoredObjectSiteName" value="%rCSRSatipoCentro%"/>
+            </or>
+            <not>
+             <or>
+              <wildcard name="displayedName" value="Channel%"/>
+              <wildcard name="displayedName" value="system%"/>
+              <wildcard name="displayedName" value="loopback%"/>
+             </or>
+            </not>
+            <and>
+             <notEqual name="receivedTotalOctetsPeriodic" value="0"/>
+             <notEqual name="transmittedTotalOctetsPeriodic" value="0"/>
+            </and>
+          </and>
+         </filter>
+         <resultFilter>
+            <attribute>receivedTotalOctets</attribute>
+            <attribute>transmittedTotalOctets</attribute>
+            <attribute>monitoredObjectSiteName</attribute>
+            <attribute>displayedName</attribute>
+            <attribute>timeCaptured</attribute>
+            <attribute>periodicTime</attribute>
+            <children/>
+         </resultFilter>
+      </find>
+   </SOAP:Body>
+
+</SOAP:Envelope>

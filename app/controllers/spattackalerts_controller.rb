@@ -1,0 +1,2 @@
+class SpattackalertsController < ApplicationController
+end

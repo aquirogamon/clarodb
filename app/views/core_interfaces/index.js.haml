@@ -1,0 +1,7 @@
+$('#coreinterfaces').append('<%= j render @core_interfaces %>')
+
+<% if @core_interfaces.next_page %>
+	$('.pagination').replaceWith('<%= j will_paginate @core_interfaces %>')
+<% else %>
+	$('.pagination').remove();
+<% end %>

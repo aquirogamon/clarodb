@@ -1,0 +1,45 @@
+.row.margin-top-25
+	.col-md-1
+	.col-md-10
+		.logotitle
+		%h2.page_title
+			Sistema Ágil de Gestión y Provisionamiento
+		%h4.page_subtitle.margin-top-10
+			Reportes ejecutivos de KPIs - Reporte Interfaces Internet
+	.col-md-1
+%hr
+
+.row
+	.col-md-6
+		%h4.page_subtitle.margin-top-10
+			Agregar plan de acción y Fecha de ejecución
+
+- unless Ppminterfaceinternet.last == nil
+	- @table_interfaceinternet.map do |item|
+		.row.margin-top-25
+			.col-md-6
+				%strong Equipo+Index: 
+				= item[:deviceindex]
+				%br
+				%strong Equipo: 
+				= item[:device]
+				%br
+				%strong Puerto: 
+				= item[:port]
+				%br
+				%strong Servicio: 
+				= item[:servicio]
+				%br
+				%strong % Utilización: 
+				= item[:status]
+			.col-md-4
+				.form-horizontal
+					.form-group
+						= form_for :comment do |f|
+							= f.label 'Comentarios'
+							= f.text_area :comment, :placeholder => "Ingrese Comentarios", :title => "Comentarios", :rows => "3", class: 'form-control'
+							= f.submit 'Actualizar', method: :post, class: 'btn btn-sm btn-warning margin-top-05'
+						= form_for :time do |f|
+							= f.label 'Fecha', class: 'margin-top-10'
+							= f.date_field :time, :placeholder => "Ingrese Fecha", :title => "Fecha", class: 'form-control'
+							= f.submit 'Actualizar', class: 'btn btn-sm btn-warning margin-top-05'

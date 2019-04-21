@@ -1,0 +1,66 @@
+Device,Host,Index,Transporte(Gbps),Servicio,TierOne,Neighbor,Router
+rMPLSVillaSalvadorBR1,10.235.0.48,170,-,ServiciosInternet,Polo1 ,IslaServicios - Polo1 ,BR Cisco_VES
+rMPLSVillaSalvadorBR1,10.235.0.48,169,-,ServiciosInternet,Villa,IslaServicios - Villa,BR Cisco_VES
+rMPLSVillaSalvadorBR01,10.235.0.124,231,-,ServiciosInternet,Polo1 ,ceAgregadorServiciosVES,BR Huawei_VES
+rMPLSVillaSalvadorBR01,10.235.0.124,365,-,ServiciosInternet,Polo1 ,ceAgregadorServiciosPolo1,BR Huawei_VES
+rMPLSVillaSalvadorBR01,10.235.0.124,228,-,ServiciosInternet,Villa,nIsladeServiciosVillaSalvador,BR Huawei_VES
+rMPLSVillaSalvadorBR01,10.235.0.124,77,-,PeerInt,1er Internexa,FO - 1er Internexa,BR Huawei_VES
+rMPLSVillaSalvadorBR01,10.235.0.124,26,-,PeerInt,1er Verizon,FO - 1er Verizon,BR Huawei_VES
+rMPLSVillaSalvadorBR01,10.235.0.124,382,-,PeerInt,4to y 5to Tata,LAN - 4to y 5to Tata,BR Huawei_VES
+rMPLSVillaSalvadorBR1,10.235.0.48,194,-,PeerInt,1er BundleTeliasonera,LANautilus - 1er BundleTeliasonera,BR Cisco_VES
+rMPLSVillaSalvadorBR01,10.235.0.124,72,7.5,PeerInt,1er BBIP,Level3 - 1er BBIP,BR Huawei_VES
+rMPLSVillaSalvadorBR1,10.235.0.48,71,-,PeerInt,1er NTT,Level3 - 1er NTT,BR Cisco_VES
+rMPLSVillaSalvadorBR1,10.235.0.48,73,-,PeerInt,2do Tata,Level3 - 2do Tata,BR Cisco_VES
+rMPLSVillaSalvadorBR01,10.235.0.124,383,-,PeerIntGoogle,1er y 2do Google,TIWS - 1er y 2do Google,BR Huawei_VES
+rMPLSVillaSalvadorBR1,10.235.0.48,114,-,PeerInt,1ro 2do 5to 6to GTT,TIWS -1ro 2do  5to 6to GTT,BR Cisco_VES
+rMPLSVillaSalvadorBR01,10.235.0.124,66,8.8,PeerIntFacebook,2do Facebook,TIWS - 2do Facebook,BR Huawei_VES
+rMPLSVillaSalvadorBR01,10.235.0.124,352,-,PeerIntFacebook,3er Facebook,TIWS - 3er Facebook,BR Huawei_VES
+rMPLSVillaSalvadorBR1,10.235.0.48,76,-,NAP,NAP_1,Local - NAP_1,BR Cisco_VES
+rMPLSVillaSalvadorBR1,10.235.0.48,184,-,Core,BR Cisco - BR Huawei,Local - BR Cisco - BR Huawei,BR Cisco_VES
+rMPLSVillaSalvadorBR1,10.235.0.48,162,-,Core,BR Cisco - BR Huawei,Local - BR Cisco - BR Huawei,BR Cisco_VES
+rMPLSVillaSalvadorBR01,10.235.0.124,222,-,Core,BR Huawei - Core,Local - BR Huawei - Core,BR Huawei_VES
+rMPLSVillaSalvadorBR01,10.235.0.124,223,-,Core,BR Huawei - Core,Local - BR Huawei - Core,BR Huawei_VES
+rMPLSVillaSalvadorBR1,10.235.0.48,227,-,Cliente,-,NUEVATEL (SIERRA),BR Cisco_VES
+rMPLSVillaSalvadorBR1,10.235.0.48,226,-,Cliente,-,NUEVATEL (COSTA),BR Cisco_VES
+rMPLSPolo1BR2,10.235.0.49,167,-,ServiciosInternet,Polo1 ,IslaServicios - Polo1 ,BR Cisco_Polo1
+rMPLSPolo1BR2,10.235.0.49,206,-,ServiciosInternet,Polo1 ,IslaServicios - Polo1 ,BR Cisco_Polo1
+rMPLSPolo1BR2,10.235.0.49,205,-,ServiciosInternet,VES,IslaServicios - VES,BR Cisco_Polo1
+rMPLSPolo1BR02,10.235.0.123,365,-,ServiciosInternet,Polo1 ,ceAgregadorServiciosVES,BR Huawei_Polo1
+rMPLSPolo1BR02,10.235.0.123,229,-,ServiciosInternet,Polo1 ,ceAgregadorServiciosPolo1,BR Huawei_Polo1
+rMPLSPolo1BR02,10.235.0.123,226,-,ServiciosInternet,Polo1 ,nIsladeServiciosPolo1,BR Huawei_Polo1
+rMPLSPolo1BR02,10.235.0.123,65,8.8,PeerIntFacebook,1er Facebook,LANautilus - 1er Facebook,BR Huawei_Polo1
+rMPLSPolo1BR02,10.235.0.123,17,-,PeerInt,2do NTT,LANautilus - 2do NTT,BR Huawei_Polo1
+rMPLSPolo1BR02,10.235.0.123,395,-,PeerInt,3er Trunk Teliasonera,LANautilus - 3er Trunk Teliasonera,BR Huawei_Polo1
+rMPLSPolo1BR2,10.235.0.49,386,-,PeerInt,1er BundleLevel3,Level3 - 1er BundleLevel3,BR Huawei_Polo1
+rMPLSPolo1BR2,10.235.0.49,108,-,PeerInt,2do Teliasonera,Level3 - 2do Teliasonera,BR Cisco_Polo1
+rMPLSPolo1BR02,10.235.0.123,14,-,PeerInt,1er TINET,TIWS - 1er TINET,BR Huawei_Polo1
+rMPLSPolo1BR02,10.235.0.123,7,-,PeerInt,1er Tata,TIWS - 1er Tata,BR Huawei_Polo1
+rMPLSPolo1BR02,10.235.0.123,353,-,PeerInt,1er y 6to Teliasonera,TIWS - 1er y 6to Teliasonera,BR Huawei_Polo1
+rMPLSPolo1BR02,10.235.0.123,355,-,PeerIntGoogle,3er y 4to Google,TIWS - 3er y 4to Google,BR Huawei_Polo1
+rMPLSPolo1BR02,10.235.0.123,387,-,PeerInt,3er y 4to GTT,TIWS-LANautilus - 3er y 4to GTT,BR Huawei_Polo1
+rMPLSPolo1BR02,10.235.0.123,383,-,PeerIntFacebook,4to y 5to Facebook,Centurylink - 4to y 5to Facebook,BR Huawei_Polo1
+rMPLSPolo1BR02,10.235.0.123,386,-,PeerInt,1er y 2do Level3,Centurylink - 1er y 2do Level3,BR Huawei_Polo1
+rMPLSPolo1BR2,10.235.0.49,110,-,NAP,NAP_1,Local - NAP_1,BR Cisco_Polo1
+rMPLSPolo1BR2,10.235.0.49,98,-,NAP,NAP_2,Local - NAP_2,BR Cisco_Polo1
+rMPLSPolo1BR2,10.235.0.49,119,-,Core,BR Cisco - BR Huawei,Local - BR Cisco - BR Huawei,BR Cisco_Polo1
+rMPLSPolo1BR2,10.235.0.49,199,-,Core,BR Cisco - BR Huawei,Local - BR Cisco - BR Huawei,BR Cisco_Polo1
+rMPLSPolo1BR02,10.235.0.123,220,-,Core,BR Huawei - Core,Local - BR Huawei - Core,BR Huawei_Polo1
+rMPLSPolo1BR02,10.235.0.123,221,-,Core,BR Huawei - Core,Local - BR Huawei - Core,BR Huawei_Polo1
+rMPLSArequipaBR4,10.235.3.36,89,-,ServiciosInternet,ceServicios,cAGGArequipa4 - ceServicios,BR Cisco_Arequipa
+rMPLSArequipaBR04,10.235.3.36,103,-,ServiciosInternet,ceServicios,cAGGArequipa4 - ceServicios,BR Huawei_Arequipa
+rMPLSArequipaBR4,10.235.3.36,37,-,Core,BR Cisco - Core,Local - BR Cisco - Core,BR Cisco_Arequipa
+rMPLSArequipaBR4,10.235.3.36,55,-,Core,BR Cisco - Core,Local - BR Cisco - Core,BR Cisco_Arequipa
+rMPLSArequipaBR04,10.235.3.36,84,-,Core,BR Huawei - Core,Local - BR Huawei - Core,BR Huawei_Arequipa
+rMPLSArequipaBR04,10.235.3.36,90,-,Core,BR Huawei - Core,Local - BR Huawei - Core,BR Huawei_Arequipa
+rMPLSArequipaBR04,10.235.3.36,85,-,Core,BR Huawei - Core,Local - BR Huawei - Core,BR Huawei_Arequipa
+rMPLSTrujilloBR3,10.235.3.5,100,-,ServiciosInternet,ceServicios,cAGGTrujillo4 - ceServicios,BR Cisco_Trujillo
+rMPLSTrujilloBR03,10.235.3.5,90,-,ServiciosInternet,ceServicios,cAGGTrujillo4 - ceServicios,BR Huawei_Trujillo
+rMPLSTrujilloBR3,10.235.3.5,88,-,Core,BR Cisco - Core,Local - BR Cisco - Core,BR Cisco_Trujillo
+rMPLSTrujilloBR3,10.235.3.5,110,-,Core,BR Cisco - Core,Local - BR Cisco - Core,BR Cisco_Trujillo
+rMPLSTrujilloBR03,10.235.3.5,83,-,Core,BR Huawei - Core,Local - BR Huawei - Core,BR Huawei_Trujillo
+rMPLSTrujilloBR03,10.235.3.5,82,-,Core,BR Huawei - Core,Local - BR Huawei - Core,BR Huawei_Trujillo
+rMPLSTrujilloBR03,10.235.3.5,84,-,Core,BR Huawei - Core,Local - BR Huawei - Core,BR Huawei_Trujillo
+rMPLSIquitos3,10.235.2.109,45,-,Firewall,Firewall,Firewall,PE_3_Iquitos
+rMPLSIquitos3,10.235.2.109,18,-,CDN,CDN,CDN - Iquitos,PE_3_Iquitos
+rMPLSIquitos2,10.235.2.108,124,-,Firewall,Firewall,Firewall,PE_2_Iquitos
+rMPLSIquitos2,10.235.2.108,35,-,CDN,CDN,CDN - Iquitos,PE_2_Iquitos

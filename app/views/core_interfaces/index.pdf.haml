@@ -1,0 +1,90 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reporte de Interface de Red de Core MPLS
+  .col-md-1
+
+.row
+  .col-md-1
+  .col-md-10
+    .updated
+      Actualizado
+      - unless CoreInterface.last == nil
+        = CoreInterface.last.created_at.strftime("%d/%m/%Y")          
+      - else
+        '-'
+.col-md-2
+
+
+
+.row.margin-top-00
+  .col-md-12.table-responsive
+    %table.table.table-striped.table-bordered.table-condensed.table-hover.text-center.margin-top-10.table-responsive
+      %thead
+        %tr
+          %th.text-center
+            Nodo
+          %th.text-center
+            Puerto
+          %th.text-center
+            Servicio
+          %th.text-center
+            Capacidad
+          %th.text-center.success
+            Max Gbps (Anterior)
+          %th.text-center.success
+            \% (Anterior)
+          %th.text-center.info
+            Max Gbps
+            %br
+            = CoreInterface.last.created_at.strftime("%d/%m/%Y")
+          %th.text-center.info
+            \%
+            %br
+            = CoreInterface.last.created_at.strftime("%d/%m/%Y")
+          %th.text-center
+            Crecimiento
+          %th.text-center
+            Comentario
+          %th.text-center
+            Fecha de Solución
+
+      %tbody
+        - unless CoreInterface.last == nil
+          - @core_interfaces.each do |core_interface|
+            %tr
+              %td= core_interface.device
+              %td= core_interface.port
+              %td= core_interface.servicio
+              %td= core_interface.egressRate
+              %td= core_interface.last_bps_max
+              
+              - if core_interface.last_status > 85.00
+                %td.danger= core_interface.last_status
+              - elsif core_interface.last_status > 75.00 and core_interface.last_status < 84.999
+                %td.warning= core_interface.last_status
+              - else
+                %td= core_interface.last_status
+
+              %td= core_interface.bps_max
+
+              - if core_interface.status > 85.00
+                %td.danger= core_interface.status
+              -elsif core_interface.status > 75.00 and core_interface.status < 84.999
+                %td.warning= core_interface.status
+              - else
+                %td= core_interface.status
+              
+              - if core_interface.crecimiento > 15.00
+                %td.danger= core_interface.crecimiento
+              -elsif core_interface.crecimiento < -15.00
+                %td.danger= core_interface.crecimiento
+              - else
+                %td= core_interface.crecimiento
+
+              %td= core_interface.comment
+              %td= core_interface.time

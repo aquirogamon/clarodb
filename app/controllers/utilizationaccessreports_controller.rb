@@ -1,0 +1,2 @@
+class UtilizationaccessreportsController < ApplicationController
+end

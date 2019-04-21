@@ -1,0 +1,62 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos de KPIs - Reporte Acceso a Internet
+  .col-md-1
+%hr
+
+%p#notice= notice
+
+.margin-top-20
+%div.container
+  #chart
+
+
+.margin-top-20
+%div.container
+  = line_chart [ {name: "Total de Tráfico", data: AccessInternet.all.order("created_at ASC").pluck(:created_at, :total_traffic).map { |e| [ e[0].strftime("%U"), e[1] ] }}, {name: "HFC", data: AccessInternet.all.order("created_at ASC").pluck(:created_at, :hfc).map { |e| [ e[0].strftime("%U"), e[1] ] }}, {name: "Móvil", data: AccessInternet.all.order("created_at ASC").pluck(:created_at, :mobile).map { |e| [ e[0].strftime("%U"), e[1] ] }}, {name: "OLO", data: AccessInternet.all.order("created_at ASC").pluck(:created_at, :mobile_olo).map { |e| [ e[0].strftime("%U"), e[1] ] }}, {name: "Corporativo", data: AccessInternet.all.order("created_at ASC").pluck(:created_at, :corporate).map { |e| [ e[0].strftime("%U"), e[1] ] }}, {name: "Cache_IN", data: AccessInternet.all.order("created_at ASC").pluck(:created_at, :cache_in).map { |e| [ e[0].strftime("%U"), e[1] ] }} ], download: true, xtitle: "Fecha", ytitle: "Tráfico Gbps", library: { animation: { easing: 'easeOutQuad' }}, legend: "bottom", title: "Tráfico de Acceso por Servicio"
+
+
+.margin-top-20
+%div.container
+  = pie_chart (AccessInternet.where(created_at: @access_internet.created_at).select("hfc, mobile, mobile_olo, corporate, cache_in").as_json(:except => :id)), download: true, library: { animation: { easing: 'easeOutQuad' }}, legend: "bottom"
+
+.margin-top-50
+%div.container
+  .row.col-md-4
+    %p
+      %b Total de Tráfico:
+    %p
+      %b HFC:
+    %p
+      %b Móvil (2G, 3G y 4G):
+    %p
+      %b Total Olo:
+    %p
+      %b Corporativo (FO - WIMAX):
+    %p
+      %b Caché IN:
+  .row.col-md-8
+    %p
+      = @access_internet.total_traffic
+    %p
+      = @access_internet.hfc
+    %p
+      = @access_internet.mobile
+    %p
+      = @access_internet.mobile_olo
+    %p
+      = @access_internet.corporate
+    %p
+      = @access_internet.cache_in
+
+%div.container
+  .margin-top-20
+  = link_to 'Editar', edit_access_internet_path(@access_internet), class: 'btn btn-sm btn-success'
+  = link_to 'Volver', access_internets_path, class: 'btn btn-sm btn-success'
+  .margin-top-20
+

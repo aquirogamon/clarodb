@@ -1,0 +1,70 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos del SAM - Reporte de Cantidad de rutas OSPF
+  .col-md-1
+%hr
+
+.row
+  .col-md-2
+  .col-md-8
+    %h3
+      Utilización en memoria de rutas OSPF
+  .col-md-2
+
+.row.margin-top-10
+  .col-md-2
+  .col-md-8
+    .float-left 
+      = link_to 'Volver', samreportroutes_samrouteospfs_path, class: 'btn btn-success'
+    .updated
+      Actualizado
+      = @samrouteospf.created_at.strftime("%d/%m/%Y %H:%M:%S")
+  .col-md-2
+
+.row.margin-top-00
+  .col-md-2
+  .col-md-8.table-responsive
+    = will_paginate @table_routeospf_show
+    %table.table.table-striped.table-bordered.table-condensed.text-center.margin-top-10
+      %thead
+        %tr
+          %th.text-center
+            Item
+          %th.text-center
+            Nodo
+          %th.text-center
+            Cantidad rutas OSPF
+          %th.text-center
+            Capacidad
+          %th.text-center
+            Utilización (%)
+          %th.text-center
+            Versión de Software
+      %tbody
+        - unless Samrouteospf.last == nil
+          - i = 0
+          - @table_routeospf_show.map do |item|
+            - i += 1
+            %tr
+              %td
+                = i
+              %td
+                = item[:device]
+              %td
+                = item[:ospf]
+              %td
+                = item[:scalability_ospf]
+              - if item[:status].to_f > 70.00
+                %td.danger
+                  = item[:status]
+              - else
+                %td
+                  = item[:status]
+              %td
+                = item[:version]
+.col-md-2

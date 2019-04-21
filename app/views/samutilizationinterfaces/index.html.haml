@@ -1,0 +1,116 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos del SAM - Reporte de Estadistica de utilización de Interface de Edge
+  .col-md-1
+%hr
+
+.row
+  .col-md-1
+  .col-md-10
+    %h3
+      Porcentaje de Utilización de Interface de equipo SR-7750
+      = link_to 'Excel', samqosdiscards_samutilizationinterfaces_path(format: "xls"), class: 'btn btn-warning float-right'
+      = link_to 'Actualizar', samqosdiscards_samutilizationinterfaces_path, method: :post, class: 'btn btn-warning float-right'
+      .updated
+        Actualizado
+        - unless Samutilizationinterface.last == nil
+          = Samutilizationinterface.last.created_at.strftime("%d/%m/%Y %H:%M:%S")
+        - else
+          '-'
+  .col-md-1
+
+.row.margin-top-10
+  .col-md-1
+  .col-md-10
+    .float-left 
+      = link_to 'Volver', samqosdiscards_path, class: 'btn btn-success'
+    .float-right
+      = form_tag samqosdiscards_samutilizationinterface_path(:id), :method => :get do
+        = collection_select(:samutilizationinterface, :id, Samutilizationinterface.all, :id, :created_at, prompt: "10 Reportes anteriores")
+        = submit_tag "Consultar", :name => nil, class: 'btn btn-sm btn-info'
+  .col-md-2
+
+.row.margin-top-00
+  .col-md-1
+  .col-md-8.table-responsive
+    %table.table.table-striped.table-bordered.table-condensed.text-center.margin-top-10
+      %thead
+        %tr
+          %th.text-center
+            Nodo
+          %th.text-center
+            Puerto
+          %th.text-center
+            Descripción del Puerto
+          %th.text-center
+            Capacidad del enlace (Mbps)
+          %th.text-center
+            Tipo de Puerto
+          %th.text-center
+            RX Mbps
+          %th.text-center
+            TX Mbps
+          %th.text-center
+            last_mbps
+          %th.text-center
+            last_%
+          %th.text-center
+            mbps
+          %th.text-center
+            Utilización del enlace (%)
+          %th.text-center
+            Crecimiento
+          %th.text-center
+            Comentario
+          %th.text-center
+            Tiempo
+          %th.text-center
+            DevicePort
+          %th.text-center
+            created_at
+      %tbody
+        - unless Samutilizationinterface.last == nil
+          - @table_utilizationinterface.map do |item|
+            %tr
+              %td
+                = item[:node]
+              %td
+                = item[:port]
+              %td
+                = item[:description]
+              %td
+                = item[:velodidad]
+              %td
+                = item[:speed]
+              %td
+                = item[:Mbps_bwrx]
+              %td
+                = item[:Mbps_bwtx]
+              %td
+                0
+              %td
+                0
+              - if item[:Mbps_bwrx] > item[:Mbps_bwtx]
+                %td
+                  = item[:Mbps_bwrx]
+              - else
+                %td
+                  = item[:Mbps_bwtx]
+              %td
+                = item[:status]
+              %td
+                0
+              %td
+                -
+              %td
+                -
+              %td
+                Concatenar
+              %td
+                = Samutilizationinterface.last.created_at
+.col-md-2

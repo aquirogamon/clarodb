@@ -1,0 +1,96 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos de KPIs - Reporte Interfaces de los Servidores Facebook
+  .col-md-1
+
+.row
+  .col-md-2
+  .col-md-8
+    %h3
+      Porcentaje de Utilización de Interfaces de Facebook
+  .col-md-2
+
+.row.margin-top-10
+  .col-md-2
+  .col-md-8
+    .float-left 
+      = link_to 'Volver', ppmreportcaches_ppmcachefacebooks_path, class: 'btn btn-success'
+    .updated
+      Actualizado
+      = @ppmcachefacebook.created_at.strftime("%d/%m/%Y %H:%M:%S")
+  .col-md-2
+
+.row.margin-top-00
+  .col-md-12.table-responsive
+    %table.table.table-striped.table-bordered.table-condensed.text-center.margin-top-10
+      %thead
+        %tr
+          %th.text-center
+            Nodo
+          %th.text-center
+            Equipo
+          %th.text-center
+            Interfaz
+          %th.text-center
+            Capacidad (Gbps)
+          %th.text-center
+            last_bps_max
+          %th.text-center
+            last_status
+          %th.text-center
+            bps_max
+          %th.text-center
+            Utilización %
+          %th.text-center
+            crecimiento
+          %th.text-center
+            comment
+          %th.text-center
+            time
+          %th.text-center
+            device_int_stats_max
+          %th.text-center
+            Max Gbps Rx
+          %th.text-center
+            Max Gbps Tx
+          %th.text-center
+            created_at
+      %tbody
+        - unless Ppmcachefacebook.last == nil
+          - @ppmcachefacebook[:ppmcachefacebooks_array].map do |item|
+            %tr
+              %td
+                = item[:descriptionmax]
+              %td
+                = item[:devicemax]
+              %td
+                = item[:portmax]
+              %td
+                = item[:egressRatemax]
+              %td
+                0
+              %td
+                0
+              %td
+                = item[:bps_max]
+              %td
+                = item[:status]
+              %td
+                0
+              %td
+                -
+              %td
+                -
+              %td
+                = item[:device_int_stats_max]
+              %td
+                = item[:bps_rxmax]
+              %td
+                = item[:bps_txmax]
+              %td
+                = @ppmcachefacebook.created_at

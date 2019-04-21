@@ -1,0 +1,85 @@
+= form_for @session_accedian do |f|
+  - if @session_accedian.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@session_accedian.errors.count, "error")} prohibited this session_accedian from being saved:"
+      %ul
+        - @session_accedian.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :ip_endpoint
+    = f.text_field :ip_endpoint
+  .field
+    = f.label :name_endpoint
+    = f.text_field :name_endpoint
+  .field
+    = f.label :product_endpoint
+    = f.text_field :product_endpoint
+  .field
+    = f.label :state_endpoint
+    = f.text_field :state_endpoint
+  .field
+    = f.label :type_endpoint
+    = f.text_field :type_endpoint
+  .field
+    = f.label :capability
+    = f.text_field :capability
+  .field
+    = f.label :port_endpoint
+    = f.text_field :port_endpoint
+  .field
+    = f.label :tos_endpoint
+    = f.text_field :tos_endpoint
+  .field
+    = f.label :name_session
+    = f.text_field :name_session
+  .field
+    = f.label :sessionType
+    = f.text_field :sessionType
+  .field
+    = f.label :sid
+    = f.text_field :sid
+  .field
+    = f.label :dstEndpoint
+    = f.text_field :dstEndpoint
+  .field
+    = f.label :dstPort
+    = f.text_field :dstPort
+  .field
+    = f.label :srcEndpoint
+    = f.text_field :srcEndpoint
+  .field
+    = f.label :srcIfc
+    = f.text_field :srcIfc
+  .field
+    = f.label :srcPort
+    = f.text_field :srcPort
+  .field
+    = f.label :state_session
+    = f.text_field :state_session
+  .field
+    = f.label :interval_session
+    = f.text_field :interval_session
+  .field
+    = f.label :tos_session
+    = f.text_field :tos_session
+  .field
+    = f.label :payloadsize_session
+    = f.text_field :payloadsize_session
+  .field
+    = f.label :pps_session
+    = f.text_field :pps_session
+  .field
+    = f.label :type_port
+    = f.text_field :type_port
+  .field
+    = f.label :sla
+    = f.text_field :sla
+  .field
+    = f.label :status_device
+    = f.text_field :status_device
+  .field
+    = f.label :ip_interface_vcx
+    = f.text_field :ip_interface_vcx
+  .actions
+    = f.submit 'Save'

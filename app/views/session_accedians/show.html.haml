@@ -1,0 +1,81 @@
+%p#notice= notice
+
+%p
+  %b Ip endpoint:
+  = best_in_place @session_accedian, :ip_endpoint, as: :input, inner_class: "form-control"
+%p
+  %b Name endpoint:
+  = @session_accedian.name_endpoint
+%p
+  %b Product endpoint:
+  = @session_accedian.product_endpoint
+%p
+  %b State endpoint:
+  = @session_accedian.state_endpoint
+%p
+  %b Type endpoint:
+  = @session_accedian.type_endpoint
+%p
+  %b Capability:
+  = @session_accedian.capability
+%p
+  %b Port endpoint:
+  = @session_accedian.port_endpoint
+%p
+  %b Tos endpoint:
+  = @session_accedian.tos_endpoint
+%p
+  %b Name session:
+  = @session_accedian.name_session
+%p
+  %b Sessiontype:
+  = @session_accedian.sessionType
+%p
+  %b Sid:
+  = @session_accedian.sid
+%p
+  %b Dstendpoint:
+  = @session_accedian.dstEndpoint
+%p
+  %b Dstport:
+  = @session_accedian.dstPort
+%p
+  %b Srcendpoint:
+  = @session_accedian.srcEndpoint
+%p
+  %b Srcifc:
+  = @session_accedian.srcIfc
+%p
+  %b Srcport:
+  = @session_accedian.srcPort
+%p
+  %b State session:
+  = @session_accedian.state_session
+%p
+  %b Interval session:
+  = @session_accedian.interval_session
+%p
+  %b Tos session:
+  = @session_accedian.tos_session
+%p
+  %b Payloadsize session:
+  = @session_accedian.payloadsize_session
+%p
+  %b Pps session:
+  = @session_accedian.pps_session
+%p
+  %b Type port:
+  = @session_accedian.type_port
+%p
+  %b Sla:
+  = @session_accedian.sla
+%p
+  %b Status device:
+  = @session_accedian.status_device
+%p
+  %b Ip interface vcx:
+  = @session_accedian.ip_interface_vcx
+
+= link_to 'Edit', edit_session_accedian_path(@session_accedian)
+\|
+= link_to 'Back', session_accedians_path

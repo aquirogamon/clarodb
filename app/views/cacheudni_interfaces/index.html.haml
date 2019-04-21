@@ -1,0 +1,47 @@
+%h1 Listing cacheudni_interfaces
+
+%table
+  %thead
+    %tr
+      %th Device
+      %th Port
+      %th Nodo
+      %th Gbpsrx
+      %th Gbpstx
+      %th Bps max
+      %th Status
+      %th Last bps max
+      %th Last status
+      %th Crecimiento
+      %th Egressrate
+      %th Time
+      %th Comment
+      %th Deviceindex
+      %th
+      %th
+      %th
+
+  %tbody
+    - @cacheudni_interfaces.each do |cacheudni_interface|
+      %tr
+        %td= cacheudni_interface.device
+        %td= cacheudni_interface.port
+        %td= cacheudni_interface.nodo
+        %td= cacheudni_interface.gbpsrx
+        %td= cacheudni_interface.gbpstx
+        %td= cacheudni_interface.bps_max
+        %td= cacheudni_interface.status
+        %td= cacheudni_interface.last_bps_max
+        %td= cacheudni_interface.last_status
+        %td= cacheudni_interface.crecimiento
+        %td= cacheudni_interface.egressRate
+        %td= cacheudni_interface.time
+        %td= cacheudni_interface.comment
+        %td= cacheudni_interface.deviceindex
+        %td= link_to 'Show', cacheudni_interface
+        %td= link_to 'Edit', edit_cacheudni_interface_path(cacheudni_interface)
+        %td= link_to 'Destroy', cacheudni_interface, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Cacheudni interface', new_cacheudni_interface_path

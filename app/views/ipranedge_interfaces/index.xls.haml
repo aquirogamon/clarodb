@@ -1,0 +1,38 @@
+%table{:border => 1}
+  %thead
+    %tr
+      %th.text-center device
+      %th.text-center port
+      %th.text-center description
+      %th.text-center egressRate
+      %th.text-center speed
+      %th.text-center gbpsrx
+      %th.text-center gbpstx
+      %th.text-center last_bps_max
+      %th.text-center last_status
+      %th.text-center bps_max
+      %th.text-center status
+      %th.text-center crecimiento
+      %th.text-center comment
+      %th.text-center time
+      %th.text-center deviceindex
+      %th.text-center created_at
+  %tbody
+    - @ipranedge_interfaces_all.each do |ipranedge_interface|
+      %tr
+        %td= ipranedge_interface.device
+        %td= ipranedge_interface.port
+        %td= ipranedge_interface.description
+        %td= ipranedge_interface.egressRate
+        %td= ipranedge_interface.speed
+        %td= ipranedge_interface.gbpsrx
+        %td= ipranedge_interface.gbpstx
+        %td= ipranedge_interface.last_bps_max
+        %td= ipranedge_interface.last_status
+        %td= ipranedge_interface.bps_max
+        %td= ipranedge_interface.status
+        %td= ipranedge_interface.crecimiento
+        %td= ipranedge_interface.comment
+        %td= ipranedge_interface.time
+        %td= ipranedge_interface.deviceindex
+        %td= ipranedge_interface.created_at

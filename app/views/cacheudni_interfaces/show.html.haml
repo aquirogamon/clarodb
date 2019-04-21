@@ -1,0 +1,48 @@
+%p#notice= notice
+
+%p
+  %b Device:
+  = @cacheudni_interface.device
+%p
+  %b Port:
+  = @cacheudni_interface.port
+%p
+  %b Nodo:
+  = @cacheudni_interface.nodo
+%p
+  %b Gbpsrx:
+  = @cacheudni_interface.gbpsrx
+%p
+  %b Gbpstx:
+  = @cacheudni_interface.gbpstx
+%p
+  %b Bps max:
+  = @cacheudni_interface.bps_max
+%p
+  %b Status:
+  = @cacheudni_interface.status
+%p
+  %b Last bps max:
+  = @cacheudni_interface.last_bps_max
+%p
+  %b Last status:
+  = @cacheudni_interface.last_status
+%p
+  %b Crecimiento:
+  = @cacheudni_interface.crecimiento
+%p
+  %b Egressrate:
+  = @cacheudni_interface.egressRate
+%p
+  %b Time:
+  = @cacheudni_interface.time
+%p
+  %b Comment:
+  = @cacheudni_interface.comment
+%p
+  %b Deviceindex:
+  = @cacheudni_interface.deviceindex
+
+= link_to 'Edit', edit_cacheudni_interface_path(@cacheudni_interface)
+\|
+= link_to 'Back', cacheudni_interfaces_path

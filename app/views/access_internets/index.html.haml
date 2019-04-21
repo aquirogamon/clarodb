@@ -1,0 +1,52 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos de Evolución de Tráfico
+  .col-md-1
+%hr
+
+
+.new-list
+  = link_to new_access_internet_path, :remote=>true do
+    %i.fa.fa-plus-square.fa-3x{"aria-hidden" => "true"}
+.container
+  .row
+    .col-xs-12.col-sm-offset-2.col-sm-8
+      %ul.tecno-list
+        - @access_internets.each do |access_internet|
+          %li
+            %time{:datetime => "2014-07-20"}
+              %span.day
+                = access_internet.created_at.mday
+              %span.month= access_internet.created_at.strftime("%B").first(3)
+              %span.year= access_internet.created_at.year
+              %span.time ALL DAY
+            .info
+              %h2.title= access_internet.created_at.strftime("Semama %U - %Y")
+              %h4 "Total de Tráfico: " =access_internet.total_traffic
+              %h4 Total HFC:
+            .social
+              %ul
+                %li.eye{:style => "width:33%;"}
+                  = link_to access_internet, :remote=>true do
+                    %span.fa.fa-eye
+                %li.pencil{:style => "width:34%;"}
+                  = link_to edit_access_internet_path(access_internet), :remote=>true do
+                    %span.fa.fa-pencil-square-o
+                %li.times{:style => "width:33%;"}
+                  = link_to access_internet, method: :delete, data: { confirm: 'Are you sure?' } do
+                    %span.fa.fa-times
+#new-access_internet{:style => "display:none;"}
+
+
+
+%div
+  .col-md-2
+  .margin-top-20
+  = link_to 'Nuevo', new_access_internet_path, class: 'btn btn-sm btn-success'
+  = link_to 'Volver', summaryreports_path, class: 'btn btn-sm btn-success'
+  .margin-top-20

@@ -1,0 +1,72 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos del SAM
+  .col-md-1
+%hr
+
+.row.margin-top-10
+  .col-md-2
+  .col-md-8
+    %h3
+      Reportes
+.row
+  .col-md-2
+  .col-md-8
+    %table.table.table-striped.table-bordered.table-condensed.text-center
+      %thead
+        %tr
+          %th.text-center
+            Nombre
+          %th.text-center
+            Descripción
+      %tbody
+        %tr
+          %td
+            = link_to 'Packet Discard x QoS en SAR 7705 (SAP Egress)', samqosreports_samqos7705egressdiscards_path
+          %td
+            Paquetes Descartados en los equipos SAR 7705 - Egress
+        %tr
+          %td
+            = link_to 'Packet Discard x QoS en SAR 7705 (SAP Ingress)', samqosreports_samqos7705ingressdiscards_path
+          %td
+            Paquetes Descartados en los equipos SAR 7705 - Ingress
+        %tr
+          %td
+            = link_to 'Packet Discard x QoS en SR 7750 (SAP Egress)', samqosreports_samqos7750egressdiscards_path
+          %td
+            Paquetes Descartados en los equipos SR 7750 - Egress
+        %tr
+          %td
+            = link_to 'Packet Discard x QoS en SR 7750 (SAP Ingress)', samqosreports_samqos7750ingressdiscards_path
+          %td
+            Paquetes Descartados en los equipos SR 7750 - Ingress
+        %tr
+          %td
+            = link_to 'Packet Discard x QoS en SR 7705 - (Network Egress)', samqosreports_samqos7705egressnetdiscards_path
+          %td
+            Paquetes Descartados en Interfaces Network SAR 7705 - Egress
+        %tr
+          %td
+            = link_to 'Packet Discard x QoS en SR 7705 - (Network Ingress)', samqosreports_samqos7705ingressnetdiscards_path
+          %td
+            Paquetes Descartados en Interfaces Network SAR 7705 - Ingress
+        %tr
+          %td
+            = link_to 'Packet Discard x QoS en SR 7750 - (Network Egress)', samqosreports_samqos7750egressnetdiscards_path
+          %td
+            Paquetes Descartados en Interfaces Network SR 7750 - Egress
+        %tr
+          %td
+            = link_to 'Packet Discard x QoS en SR 7750 - (Network Ingress)', samqosreports_samqos7750ingressnetdiscards_path
+          %td
+            Paquetes Descartados en Interfaces Network SR 7750 - Ingress
+  .col-md-2
+.row.margin-top-10
+  .col-md-2
+  .col-md-8
+    = link_to 'Volver', samreports_path, class: 'btn btn-success'

@@ -1,0 +1,52 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos del SAM
+  .col-md-1
+%hr
+
+.row.margin-top-10
+  .col-md-2
+  .col-md-8
+    %h3
+      Reportes
+.row
+  .col-md-2
+  .col-md-8
+    %table.table.table-striped.table-bordered.table-condensed.text-center
+      %thead
+        %tr
+          %th.text-center
+            Nombre
+          %th.text-center
+            Descripción
+      %tbody
+        %tr
+          %td
+            = link_to 'Cantidad de rutas OSPF', samreportroutes_samrouteospfs_path
+          %td
+            Utilización en memoria de rutas OSPF
+        %tr
+          %td
+            = link_to 'Cantidad de rutas VPRN', samreportroutes_samroutevprns_path
+          %td
+            Utilización en memoria de rutas VPRN
+        %tr
+          %td
+            = link_to 'Cantidad de Etiquetas Tabla Global', samreportroutes_samrouteldps_path
+          %td
+            Utilización en memoria de Etiquetas en Tabla Global
+        %tr
+          %td
+            = link_to 'Cantidad de rutas BGP', samreportroutes_samroutebgps_path
+          %td
+            Utilización en memoria de rutas BGP
+  .col-md-2
+.row.margin-top-10
+  .col-md-2
+  .col-md-8
+    = link_to 'Volver', samreports_path, class: 'btn btn-success'

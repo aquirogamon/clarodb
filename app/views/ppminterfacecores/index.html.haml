@@ -1,0 +1,105 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos de KPIs - Reporte Interfaces de Core
+  .col-md-1
+
+.row
+  .col-md-1
+  .col-md-10
+    %h3
+      Interfaces de Core
+      = link_to 'Excel', ppmreports_ppminterfacecores_path(format: "xls"), class: 'btn btn-warning float-right'
+      = link_to 'Actualizar', ppmreports_ppminterfacecores_path, method: :post, class: 'btn btn-warning float-right'
+      .updated
+        Actualizado
+        - unless Ppminterfacecore.last == nil
+          = Ppminterfacecore.last.created_at.strftime("%d/%m/%Y %H:%M:%S")
+        - else
+          '-'
+  .col-md-2
+
+.row.margin-top-10
+  .col-md-1
+  .col-md-10
+    .float-left 
+      = link_to 'Volver', ppmreports_path, class: 'btn btn-success'
+    .float-right
+      = form_tag ppmreports_ppminterfacecore_path(:id), :method => :get do
+        = collection_select(:ppminterfacecore, :id, Ppminterfacecore.all, :id, :created_at, prompt: "10 Reportes anteriores")
+        = submit_tag "Consultar", :name => nil, class: 'btn btn-sm btn-info'
+
+
+.row
+  .col-md-12.table-responsive
+    %table.table.table-striped.table-bordered.table-condensed.text-center.margin-top-10
+      %thead
+        %tr
+          %th.text-center
+            Nodo
+          %th.text-center
+            Puerto
+          %th.text-center
+            Servicio
+          %th.text-center
+            Capacidad (Gbps)
+          %th.text-center
+            Last bps
+          %th.text-center
+            Last status
+          %th.text-center
+            bps
+          %th.text-center
+            status
+          %th.text-center
+            Crecimiento
+          %th.text-center
+            Comentario
+          %th.text-center
+            Tiempo
+          %th.text-center
+            deviceindex
+          %th.text-center
+            Max Gbps RX
+          %th.text-center
+            Max Gbps TX
+          %th.text-center
+            created_at
+      %tbody
+        - unless Ppminterfacecore.last == nil
+          - @table_interfaces.map do |item|
+            %tr
+              %td
+                = item[:node]
+              %td
+                = item[:interface]
+              %td
+                Servicio
+              %td
+                = item[:bw]
+              %td
+                last_bps
+              %td
+                last_status
+              %td
+                Calcular bps
+              %td
+                Calcular %
+              %td
+                Crecimiento
+              %td
+                Comentario
+              %td
+                Tiempo
+              %td
+                deviceindex
+              %td
+                = item[:bps_rx]
+              %td
+                = item[:bps_tx]
+              %td
+                = Ppminterfacecore.last.created_at

@@ -1,0 +1,2 @@
+module PpmcachegooglesHelper
+end

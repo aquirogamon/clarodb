@@ -1,0 +1,70 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos del SAM - Reporte de Octetos descartados en QoS
+  .col-md-1
+%hr
+
+.row
+  .col-md-1
+  .col-md-10
+    %h3
+      Bit rate descartados por cola de QoS - SAR-7705 - SAP Ingress
+      = link_to 'Actualizar', samqosreports_samqos7705ingressdiscards_path, method: :post, class: 'btn btn-warning float-right'
+      .updated
+        Actualizado
+        - unless Samqos7705ingressdiscard.last == nil
+          = Samqos7705ingressdiscard.last.created_at.strftime("%d/%m/%Y %H:%M:%S")
+        - else
+          '-'
+  .col-md-1
+
+.row.margin-top-10
+  .col-md-1
+  .col-md-10
+    .float-left 
+      = link_to 'Volver', samqosreports_path, class: 'btn btn-success'
+    .float-right
+      = form_tag samqosreports_samqos7705ingressdiscard_path(:id), :method => :get do
+        = collection_select(:samqos7705ingressdiscard, :id, Samqos7705ingressdiscard.all, :id, :created_at, prompt: "10 Reportes anteriores")
+        = submit_tag "Consultar", :name => nil, class: 'btn btn-sm btn-info'
+  .col-md-2
+
+.row.margin-top-00
+  .col-md-2
+  .col-md-8.table-responsive
+    
+    %table.table.table-striped.table-bordered.table-condensed.text-center.margin-top-10
+      %thead
+        %tr
+          %th.text-center
+            Item
+          %th.text-center
+            Nodo
+          %th.text-center
+            Puerto
+          %th.text-center
+            Cola de QoS
+          %th.text-center
+            Tráfico descartado (Kbps)
+      %tbody
+        - unless Samqos7705ingressdiscard.last == nil
+          - i = 0
+          - @table_qos7705ingressdiscard.map do |item|
+            - i += 1
+            %tr
+              %td
+                = i
+              %td
+                = item[:node]
+              %td
+                = item[:port]
+              %td
+                = item[:queueId]
+              %td
+                = item[:discard]
+.col-md-2

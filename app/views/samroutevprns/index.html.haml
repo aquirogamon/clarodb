@@ -1,0 +1,83 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos del SAM - Reporte de Cantidad de rutas VPRN
+  .col-md-1
+%hr
+
+.row
+  .col-md-1
+  .col-md-10
+    %h3
+      Utilización en memoria de rutas VPRN
+      = link_to 'Actualizar', samreportroutes_samroutevprns_path, method: :post, class: 'btn btn-warning float-right'
+      .updated
+        Actualizado
+        - unless Samroutevprn.last == nil
+          = Samroutevprn.last.created_at.strftime("%d/%m/%Y %H:%M:%S")
+        - else
+          '-'
+  .col-md-1
+
+.row.margin-top-10
+  .col-md-1
+  .col-md-10
+    .float-left 
+      = link_to 'Volver', samreportroutes_path, class: 'btn btn-success'
+    .float-right
+      = form_tag samreportroutes_samroutevprn_path(:id), :method => :get do
+        = collection_select(:samroutevprn, :id, Samroutevprn.all, :id, :created_at, prompt: "10 Reportes anteriores")
+        = submit_tag "Consultar", :name => nil, class: 'btn btn-sm btn-info'
+  .col-md-2
+
+.row.margin-top-00
+  .col-md-2
+  .col-md-8.table-responsive
+    = will_paginate @table_routevprn
+    %table.table.table-striped.table-bordered.table-condensed.text-center.margin-top-10
+      %thead
+        %tr
+          %th.text-center
+            Item
+          %th.text-center
+            Nodo
+          %th.text-center
+            Cantidad rutas VPRN
+          %th.text-center
+            Capacidad
+          %th.text-center
+            Utilización (%)
+          %th.text-center
+            Tipo de Equipo
+          %th.text-center
+            Versión de Software
+      %tbody
+        - unless Samroutevprn.last == nil
+          - i = 0
+          - @table_routevprn.map do |item|
+            - i += 1
+            %tr
+              %td
+                = i
+              %td
+                = item[:device_final]
+              %td
+                = item[:vprn_final]
+              %td
+                = item[:scalability_vprn]
+              - if item[:status].to_f > 70.00
+                %td.danger
+                  = item[:status]
+              - else
+                %td
+                  = item[:status]
+              %td
+                = item[:type_device]
+              %td
+                = item[:version]
+
+.col-md-2

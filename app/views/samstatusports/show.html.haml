@@ -1,0 +1,70 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos del SAM - Reporte de Status del puerto
+  .col-md-1
+%hr
+
+.row
+  .col-md-2
+  .col-md-8
+    %h3
+      Detalles y Status del puerto
+  .col-md-2
+
+.row.margin-top-10
+  .col-md-2
+  .col-md-8
+    .float-left 
+      = link_to 'Volver', samqosdiscards_samstatusports_path, class: 'btn btn-success'
+    .updated
+      Actualizado
+      = @samstatusport.created_at.strftime("%d/%m/%Y %H:%M:%S")
+  .col-md-2
+
+.row.margin-top-00
+  .col-md-1
+  .col-md-8.table-responsive
+    = will_paginate @table_statusport_show
+    %table.table.table-striped.table-bordered.table-condensed.text-center.margin-top-10
+      %thead
+        %tr
+          %th.text-center
+            Item
+          %th.text-center
+            Nodo
+          %th.text-center
+            Tipo de equipo
+          %th.text-center
+            Puerto
+          %th.text-center
+            Velocidad Configurada (Mbps)
+          %th.text-center
+            Tipo de puerto
+          %th.text-center
+            Descripción
+      %tbody
+        - unless Samstatusport.last == nil
+          - i = 0
+          - @table_statusport_show.map do |item|
+            - i += 1
+            %tr
+              %td
+                = i
+              %td
+                = item[:device]
+              %td
+                = item[:tipo_equipo]
+              %td
+                = item[:port]
+              %td
+                = item[:actualSpeed]
+              %td
+                = item[:speed]
+              %td
+                = item[:description]
+.col-md-2

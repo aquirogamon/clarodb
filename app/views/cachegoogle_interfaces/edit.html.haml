@@ -1,0 +1,81 @@
+.row.margin-top-25
+	.col-md-1
+	.col-md-10
+		.logotitle
+		%h2.page_title
+			Sistema Ágil de Gestión y Provisionamiento
+		%h4.page_subtitle.margin-top-10
+			Reportes de Interface de Servidores de Caché de Google
+	.col-md-1
+%hr
+
+
+.row.margin-top-00
+	.col-md-12.table-responsive
+		%table.table.table-striped.table-bordered.table-condensed.table-hover.text-center.margin-top-10
+			%thead
+				%tr
+					%th.text-center
+						Nodo
+					%th.text-center
+						Puerto
+					%th.text-center
+						Servicio
+					%th.text-center
+						Capacidad
+					%th.text-center.info
+						Max Gbps
+						%br
+						= @cachegoogle_interface.created_at.strftime("Sem_%U")
+					%th.text-center.info
+						\%
+						%br
+						= @cachegoogle_interface.created_at.strftime("Sem_%U")
+					%th.text-center.info
+						RX Gbps
+						%br
+						= @cachegoogle_interface.created_at.strftime("Sem_%W")
+					%th.text-center.info
+						TX Gbps
+						%br
+						= @cachegoogle_interface.created_at.strftime("Sem_%W")
+					%th.text-center.info
+						\%
+						%br
+						= @cachegoogle_interface.created_at.strftime("Sem_%W")
+					%th.text-center
+						Crecimiento
+			%tbody
+				%tr
+					%td= @cachegoogle_interface.nodo
+					%td= @cachegoogle_interface.device
+					%td= @cachegoogle_interface.port
+					%td= @cachegoogle_interface.egressRate
+					%td= @cachegoogle_interface.last_bps_max
+			    
+					- if @cachegoogle_interface.last_status > 85.00
+						%td.danger= @cachegoogle_interface.last_status
+					- elsif @cachegoogle_interface.last_status > 75.00 and @cachegoogle_interface.last_status < 84.999
+						%td.warning= @cachegoogle_interface.last_status
+					- else
+						%td= @cachegoogle_interface.last_status
+
+					%td= @cachegoogle_interface.gbpsrx
+					%td= @cachegoogle_interface.gbpstx
+
+					- if @cachegoogle_interface.status > 85.00
+						%td.danger= @cachegoogle_interface.status
+					-elsif @cachegoogle_interface.status > 75.00 and @cachegoogle_interface.status < 84.999
+						%td.warning= @cachegoogle_interface.status
+					- else
+						%td= @cachegoogle_interface.status
+			    
+					%td= @cachegoogle_interface.crecimiento
+
+%div.col-md-4
+	= render 'form'
+
+	.margin-top-20
+	= link_to 'Historial', @cachegoogle_interface, class: 'btn btn-sm btn-success'
+	= link_to 'Volver', cachegoogle_interfaces_path, class: 'btn btn-sm btn-success'
+	.margin-top-20

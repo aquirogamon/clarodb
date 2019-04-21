@@ -1,0 +1,8 @@
+Device,Router,Host,Index,Transporte(Gbps),Servicio,device_index
+rMPLSHuacho3,PE - Huacho3,10.235.2.103,67,-,PE,rMPLSHuacho367
+rMPLSHuancayo2,PE - Huancayo2,10.235.2.120,112,-,PE,rMPLSHuancayo2112
+rMPLSHuancayo2,PE - Huancayo2,10.235.2.120,55,-,PE,rMPLSHuancayo255
+rMPLSIca5,PE - Ica5,10.235.3.47,56,-,PE,rMPLSIca556
+rMPLSIca5,PE - Ica5,10.235.3.47,57,-,PE,rMPLSIca557
+rMPLSIngenieria,PE - Ingenieria,10.235.0.134,275,-,PE,rMPLSIngenieria275
+rMPLSTarapoto3,PE - Tarapoto3,10.235.3.17,117,0.57,PE,rMPLSTarapoto3117

@@ -1,0 +1,80 @@
+.row.margin-top-25
+	.col-md-1
+	.col-md-10
+		.logotitle
+		%h2.page_title
+			Sistema Ágil de Gestión y Provisionamiento
+		%h4.page_subtitle.margin-top-10
+			Reportes de Interface de Servidores de Caché de AKAMAI
+	.col-md-1
+%hr
+
+.row.margin-top-00
+	.col-md-12.table-responsive
+		%table.table.table-striped.table-bordered.table-condensed.table-hover.text-center.margin-top-10
+			%thead
+				%tr
+					%th.text-center
+						Nodo
+					%th.text-center
+						Puerto
+					%th.text-center
+						Servicio
+					%th.text-center
+						Capacidad
+					%th.text-center.info
+						Max Gbps
+						%br
+						= @cacheakamai_interface.created_at.strftime("Sem_%U")
+					%th.text-center.info
+						\%
+						%br
+						= @cacheakamai_interface.created_at.strftime("Sem_%U")
+					%th.text-center.info
+						RX Gbps
+						%br
+						= @cacheakamai_interface.created_at.strftime("Sem_%W")
+					%th.text-center.info
+						TX Gbps
+						%br
+						= @cacheakamai_interface.created_at.strftime("Sem_%W")
+					%th.text-center.info
+						\%
+						%br
+						= @cacheakamai_interface.created_at.strftime("Sem_%W")
+					%th.text-center
+						Crecimiento
+			%tbody
+				%tr
+					%td= @cacheakamai_interface.nodo
+					%td= @cacheakamai_interface.device
+					%td= @cacheakamai_interface.port
+					%td= @cacheakamai_interface.egressRate
+					%td= @cacheakamai_interface.last_bps_max
+			    
+					- if @cacheakamai_interface.last_status > 85.00
+						%td.danger= @cacheakamai_interface.last_status
+					- elsif @cacheakamai_interface.last_status > 75.00 and @cacheakamai_interface.last_status < 84.999
+						%td.warning= @cacheakamai_interface.last_status
+					- else
+						%td= @cacheakamai_interface.last_status
+
+					%td= @cacheakamai_interface.gbpsrx
+					%td= @cacheakamai_interface.gbpstx
+
+					- if @cacheakamai_interface.status > 85.00
+						%td.danger= @cacheakamai_interface.status
+					-elsif @cacheakamai_interface.status > 75.00 and @cacheakamai_interface.status < 84.999
+						%td.warning= @cacheakamai_interface.status
+					- else
+						%td= @cacheakamai_interface.status
+			    
+					%td= @cacheakamai_interface.crecimiento
+
+%div.col-md-4
+	= render 'form'
+
+	.margin-top-20
+	= link_to 'Historial', @cacheakamai_interface, class: 'btn btn-sm btn-success'
+	= link_to 'Volver', cacheakamai_interfaces_path, class: 'btn btn-sm btn-success'
+	.margin-top-20

@@ -1,0 +1,76 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos de KPIs - Reporte Interfaces de Servicio de Internet de Clientes Corporativos
+  .col-md-1
+
+.row
+  .col-md-1
+  .col-md-10
+    %h3
+      Porcentaje de Utilización del Servicios de Internet
+      .updated
+        Actualizado
+        - unless Ppminterfaceclientinternet.last == nil
+          = Ppminterfaceclientinternet.last.created_at.strftime("%d/%m/%Y %H:%M:%S")
+        - else
+          '-'
+  .col-md-2
+
+
+
+.row.margin-top-00
+  .col-md-12.table-responsive
+    %table.table.table-striped.table-bordered.table-condensed.text-center.margin-top-10
+      %thead
+        %tr
+          %th.text-center
+            Item
+          %th.text-center
+            Cliente
+          %th.text-center
+            CID
+          %th.text-center
+            BW Contratado (Mbps)
+          %th.text-center
+            Max Mbps (Descarga)
+          %th.text-center
+            Max Mbps (Subida)
+          %th.text-center
+            Utilización %
+          %th.text-center
+            Utilización_P95 %
+      %tbody
+        - unless Ppminterfaceclientinternet.last == nil
+          - i = 0
+          - @table_interfaceclientinternet.map do |item|
+            - i += 1
+            %tr
+              %td
+                = i
+              %td
+                = item[:clientmax]
+              %td
+                = item[:cidmax]
+              %td
+                = item[:egressRatemax]
+              %td
+                = item[:bps_txmax]
+              %td
+                = item[:bps_rxmax]
+              - if item[:status] > 80
+                %td.danger
+                  = item[:status]
+              - else
+                %td
+                  = item[:status]
+              - if item[:status_per] > 80.00
+                %td.danger
+                  = item[:status_per]
+              - else
+                %td
+                  = item[:status_per]

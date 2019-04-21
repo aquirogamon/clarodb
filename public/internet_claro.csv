@@ -1,0 +1,32 @@
+Router,Host,Index,Transporte(Gbps),IRU,Tier One,Enlace,Lugar,Ruta,Peru,Fecha Activ,Status
+rMPLSVillaSalvadorBR1,10.235.0.48,71,10,Level3,NTT,Level3 - NTT,New York ,Pacifico,Villa Salvador,2009,Trafico de Porta
+rMPLSVillaSalvadorBR1,10.235.0.48,72,7.5,Level3,BBIP,Level3 - BBIP,Miami ,Pacifico,Villa Salvador,2011,-
+rMPLSVillaSalvadorBR1,10.235.0.48,73,10,Level3,TATA,Level3 - TATA,New York ,Pacifico,Villa Salvador,2012,-
+rMPLSVillaSalvadorBR1,10.235.0.48,74,10,TIWS ,Google ,TIWS  - Google ,Miami ,Pacifico,Villa Salvador,ene-14,-
+rMPLSVillaSalvadorBR1,10.235.0.48,75,10,TIWS ,GTT ,TIWS  - GTT ,Miami ,Pacifico,Villa Salvador,may-14,-
+rMPLSVillaSalvadorBR1,10.235.0.48,46,20,TIWS,TATA,TIWS - TATA,Miami ,Pacifico,Villa Salvador,abr-15,-
+rMPLSVillaSalvadorBR1,10.235.0.48,47,10,TIWS,GTT ,TIWS - GTT ,Miami ,Pacifico,Villa Salvador,feb-15,-
+rMPLSVillaSalvadorBR1,10.235.0.48,76,10,Local,NAP_1,Local - NAP_1,GMD,-,Villa Salvador,feb-15,-
+rMPLSVillaSalvadorBR1,10.235.0.48,53,10,Local,NAP_2,Local - NAP_2,GMD,-,Villa Salvador,feb-15,-
+rMPLSVillaSalvadorBR1,10.235.0.48,126,20,CGNAT,Villa,CGNAT - Villa - Movil,-,-,Villa Salvador,2012,-
+rMPLSVillaSalvadorBR1,10.235.0.48,124,15,CGNAT_Plus,Villa,CGNAT_Plus - Villa - Movil,-,-,Villa Salvador,2015,-
+rMPLSVillaSalvadorBR1,10.235.0.48,125,58,CGNAT_Plus,Villa,CGNAT_Plus - Villa - HFC,-,-,Villa Salvador,2014,-
+rMPLSVillaSalvadorBR1,10.235.0.48,127,73,CGNAT_Plus,Villa,CGNAT_Plus - Villa,-,-,Villa Salvador,2014,-
+rMPLSVillaSalvadorBR1,10.235.0.48,45,100,Local,Core,Core - VillaSalvador,-,-,Villa Salvador,2013,-
+rMPLSVillaSalvadorBR1,10.235.0.48,85,40,Local,Core,Core - Polo2,-,-,Villa Salvador,may-15,-
+rMPLSVillaSalvadorBR1,10.235.0.48,117,40,IslaServicios,Villa,IslaServicios - Villa,-,-,Villa Salvador,jun-15,-
+rMPLSVillaSalvadorBR1,10.235.0.48,115,40,IslaServicios,Polo1 ,IslaServicios - Polo1 ,-,-,Villa Salvador,jun-15,-
+rMPLSPolo1BR2,10.235.0.49,105,10,TIWS,TATA,TIWS - TATA,Miami ,Pacifico,Polo1 ,2010,-
+rMPLSPolo1BR2,10.235.0.49,106,10,TIWS,TINET,TIWS - TINET,Miami ,Atlantico,Polo1 ,2011,-
+rMPLSPolo1BR2,10.235.0.49,107,10,TIWS,1erTeliasonera,TIWS - 1erTeliasonera,Miami ,Pacifico,Polo1 ,jul-13,-
+rMPLSPolo1BR2,10.235.0.49,108,10,Level3,2doTeliasonera,Level3 - 2doTeliasonera,Los Ángeles ,Pacifico,Polo1 ,ago-13,-
+rMPLSPolo1BR2,10.235.0.49,109,10,Level3,TATA ,Level3 - TATA ,Los Ángeles ,Pacifico,Polo1 ,jun-14,-
+rMPLSPolo1BR2,10.235.0.49,91,10,LANautilus,NTT,LANautilus - NTT,Miami ,Pacifico,Polo1 ,abr-15,-
+rMPLSPolo1BR2,10.235.0.49,92,10,LANautilus,Facebook,LANautilus - Facebook,Miami ,Pacifico,Polo1,sep-15,-
+rMPLSPolo1BR2,10.235.0.49,93,10,LANautilus,3erTeliasonera,LANautilus - 3erTeliasonera,Miami ,Pacifico,Polo1,oct-15,-
+rMPLSPolo1BR2,10.235.0.49,110,10,Local,NAP_1,Local - NAP_1,GMD,-,Polo1,-,-
+rMPLSPolo1BR2,10.235.0.49,98,10,Local,NAP_2,Local - NAP_2,GMD,-,Polo1,-,-
+rMPLSPolo1BR2,10.235.0.49,178,40,IslaServicios,Polo1 ,IslaServicios - Polo1 ,-,-,Polo1,jun-15,-
+rMPLSPolo1BR2,10.235.0.49,179,40,IslaServicios,Villa,IslaServicios - Villa,-,-,Polo1,jun-15,-
+rMPLSPolo1BR2,10.235.0.49,176,20,CGNAT ,Polo1 ,CGNAT  - Polo1 ,-,-,Polo1,-,-
+rMPLSPolo1BR2,10.235.0.49,177,73,CGNAT-Plus,Polo1 ,CGNAT-Plus - Polo1 ,-,-,Polo1,-,-

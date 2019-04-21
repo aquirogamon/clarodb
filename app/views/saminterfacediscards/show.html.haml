@@ -1,0 +1,74 @@
+.row.margin-top-25
+  .col-md-1
+  .col-md-10
+    .logotitle
+    %h2.page_title
+      Sistema Ágil de Gestión y Provisionamiento
+    %h4.page_subtitle.margin-top-10
+      Reportes ejecutivos del SAM - Reporte de Paquetes descartados en Interface SAR-7705 y SR-7750
+  .col-md-1
+%hr
+
+.row
+  .col-md-2
+  .col-md-8
+    %h3
+      Paquetes descartados en Interface SAR-7705 y SR-7750 Recividos y Transmitidos
+  .col-md-2
+
+.row.margin-top-10
+  .col-md-2
+  .col-md-8
+    .float-left 
+      = link_to 'Volver', samqosdiscards_saminterfacediscards_path, class: 'btn btn-success'
+    .updated
+      Actualizado
+      = @saminterfacediscard.created_at.strftime("%d/%m/%Y %H:%M:%S")
+  .col-md-2
+
+.row.margin-top-00
+  .col-md-1
+  .col-md-8.table-responsive
+    = will_paginate @table_interfacediscard_show
+    %table.table.table-striped.table-bordered.table-condensed.text-center.margin-top-10
+      %thead
+        %tr
+          %th.text-center
+            Item
+          %th.text-center
+            Nodo
+          %th.text-center
+            Puerto
+          %th.text-center
+            Paquetes Recividos Descartados
+          %th.text-center
+            Paquetes Transmitidos Descartados
+          %th.text-center
+            Total de Paquetes Descartados
+          %th.text-center
+            Incremento de Paquetes Descartados
+          %th.text-center
+            Tiempo de Captura
+      %tbody
+        - unless Saminterfacediscard.last == nil
+          - i = 0
+          - @table_interfacediscard_show.map do |item|
+            - i += 1
+            %tr
+              %td
+                = i
+              %td
+                = item[:node]
+              %td
+                = item[:port]
+              %td
+                = item[:discardin]
+              %td
+                = item[:discardout]
+              %td
+                = item[:discard]
+              %td
+                = item[:discard_incremento]
+              %td
+                = item[:timeCaptured]
+.col-md-2

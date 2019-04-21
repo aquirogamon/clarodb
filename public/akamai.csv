@@ -1,0 +1,3 @@
+Router,Host,Index,Transporte(Gbps),Descripcion
+ceAGREGADORServiciosPolo1,10.235.192.91,304,,1er Nodo de Polo1
+ceAGREGADORServiciosVES,10.235.191.254,334,,1er Nodo de VillaSalvador

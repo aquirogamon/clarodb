@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP:Envelope xmlns:SOAP="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP:Header>
+      <header xmlns="xmlapi_1.0">
+         <security>
+            <user>C12285</user>
+            <password hashed="false">Peru2018#</password>
+         </security>
+         <requestID>aquiroga:0001</requestID>
+      </header>
+   </SOAP:Header>
+
+   <SOAP:Body>
+      <find xmlns="xmlapi_1.0">
+         <fullClassName>equipment.InterfaceAdditionalStatsLogRecord</fullClassName>
+         <filter>
+           <and>
+            <or>
+              <wildcard name="monitoredObjectSiteName" value="%CN0%"/>
+              <wildcard name="monitoredObjectSiteName" value="%DN0%"/>
+            </or>
+            <not>
+             <or>
+              <wildcard name="displayedName" value="Channel%"/>
+              <wildcard name="displayedName" value="system%"/>
+              <wildcard name="displayedName" value="loopback%"/>
+              <wildcard name="displayedName" value="to_%"/>
+              <wildcard name="displayedName" value="%CID%"/>
+             </or>
+            </not>
+            <and>
+             <notEqual name="receivedTotalOctetsPeriodic" value="0"/>
+             <notEqual name="transmittedTotalOctetsPeriodic" value="0"/>
+            </and>
+          </and>
+         </filter>
+         <resultFilter>
+            <attribute>receivedTotalOctets</attribute>
+            <attribute>transmittedTotalOctets</attribute>
+            <attribute>monitoredObjectSiteName</attribute>
+            <attribute>displayedName</attribute>
+            <attribute>timeCaptured</attribute>
+            <attribute>periodicTime</attribute>
+            <children/>
+         </resultFilter>
+      </find>
+   </SOAP:Body>
+
+</SOAP:Envelope>

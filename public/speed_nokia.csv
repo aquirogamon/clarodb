@@ -1,0 +1,4 @@
+faste,100,FastEthernet
+variableEthernet,1000,GigaEthernet
+xgige,10000,TenGiga
+radio,n/a,Radio

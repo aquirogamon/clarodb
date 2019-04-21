@@ -1,0 +1,45 @@
+%table{:border => 1}
+  %thead
+    %tr
+      %th.text-center
+        Item
+      %th.text-center
+        Nodo
+      %th.text-center
+        Equipo
+      %th.text-center
+        Interfaz
+      %th.text-center
+        Capacidad (Gbps)
+      %th.text-center
+        Max Gbps Tx
+      %th.text-center
+        Max Gbps Rx
+      %th.text-center
+        Utilización %
+  %tbody
+    - unless Ppmcacheakamai.last == nil
+      - i = 0
+      - @table_cacheakamai.map do |item|
+        - i += 1
+        %tr
+          %td
+            = i
+          %td
+            = item[:descriptionmax]
+          %td
+            = item[:devicemax]
+          %td
+            = item[:portmax]
+          %td
+            = item[:egressRatemax]
+          %td
+            = item[:bps_txmax]
+          %td
+            = item[:bps_rxmax]
+          - if item[:status] > 70
+            %td.danger
+              = item[:status]
+          - else
+            %td
+              = item[:status]

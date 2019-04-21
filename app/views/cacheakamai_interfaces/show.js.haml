@@ -1,0 +1,56 @@
+:javascript
+  google.charts.load('current', {packages: ['corechart', 'bar', 'line']});
+
+  google.charts.setOnLoadCallback(UtilizationCacheakamai);
+  function UtilizationCacheakamai() {
+    var UtilizationCacheakamai = JSON.parse('#{(CacheakamaiInterface.where(deviceindex: @cacheakamai_interface.deviceindex).order("created_at ASC").pluck(:created_at, :status).map { |e| [ e[0].strftime("%U-%Y"), e[1] ] }).to_json.html_safe}');
+    UtilizationCacheakamai = [['Fecha/Semana', 'Utilización']].concat(UtilizationCacheakamai);
+    UtilizationCacheakamai = google.visualization.arrayToDataTable(UtilizationCacheakamai);
+    var options = {
+      'height':300,
+      hAxis: {
+        title: 'Fecha/Semana',
+        textStyle: {fontSize: 12, color: 'black' },
+        titleTextStyle: {fontSize: 12, color: 'black' }
+      },
+      vAxis: {
+        title: '%',
+        textStyle: {fontSize: 12, color: 'black' },
+        titleTextStyle: {fontSize: 12, color: 'black' },
+        minValue: 0
+      },
+      colors: ['#99b2e5'],
+      legend: { position: 'top' }
+    };
+
+    var UtilizationCacheakamaiChart = new google.visualization.ColumnChart(document.getElementById('UtilizationCacheakamai'));
+    UtilizationCacheakamaiChart.draw(UtilizationCacheakamai, options);
+  }
+
+  google.charts.setOnLoadCallback(HistorialCacheakamai);
+  function HistorialCacheakamai() {
+    var HistorialCacheakamai = JSON.parse('#{(CacheakamaiInterface.where(deviceindex: @cacheakamai_interface.deviceindex).order("created_at ASC").pluck(:created_at, :bps_max).map { |e| [ e[0].strftime("%U-%Y"), e[1] ] }).to_json.html_safe}');
+    HistorialCacheakamai = [['Fecha/Semana', 'Tráfico Gbps']].concat(HistorialCacheakamai);
+    HistorialCacheakamai = google.visualization.arrayToDataTable(HistorialCacheakamai);
+    var options = {
+      height: 300,
+      hAxis: {
+        title: 'Fecha/Semana',
+        textStyle: {fontSize: 12, color: 'black' },
+        titleTextStyle: {fontSize: 12, color: 'black' }
+      },
+      vAxis: {
+        title: 'Gbps',
+        textStyle: {fontSize: 12, color: 'black' },
+        titleTextStyle: {fontSize: 12, color: 'black' },
+        minValue: 0
+      },
+      colors: ['#99b2e5'],
+      curveType: 'function',
+      legend: { position: 'top' },
+      pointsVisible: 'true'
+    };
+
+    var HistorialCacheakamaiChart = new google.visualization.LineChart(document.getElementById('HistorialCacheakamai'));
+    HistorialCacheakamaiChart.draw(HistorialCacheakamai, options);
+  }

@@ -1,0 +1,81 @@
+.row.margin-top-25
+	.col-md-1
+	.col-md-10
+		.logotitle
+		%h2.page_title
+			Sistema Ágil de Gestión y Provisionamiento
+		%h4.page_subtitle.margin-top-10
+			Reportes de KPIs - Reporte Interfaces Core MPLS
+	.col-md-1
+%hr
+
+.row.margin-top-00
+	.col-md-12.table-responsive
+		%table.table.table-striped.table-bordered.table-condensed.table-hover.text-center.margin-top-10
+			%thead
+				%tr
+					%th.text-center
+						Nodo
+					%th.text-center
+						Puerto
+					%th.text-center
+						Servicio
+					%th.text-center
+						Capacidad
+					%th.text-center.info
+						Max Gbps
+						%br
+						= @core_interface.created_at.strftime("Sem_%U")
+					%th.text-center.info
+						\%
+						%br
+						= @core_interface.created_at.strftime("Sem_%U")
+					%th.text-center.info
+						RX Gbps
+						%br
+						= @core_interface.created_at.strftime("Sem_%W")
+					%th.text-center.info
+						TX Gbps
+						%br
+						= @core_interface.created_at.strftime("Sem_%W")
+					%th.text-center.info
+						\%
+						%br
+						= @core_interface.created_at.strftime("Sem_%W")
+					%th.text-center
+						Crecimiento
+
+			%tbody
+				%tr
+					%td= @core_interface.device
+					%td= @core_interface.port
+					%td= @core_interface.servicio
+					%td= @core_interface.egressRate
+					%td= @core_interface.last_bps_max
+			    
+					- if @core_interface.last_status > 85.00
+						%td.danger= @core_interface.last_status
+					- elsif @core_interface.last_status > 75.00 and @core_interface.last_status < 84.999
+						%td.warning= @core_interface.last_status
+					- else
+						%td= @core_interface.last_status
+
+					%td= @core_interface.gbpsrx
+					%td= @core_interface.gbpstx
+
+					- if @core_interface.status > 85.00
+						%td.danger= @core_interface.status
+					-elsif @core_interface.status > 75.00 and @core_interface.status < 84.999
+						%td.warning= @core_interface.status
+					- else
+						%td= @core_interface.status
+			    
+					%td= @core_interface.crecimiento
+
+%div.col-md-4
+	= render 'form'
+
+	.margin-top-20
+	= link_to 'Historial', @core_interface, class: 'btn btn-sm btn-success'
+	= link_to 'Volver', core_interface_path, class: 'btn btn-sm btn-success'
+	.margin-top-20

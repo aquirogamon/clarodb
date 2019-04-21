@@ -1,0 +1,2 @@
+module Samqos7705egressdiscardsHelper
+end
